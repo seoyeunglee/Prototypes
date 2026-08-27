@@ -5539,6 +5539,60 @@
       "copy": "이 파이프라인의 출력 — 운영 데모에서 보기",
       "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
       "confidence": "confirmed"
+    },
+    {
+      "id": "C-307",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "모델 성능 점검·재학습·배포·연합학습을 이 화면에서 수행합니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-308",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "점선(신규) 노드를 거치는 이벤트는 연계 후 동작 예시입니다. 나머지는 현재 제품 판정 그대로입니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-309",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "연계 후 예시",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
     }
   ]
 }

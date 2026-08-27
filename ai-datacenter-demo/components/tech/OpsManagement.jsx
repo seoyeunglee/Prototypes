@@ -18,9 +18,9 @@ const EDGE = [
 ];
 
 const MODELS = [
-  { name: "부하-냉각 반응 판정", ver: "v1.2", status: "배포됨", variant: "success", metric: "오탐률 관리 중", fed: "연합학습 참여" },
-  { name: "온도 이상 탐지", ver: "v2.0", status: "재학습 중", variant: "info", metric: "재학습 진행", fed: "연합학습 참여" },
-  { name: "전력 품질 판정", ver: "v1.0", status: "배포됨", variant: "success", metric: "정상 운영", fed: "미참여" },
+  { name: "부하-냉각 반응 판정", ver: "v1.2", status: "배포됨", variant: "success", metric: "오탐 신고 1건 (30일)", fed: "연합학습 참여" },
+  { name: "온도 이상 탐지", ver: "v2.0", status: "재학습 중", variant: "info", metric: "재학습 진행 중", fed: "연합학습 참여" },
+  { name: "전력 품질 판정", ver: "v1.0", status: "배포됨", variant: "success", metric: "오탐 신고 0건 (30일)", fed: "미참여" },
 ];
 
 const SOURCES = [
@@ -47,7 +47,7 @@ function Row({ left, mid, right }) {
 export default function OpsManagement({ desc }) {
   const [tab, setTab] = useState("edge");
   return (
-    <div data-desc={desc} style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 10, padding: "12px 20px 16px" }}>
+    <div data-desc={desc} style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 12, padding: "12px 20px 16px" }}>
       <Tab items={TAB_ITEMS} value={tab} onChange={setTab} size="small" resize="hug" />
 
       {tab === "edge" && (
@@ -91,7 +91,7 @@ export default function OpsManagement({ desc }) {
             />
           ))}
           <p style={{ margin: "10px 0 0", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
-            모델 성능 점검·재학습·배포와 연합학습으로 현장별 모델을 지속 고도화합니다.
+            모델 성능 점검·재학습·배포·연합학습을 이 화면에서 수행합니다.
           </p>
         </div>
       )}
@@ -120,7 +120,7 @@ export default function OpsManagement({ desc }) {
       )}
 
       {/* 신규 연계 — 프로토콜 어댑터 */}
-      <div style={{ marginTop: 14, padding: "10px 14px", borderRadius: 8, border: "1px dashed var(--semantic-natural-heavy)" }}>
+      <div style={{ marginTop: 16, padding: "10px 16px", borderRadius: 8, border: "1px dashed var(--semantic-natural-heavy)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
           <ContentBadge size="compact" backgroundColor="var(--semantic-natural-deep)" contentColor="var(--semantic-text-on-dark)">신규</ContentBadge>
           <span style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)" }}>데이터센터 표준 프로토콜 어댑터</span>

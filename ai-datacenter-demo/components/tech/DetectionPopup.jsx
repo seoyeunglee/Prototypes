@@ -1,9 +1,16 @@
 // 탐지 데이터 상세 팝업 — 실제 제품의 탐지 이벤트 클릭 시 팝업(DetectionDataModal) 형식 재현.
 // 발생 시점 추이 + 이벤트 마커 + 센서값/평균, 판정 방식 요약.
+import { useEffect } from "react";
 import { Icon, StateBadge, BasicIconButton } from "@idbrnd/design-system";
 import MiniLine from "./MiniLine";
 
 export default function DetectionPopup({ event, onClose }) {
+  useEffect(() => {
+    if (!event) return undefined;
+    const onKey = (e) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [event, onClose]);
   if (!event) return null;
   return (
     <div
@@ -20,13 +27,16 @@ export default function DetectionPopup({ event, onClose }) {
     >
       <div
         data-idb-component
+        role="dialog"
+        aria-modal="true"
+        aria-label="탐지 데이터 상세"
         onClick={(e) => e.stopPropagation()}
         style={{
           width: 560,
           maxWidth: "92%",
           borderRadius: 12,
           background: "var(--semantic-bg-default)",
-          boxShadow: "var(--shadow-level-3)",
+          boxShadow: "var(--shadow-level-4)",
           padding: "20px 24px",
         }}
       >
@@ -48,7 +58,7 @@ export default function DetectionPopup({ event, onClose }) {
           <span style={{ marginLeft: "auto", font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)" }}>{event.time}</span>
         </div>
 
-        <div style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, padding: "12px 14px", marginBottom: 12 }}>
+        <div style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, padding: "12px 16px", marginBottom: 12 }}>
           <MiniLine
             points={event.points}
             avg={event.avg}
@@ -60,13 +70,13 @@ export default function DetectionPopup({ event, onClose }) {
           />
           <div style={{ display: "flex", gap: 16, marginTop: 6, flexWrap: "wrap" }}>
             <span style={{ font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)" }}>
-              센서값 <b style={{ color: "var(--semantic-text-default)" }}>{event.value}</b>
+              센서값 <span style={{ font: "var(--text-label-2-semibold)", color: "var(--semantic-text-default)" }}>{event.value}</span>
             </span>
             <span style={{ font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)" }}>
-              평균값 <b style={{ color: "var(--semantic-text-default)" }}>{event.avgLabel}</b>
+              평균값 <span style={{ font: "var(--text-label-2-semibold)", color: "var(--semantic-text-default)" }}>{event.avgLabel}</span>
             </span>
             <span style={{ font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)" }}>
-              판정 <b style={{ color: "var(--semantic-text-default)" }}>{event.rule}</b>
+              판정 <span style={{ font: "var(--text-label-2-semibold)", color: "var(--semantic-text-default)" }}>{event.rule}</span>
             </span>
           </div>
         </div>

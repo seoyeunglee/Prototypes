@@ -5,7 +5,6 @@ export default function MiniLine({
   avg,               // 평균선 y (0~100)
   marker,            // 이벤트 마커 x (0~100) — 없으면 미표시
   markerLabel,
-  height = 96,
   color = "var(--category-001)",
   yMax,              // 좌상단 최대값 라벨
   yMin,              // 좌하단 최소값 라벨

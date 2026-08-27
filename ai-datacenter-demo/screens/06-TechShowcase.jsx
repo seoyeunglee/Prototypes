@@ -49,7 +49,7 @@ const T1_EDGES = [["d1", "s1"], ["d2", "s2"], ["s1", "e1"], ["s2", "e1"], ["e1",
 
 // T1 — 융합 이벤트로 추출된 탐지 이벤트 (클릭 → 상세 팝업)
 const T1_EVENTS = [
-  { id: "ev1", name: "GPU 사용률 급상승", badge: "변화율 탐지", variant: "warning", source: "GPU 랙 A열", time: "오늘 13:52",
+  { id: "ev1", name: "GPU 사용률 급상승", badge: "변화율 탐지", variant: "warning", source: "GPU 랙 A열", time: "오늘 13:52", planned: true,
     points: "0,30 20,32 35,52 50,76 70,82 100,84", avg: 40, marker: 50, color: "var(--category-001)",
     yMax: "96%", yMin: "38%", value: "94%", avgLabel: "62%", rule: "변화율 급상승 구간",
     note: "절대값이 임계 안이어도 평소 대비 상승 속도가 판정 기준을 넘으면 이벤트가 됩니다." },
@@ -97,7 +97,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
         <div style={{ padding: "0 20px 12px", font: "var(--text-heading-2-semibold)", color: "var(--semantic-text-default)" }}>
           기술 검증
         </div>
-        <div style={{ padding: "0 20px 14px", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+        <div style={{ padding: "0 20px 16px", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
           기술을 선택하면 실제 제품 근거 화면과 설명이 표시됩니다.
         </div>
         {TECHS.map((t) => {
@@ -144,7 +144,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
         {/* ── T1 초연결 시계열 분석 ── */}
         {tech === "t1" && (
           <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "14px 0 0" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "16px 0 0" }}>
               <InfoRow label="제품 근거">융합 이벤트 노드(기준 기간 내 복수 조건 동시 충족 시 1건) · 변화율/EWMA/Z-Score 탐지 · 시계열 수집</InfoRow>
               <InfoRow label="신규 연계">GPU 텔레메트리 수집기 · 시간 동기화 감시 — 점선 노드가 추가 위치입니다. 수집 이후 판정·묶음·알림은 현재 제품 그대로 동작합니다.</InfoRow>
             </div>
@@ -153,6 +153,9 @@ export default function TechShowcase({ onOpenDemoDetail }) {
             <NodeCanvas nodes={T1_NODES} edges={T1_EDGES} height={250} desc="81" />
 
             <SectionTitle>이 구성으로 추출된 탐지 이벤트</SectionTitle>
+            <p style={{ margin: "0 0 8px", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+              점선(신규) 노드를 거치는 이벤트는 연계 후 동작 예시입니다. 나머지는 현재 제품 판정 그대로입니다.
+            </p>
             <div data-desc="82" style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               {T1_EVENTS.map((e) => (
                 <button
@@ -165,7 +168,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
                     gap: 4,
                     minWidth: 220,
                     textAlign: "left",
-                    padding: "10px 14px",
+                    padding: "10px 16px",
                     borderRadius: 8,
                     border: "1px solid var(--semantic-line-default)",
                     background: "var(--semantic-bg-default)",
@@ -174,6 +177,11 @@ export default function TechShowcase({ onOpenDemoDetail }) {
                 >
                   <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <StateBadge size="compact" variant={e.variant}>{e.badge}</StateBadge>
+                    {e.planned && (
+                      <ContentBadge size="compact" backgroundColor="var(--semantic-natural-deep)" contentColor="var(--semantic-text-on-dark)">
+                        연계 후 예시
+                      </ContentBadge>
+                    )}
                     <span style={{ marginLeft: "auto", font: "var(--text-caption-2-regular)", color: "var(--semantic-text-sub)" }}>{e.time}</span>
                   </span>
                   <span style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)" }}>{e.name}</span>
@@ -200,7 +208,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
         {/* ── T2 계통 간 복합 판단 ── */}
         {tech === "t2" && (
           <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "14px 0 0" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "16px 0 0" }}>
               <InfoRow label="제품 근거">설비 그룹 분석 — 계통(설비 그룹) 단위로 여러 설비·센서의 추이를 한 화면에서 비교하고, 계통 이상 탐지 이벤트와 함께 봅니다.</InfoRow>
               <InfoRow label="확인 방법">그룹 전환·측정 항목 선택·탐지 이벤트 선택이 동작합니다. 이벤트를 선택하면 모든 그래프에 발생 시점이 표시되어 "무엇이 함께 움직였나"를 확인합니다.</InfoRow>
             </div>
@@ -212,8 +220,8 @@ export default function TechShowcase({ onOpenDemoDetail }) {
         {/* ── T3 온톨로지 기반 지식화 ── */}
         {tech === "t3" && (
           <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "14px 0 0" }}>
-              <InfoRow label="현재 제품">문서 관리(PDF 업로드 → 임베딩 → 벡터 DB)가 상황 화면의 "관련 매뉴얼"로 연결되어 있습니다.</InfoRow>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "16px 0 0" }}>
+              <InfoRow label="제품 근거">문서 관리(PDF 업로드 → 임베딩 → 벡터 DB)가 상황 화면의 "관련 매뉴얼"로 연결되어 있습니다.</InfoRow>
               <InfoRow label="설계 확보">설비·상황·원인·위험·SOP를 클래스와 관계로 구조화하는 온톨로지 도메인 팩이 설계 완료 상태입니다 — 아래 점선 구간이 확장 지점입니다.</InfoRow>
             </div>
             <SectionTitle>문서 관리에서 파생되는 지식화 파이프라인</SectionTitle>
@@ -224,7 +232,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
         {/* ── T4 원인·위험·다음 사건 예측 ── */}
         {tech === "t4" && (
           <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "14px 0 0" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "16px 0 0" }}>
               <InfoRow label="제품 근거">원인 가설 + 유사 사례 제공. "냉각 반응 지연 → 랙 온도 상승 → 성능 저하" 연쇄가 데모 진행 단계 구성 그대로입니다.</InfoRow>
               <InfoRow label="재활용">기존 효율 저하 탐지의 EWMA 오차 추세 판정 구조에서 예측 모델 자리만 교체합니다 — 판정 로직 재사용.</InfoRow>
               <InfoRow label="노드 구성">데이터 수집·탐지·융합 노드 구성은 기술 1의 노드 연결 화면과 동일 계열입니다.</InfoRow>
@@ -241,14 +249,14 @@ export default function TechShowcase({ onOpenDemoDetail }) {
         {/* ── T5 SOP + HITL ── */}
         {tech === "t5" && (
           <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "14px 0 0" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "16px 0 0" }}>
               <InfoRow label="제품 근거">상황별 관련 매뉴얼 자동 연결 · 조치 이력 태그(현상→원인→조치) · 24시간 후 팀 지식 적립 · 이의제기 · 오탐 되먹임 — 전부 현재 제품 프로세스입니다.</InfoRow>
               <InfoRow label="확인 방법">아래는 실제 조치 이력 기록 화면 그대로입니다. 태그 선택부터 예측 판정, 처리 완료까지 흐름이 동작합니다.</InfoRow>
             </div>
             <SectionTitle>조치 이력 기록 — 실제 프로세스 화면</SectionTitle>
-            <div data-desc="87" style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 10, padding: "16px 20px" }}>
+            <div data-desc="87" style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 12, padding: "16px 20px" }}>
               <ActionRecord
-                onBack={() => {}}
+                onBack={() => showToast({ message: "기술 검증 미리보기 화면입니다. 흐름은 이 안에서 이어집니다." })}
                 onSubmit={() => showToast({ message: "조치 이력이 저장됐습니다.", variant: "positive" })}
               />
             </div>
@@ -258,7 +266,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
         {/* ── T6 Edge + MLOps ── */}
         {tech === "t6" && (
           <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "14px 0 0" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "16px 0 0" }}>
               <InfoRow label="제품 근거">엣지 디바이스 관리 · 모델 관리(재학습·배포·연합학습) · 연결 데이터 관리(수집 상태 4분류·값 고착 감지·자동 차단/복구)</InfoRow>
               <InfoRow label="신규 연계">데이터센터 표준 프로토콜 어댑터는 설치·연동 방식으로 추가됩니다 — 아래 점선 카드.</InfoRow>
             </div>
@@ -270,7 +278,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
         {/* ── T7 멀티퓨전 파이프라인 ── */}
         {tech === "t7" && (
           <div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "14px 0 0" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, margin: "16px 0 0" }}>
               <InfoRow label="제품 근거">노드 캔버스에서 영상·센서·운영 DB·AI 모델을 조합해 탐지부터 상황·SOP까지 하나의 시나리오로 구성합니다 — 개발 없이 설정으로.</InfoRow>
               <InfoRow label="신규 연계">온톨로지 추론·SOP 선택 노드가 추가 지점입니다(점선). 이 시나리오의 출력이 운영 데모 화면입니다.</InfoRow>
             </div>

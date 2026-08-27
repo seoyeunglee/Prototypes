@@ -33,7 +33,7 @@ export default function DocPipeline({ desc }) {
           문서 관리 — 등록 현황
         </div>
         {DOCS.map((d) => (
-          <div key={d.name} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 0", borderTop: "1px solid var(--semantic-line-default)" }}>
+          <div key={d.name} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 0", borderTop: "1px solid var(--semantic-line-default)" }}>
             <span style={{ font: "var(--text-label-2-regular)", color: "var(--semantic-text-default)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{d.name}</span>
             <span style={{ font: "var(--text-caption-2-regular)", color: "var(--semantic-text-sub)" }}>{d.type}</span>
             <div style={{ marginLeft: "auto", flexShrink: 0 }}>

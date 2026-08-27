@@ -87,7 +87,7 @@ export default function NodeCanvas({ nodes, edges, height = 260, desc }) {
         <div
           style={{
             marginTop: 8,
-            padding: "10px 14px",
+            padding: "10px 16px",
             borderRadius: 8,
             border: "1px solid var(--semantic-line-default)",
             background: "var(--semantic-bg-default)",

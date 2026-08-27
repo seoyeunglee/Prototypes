@@ -2,7 +2,7 @@
 // 설비별 센서 추이 개별 그래프 + 계통 탐지 이벤트 리스트) 형식을 데모 설비로 재현.
 // 상호작용: 그룹 선택 전환 · 측정 항목 체크 토글(전체 선택/해제) · 탐지 이벤트 선택 시 그래프에 발생 시점 마커.
 import { useState } from "react";
-import { Icon, StateBadge } from "@idbrnd/design-system";
+import { CheckBox, StateBadge } from "@idbrnd/design-system";
 import MiniLine from "./MiniLine";
 
 const GROUPS = [
@@ -70,10 +70,12 @@ export default function EquipGroupAnalysis({ desc }) {
   const allOn = allIds.every((id) => checked.has(id));
   const visible = TREE[group].flatMap((d) => d.items).filter((i) => checked.has(i.id));
   const marker = EVENTS.find((e) => e.id === selEvent)?.marker;
-  let colorIdx = -1;
+  // 시리즈 색은 트리 전체 순서에 고정 — 항목을 해제해도 나머지 색이 밀리지 않는다
+  const colorOf = {};
+  TREE[group].flatMap((d) => d.items).forEach((it, i) => { colorOf[it.id] = CAT[i % CAT.length]; });
 
   return (
-    <div data-desc={desc} style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 10, padding: "16px 20px" }}>
+    <div data-desc={desc} style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 12, padding: "16px 20px" }}>
       {/* 설비 그룹 선택 */}
       <div style={{ marginBottom: 4, font: "var(--text-body-1-normal-semibold)", color: "var(--semantic-text-default)" }}>
         설비 그룹 선택
@@ -91,7 +93,7 @@ export default function EquipGroupAnalysis({ desc }) {
               onClick={() => switchGroup(g.id)}
               style={{
                 textAlign: "left",
-                padding: "8px 14px",
+                padding: "8px 16px",
                 borderRadius: 8,
                 cursor: "pointer",
                 border: on ? "1.5px solid var(--semantic-primary-default)" : "1px solid var(--semantic-line-default)",
@@ -107,7 +109,7 @@ export default function EquipGroupAnalysis({ desc }) {
         })}
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "200px 1fr 200px", gap: 14, alignItems: "start" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "200px 1fr 200px", gap: 16, alignItems: "start" }}>
         {/* 측정 항목 트리 */}
         <div style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, padding: "10px 12px" }}>
           <div style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
@@ -126,29 +128,14 @@ export default function EquipGroupAnalysis({ desc }) {
               {d.items.map((it) => {
                 const on = checked.has(it.id);
                 return (
-                  <button
-                    key={it.id}
-                    type="button"
-                    onClick={() => toggle(it.id)}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 6,
-                      width: "100%",
-                      textAlign: "left",
-                      padding: "3px 4px",
-                      border: "none",
-                      borderRadius: 4,
-                      background: "transparent",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <Icon name={on ? "circle-check-fill" : "circle-check"} size={14} color={on ? "var(--semantic-primary-default)" : "var(--semantic-natural-strong)"} />
-                    <span style={{ font: "var(--text-caption-1-regular)", color: on ? "var(--semantic-text-default)" : "var(--semantic-text-sub)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                      {it.name}
-                    </span>
-                    <span style={{ marginLeft: "auto", font: "var(--text-caption-2-regular)", color: "var(--semantic-text-sub)" }}>{it.unit}</span>
-                  </button>
+                  <div key={it.id} style={{ display: "flex", alignItems: "center", gap: 6, padding: "4px" }}>
+                    <CheckBox size="small" density="compact" checked={on} onChange={() => toggle(it.id)}>
+                      <span style={{ font: "var(--text-caption-1-regular)", color: on ? "var(--semantic-text-default)" : "var(--semantic-text-sub)" }}>
+                        {it.name}
+                      </span>
+                    </CheckBox>
+                    <span style={{ marginLeft: "auto", font: "var(--text-caption-2-regular)", color: "var(--semantic-text-sub)", flexShrink: 0 }}>{it.unit}</span>
+                  </div>
                 );
               })}
             </div>
@@ -162,23 +149,21 @@ export default function EquipGroupAnalysis({ desc }) {
             <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>총 {visible.length}개 · 집계 단위 5초</span>
           </div>
           {visible.length === 0 ? (
-            <div style={{ padding: "36px 0", textAlign: "center", font: "var(--text-body-2-normal-regular)", color: "var(--semantic-text-sub)", border: "1px dashed var(--semantic-line-default)", borderRadius: 8 }}>
+            <div style={{ padding: "32px 0", textAlign: "center", font: "var(--text-body-2-normal-regular)", color: "var(--semantic-text-sub)", border: "1px dashed var(--semantic-line-default)", borderRadius: 8 }}>
               선택된 측정 항목이 없습니다. 측정 항목을 선택하면 그래프가 표시됩니다.
             </div>
           ) : (
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
               {visible.map((it) => {
-                colorIdx += 1;
                 return (
                   <div key={it.id} style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, padding: "10px 12px" }}>
                     <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
                       <span style={{ font: "var(--text-label-2-semibold)", color: "var(--semantic-text-default)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{it.name}</span>
                       <span style={{ marginLeft: "auto", font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)", flexShrink: 0 }}>{it.value}</span>
                     </div>
-                    <MiniLine points={it.points} avg={it.avg} marker={marker} color={CAT[colorIdx % CAT.length]} yMax={it.yMax} yMin={it.yMin} />
-                    <div style={{ display: "flex", gap: 10, font: "var(--text-caption-2-regular)", color: "var(--semantic-text-sub)" }}>
-                      <span>평균 {it.avgLabel}</span>
-                      <span style={{ marginLeft: "auto" }}>정상 · 연결 끊김</span>
+                    <MiniLine points={it.points} avg={it.avg} marker={marker} color={colorOf[it.id]} yMax={it.yMax} yMin={it.yMin} />
+                    <div style={{ font: "var(--text-caption-2-regular)", color: "var(--semantic-text-sub)" }}>
+                      평균 {it.avgLabel}
                     </div>
                   </div>
                 );
