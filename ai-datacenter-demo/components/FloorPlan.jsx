@@ -14,11 +14,23 @@ function Rack({ x, y }) {
 }
 
 export default function FloorPlan({ beacons = [] }) {
+  // 위젯 높이에 맞춰 도면을 축소해 내부 스크롤이 생기지 않게 한다.
+  // 비콘 % 좌표가 도면과 함께 움직이도록 aspect-ratio 컨테이너 안에 overlay를 둔다.
   return (
-    <div style={{ position: "relative", width: "100%" }}>
+    <div
+      style={{
+        position: "relative",
+        aspectRatio: "420 / 240",
+        height: "100%",
+        maxWidth: "100%",
+        margin: "0 auto",
+      }}
+    >
       <svg
         width="100%"
+        height="100%"
         viewBox="0 0 420 240"
+        preserveAspectRatio="xMidYMid meet"
         role="img"
         aria-label="GPU룸 A 배치도"
         style={{ display: "block", borderRadius: 8, background: "var(--semantic-bg-light)" }}

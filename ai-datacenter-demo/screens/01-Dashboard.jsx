@@ -422,13 +422,13 @@ export default function Dashboard({ onOpenSituation, lowConfidence, coolingSigna
 
         {/* 실시간 이상 탐지 내역 — 탐지 카드 가로 스트립 */}
         <Widget dimmed icon="dashboard-square-activity" title="실시간 이상 탐지 내역" meta="2026-08-27 기준" desc="64" x={0} y={7} w={7} h={5}>
-          <div style={{ display: "flex", gap: 10, overflowX: "auto", height: "100%", paddingBottom: 2 }}>
+          <div style={{ display: "flex", gap: 10, height: "100%" }}>
             {MOCK_DETECTIONS.map((d) => (
               <div
                 key={d.name}
                 style={{
-                  flexShrink: 0,
-                  width: 180,
+                  flex: "1 1 0",
+                  minWidth: 0,
                   display: "flex",
                   flexDirection: "column",
                   gap: 8,
