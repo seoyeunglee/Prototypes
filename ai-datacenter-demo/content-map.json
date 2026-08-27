@@ -3649,6 +3649,366 @@
       "copy": "건",
       "evidence": "카운트 강조 숫자 뒤 단위 접미 — 분할 렌더 조각",
       "confidence": "confirmed"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-202",
+      "user_task": "신호 정렬 확인",
+      "destination": "card_title",
+      "copy": "계통 신호 타임라인",
+      "evidence": "요소기술 1 확인용 신규 카드 제목"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-203",
+      "user_task": "카드 목적 이해",
+      "destination": "card_caption",
+      "copy": "GPU 부하 · 랙 전력 · 냉각 유량 · 랙 출구 온도를 같은 시간축에 정렬해 변화 순서와 반응 속도를 비교합니다.",
+      "evidence": "카드 설명"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-204",
+      "user_task": "지연 판정 근거 이해",
+      "destination": "chart_caption",
+      "copy": "점선(냉각 유량 행)은 부하 상승 시 기대되는 반응. 실측이 따라오지 않는 구간이 지연 판정의 근거입니다.",
+      "evidence": "기대 vs 실측 범례"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-205",
+      "user_task": "지연 구간 식별",
+      "destination": "chart_label",
+      "copy": "기대 반응 대비 지연",
+      "evidence": "유량 행 음영 라벨"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-206",
+      "user_task": "시점 마커 식별",
+      "destination": "chart_label",
+      "copy": "부하 상승",
+      "evidence": "시간축 마커"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-207",
+      "user_task": "시점 마커 식별",
+      "destination": "chart_label",
+      "copy": "지연 판정",
+      "evidence": "시간축 마커"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-208",
+      "user_task": "신호명 식별",
+      "destination": "chart_label",
+      "copy": "GPU 부하",
+      "evidence": "타임라인 행 라벨"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-209",
+      "user_task": "신호명 식별",
+      "destination": "chart_label",
+      "copy": "랙 전력",
+      "evidence": "타임라인 행 라벨"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-210",
+      "user_task": "신호명 식별",
+      "destination": "chart_label",
+      "copy": "냉각 유량",
+      "evidence": "타임라인 행 라벨"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-211",
+      "user_task": "신호명 식별",
+      "destination": "chart_label",
+      "copy": "랙 출구 온도",
+      "evidence": "타임라인 행 라벨"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-212",
+      "user_task": "점검 경로 이해",
+      "destination": "diagram_label",
+      "copy": "냉각 공급 경로",
+      "evidence": "점검 경로 다이어그램 레인 라벨"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-213",
+      "user_task": "점검 경로 이해",
+      "destination": "diagram_label",
+      "copy": "전력 공급 경로",
+      "evidence": "점검 경로 다이어그램 레인 라벨"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-214",
+      "user_task": "순서 근거 이해",
+      "destination": "diagram_caption",
+      "copy": "번호는 위 조치 가이드의 점검 순서와 같습니다 — 냉각수 공급 경로에서 랙보다 앞에 있는 설비부터 확인합니다.",
+      "evidence": "점검 경로 캡션"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-215",
+      "user_task": "설비 식별",
+      "destination": "diagram_node",
+      "copy": "밸브 V-21",
+      "evidence": "경로 노드"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-216",
+      "user_task": "설비 식별",
+      "destination": "diagram_node",
+      "copy": "분전반 PDU-A",
+      "evidence": "경로 노드"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-011"
+      ],
+      "confidence": "confirmed",
+      "id": "C-217",
+      "user_task": "차트 대체 텍스트",
+      "decision": "A11Y_ONLY",
+      "destination": "chart_aria",
+      "copy": "계통 신호 타임라인 — 부하와 전력이 먼저 오르고 냉각 유량이 따라오지 않아 온도가 상승하는 순서",
+      "evidence": "SVG aria-label"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "confidence": "confirmed",
+      "id": "C-218",
+      "user_task": "다이어그램 대체 텍스트",
+      "decision": "A11Y_ONLY",
+      "destination": "diagram_aria",
+      "copy": "계통 연결 경로 — 밸브, 펌프, CDU를 거쳐 GPU 랙 A열로 이어지는 냉각 공급 경로와 PDU의 전력 공급 경로. 점검 순서 번호가 경로 위에 표시된다",
+      "evidence": "SVG aria-label"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "confidence": "confirmed",
+      "id": "C-219",
+      "user_task": "설비 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "diagram_node",
+      "copy": "펌프 P-2",
+      "evidence": "경로 노드"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "confidence": "confirmed",
+      "id": "C-220",
+      "user_task": "설비 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "diagram_node",
+      "copy": "2호 CDU",
+      "evidence": "경로 노드"
+    },
+    {
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "confidence": "confirmed",
+      "id": "C-221",
+      "user_task": "설비 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "diagram_node",
+      "copy": "GPU 랙 A열",
+      "evidence": "경로 노드"
     }
   ]
 }

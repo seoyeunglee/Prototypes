@@ -1,11 +1,10 @@
-// screen-01 · 대시보드 — 실제 FE 그리드·위젯 규격을 따른다.
+// screen-01 · 메인 대시보드 — 실제 FE 그리드·위젯 형식을 따른다.
 //   그리드: 20열 × 12행, 마진 [12, 16] (DashboardGrid.jsx: cols=20, GRID_MAX_ROWS=12)
-//   배치는 기존 화면 구성(12행을 채우는 대시보드)을 참고해 에디터가 리사이즈한 상태를 가정:
-//   목록 6×12(좌측 세로 패널) · 센서 7×4 · 추이 7×4 · 배치도 7×8 · 요약 7×3 · 확인 현황 7×5
-//   기본 규격(widgetSize.js): abnormalSituationList 5×4 · sensorAvgComparison 5×4 · timeTrend 5×4
-//   · detectionStatusCard 5×4 · anomalySummary 6×2 · layout 5×5 — 데모 가독성을 위해 확장
-//   실시간 센서 변동 모니터링은 실제 TempBarChart 형태(σ 막대, 기준선 100, 120↑ danger)를 재현한다.
-import { Icon, BasicIconButton, StateBadge, Tab, TextButton, OutlineButton } from "@idbrnd/design-system";
+//   구성(2026-08-27): 이상 탐지 발생 요약 14×2(상단 와이드) · 시간대별 이상 발생 건수 6×4
+//   · 배치도 7×5 · 이상 상황 목록 7×10(핵심) · 장소별 이상 발생 건수 6×3
+//   · 실시간 이상 탐지 내역 7×5 · 탐지 확인 현황 6×5
+//   핵심(목록·배치도) 외 위젯은 dimmed(흐림 + inert)로 주요 기능을 강조한다.
+import { Icon, BasicIconButton, StateBadge, ContentBadge, Tab, TextButton, OutlineButton } from "@idbrnd/design-system";
 import { useState } from "react";
 import { ReachBadge } from "../components/StageTimeline";
 import { BarSeries } from "../components/Charts";
@@ -123,6 +122,7 @@ function Widget({ icon, title, meta, right, desc, x, y, w, h, dimmed, children }
     <div
       data-desc={desc}
       aria-disabled={dimmed || undefined}
+      inert={dimmed ? "" : undefined}
       style={{
         gridColumn: x != null ? `${x + 1} / span ${w}` : `span ${w}`,
         gridRow: y != null ? `${y + 1} / span ${h}` : `span ${h}`,
@@ -139,7 +139,7 @@ function Widget({ icon, title, meta, right, desc, x, y, w, h, dimmed, children }
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8, flexShrink: 0 }}>
-        <Icon name={icon} size={20} color="var(--semantic-text-default)" />
+        <Icon name={icon} size={20} />
         <h2 style={{ margin: 0, font: "var(--text-heading-2-semibold)", color: "var(--semantic-text-default)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
           {title}
         </h2>
@@ -185,19 +185,9 @@ function SituationItem({ s, onOpen, lowConfidence, coolingSignalLost }) {
       <div style={{ minWidth: 0, display: "flex", flexDirection: "column", gap: 6 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
           {s.isNew && (
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                padding: "2px 6px",
-                borderRadius: 4,
-                background: "var(--semantic-text-default)",
-                color: "var(--semantic-natural-white)",
-                font: "var(--text-caption-1-semibold)",
-              }}
-            >
+            <ContentBadge size="compact" backgroundColor="var(--semantic-natural-deep)" contentColor="var(--semantic-text-on-dark)">
               New
-            </span>
+            </ContentBadge>
           )}
           <StateBadge variant={SEVERITY_VARIANT[s.severity]} size="compact">
             {SEVERITY_LABEL[s.severity]}
@@ -222,20 +212,14 @@ function SituationItem({ s, onOpen, lowConfidence, coolingSignalLost }) {
         </div>
 
         <div data-desc="62" style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-          <span
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              padding: "2px 8px",
-              borderRadius: 4,
-              background: "var(--semantic-bg-light)",
-              border: "1px solid var(--semantic-line-default)",
-              font: "var(--text-label-2-regular)",
-              color: "var(--semantic-text-default)",
-            }}
+          <ContentBadge
+            size="compact"
+            backgroundColor="var(--semantic-bg-light)"
+            borderColor="var(--semantic-line-default)"
+            contentColor="var(--semantic-text-default)"
           >
             {s.stage}
-          </span>
+          </ContentBadge>
           {coolingSignalLost && s.id === "SIT-2481" ? (
             <span style={{ font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)" }}>
               판정 중단
@@ -388,8 +372,13 @@ export default function Dashboard({ onOpenSituation, lowConfidence, coolingSigna
               coolingSignalLost={coolingSignalLost}
             />
           ))}
+          {filtered.length === 0 && (
+            <p style={{ margin: "32px 0", textAlign: "center", font: "var(--text-body-2-normal-regular)", color: "var(--semantic-text-sub)" }}>
+              표시할 상황이 없습니다.
+            </p>
+          )}
           <p style={{ margin: "10px 0 0", textAlign: "center", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
-            전체 {filtered.length}건
+            {statusTab} {filtered.length}건
           </p>
         </Widget>
 
@@ -438,7 +427,7 @@ export default function Dashboard({ onOpenSituation, lowConfidence, coolingSigna
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  <Icon name="dashboard-detection" size={16} color="var(--semantic-text-default)" />
+                  <Icon name="dashboard-detection" size={16} />
                   <span style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                     {d.name}
                   </span>

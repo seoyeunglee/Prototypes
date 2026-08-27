@@ -15,7 +15,7 @@ function Rack({ x, y }) {
 
 export default function FloorPlan({ beacons = [] }) {
   // 위젯 높이에 맞춰 도면을 축소해 내부 스크롤이 생기지 않게 한다.
-  // 비콘 % 좌표가 도면과 함께 움직이도록 aspect-ratio 컨테이너 안에 overlay를 둔다.
+  // 비콘은 SVG 좌표계 내부에 렌더링 — 축소·레터박스와 무관하게 도면 위치에 고정된다.
   return (
     <div
       style={{
@@ -83,35 +83,28 @@ export default function FloorPlan({ beacons = [] }) {
         <text x="25" y="112" textAnchor="middle" style={{ font: "var(--text-caption-2-regular)", fill: "var(--semantic-text-sub)" }}>
           PDU
         </text>
-      </svg>
 
-      {/* 비콘 오버레이 — 실제 LayoutView처럼 도면 위 상대 좌표에 상태 점 표시 */}
-      {beacons.map((b) => (
-        <div
-          key={b.id}
-          title={b.label}
-          style={{
-            position: "absolute",
-            left: `${b.x}%`,
-            top: `${b.y}%`,
-            transform: "translate(-50%, -50%)",
-            display: "flex",
-            alignItems: "center",
-            gap: 4,
-          }}
-        >
-          <span
-            style={{
-              width: 12,
-              height: 12,
-              borderRadius: 999,
-              background: b.tone,
-              border: "2px solid var(--semantic-natural-white)",
-              boxShadow: "var(--shadow-level-1)",
-            }}
-          />
-        </div>
-      ))}
+        {/* 비콘 — SVG 좌표계 내부에 두어 스케일·레터박스와 무관하게 도면 위치에 고정 */}
+        {beacons.map((b) => (
+          <g key={b.id}>
+            <circle
+              cx={(420 * b.x) / 100}
+              cy={(240 * b.y) / 100}
+              r="6"
+              fill={b.tone}
+              stroke="var(--semantic-natural-white)"
+              strokeWidth="2"
+            />
+            <text
+              x={(420 * b.x) / 100 + 10}
+              y={(240 * b.y) / 100 + 4}
+              style={{ font: "var(--text-caption-2-regular)", fill: "var(--semantic-text-default)" }}
+            >
+              {b.label}
+            </text>
+          </g>
+        ))}
+      </svg>
     </div>
   );
 }

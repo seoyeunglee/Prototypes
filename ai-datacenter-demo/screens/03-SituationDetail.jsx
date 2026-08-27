@@ -6,6 +6,8 @@
 import { Icon, StateBadge, ContentBadge, FillButton } from "@idbrnd/design-system";
 import { Card, CardHeader } from "../components/AppShell";
 import { StageTimeline, ReachBadge } from "../components/StageTimeline";
+import SignalTimeline from "../components/SignalTimeline";
+import TopologyPath from "../components/TopologyPath";
 
 const MOCK_STAGES = [
   { id: "observe", label: "관찰 구간", at: "10:42" },
@@ -135,6 +137,17 @@ export default function SituationDetail({
             </Card>
           </section>
 
+          {/* 계통 신호 타임라인 — 동일 시간축 정렬 (요소기술 1 근거) */}
+          <section data-desc="65">
+            <Card>
+              <CardHeader icon="dashboard-square-activity" title="계통 신호 타임라인" />
+              <div style={{ marginBottom: 8, font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+                GPU 부하 · 랙 전력 · 냉각 유량 · 랙 출구 온도를 같은 시간축에 정렬해 변화 순서와 반응 속도를 비교합니다.
+              </div>
+              <SignalTimeline desc="66" />
+            </Card>
+          </section>
+
           {/* AI 분석 결과 (FE AnalysisCard) */}
           <section data-desc="17">
             <Card>
@@ -217,6 +230,7 @@ export default function SituationDetail({
                       ))}
                     </ol>
                   )}
+                  {!topologyMissing && <TopologyPath desc="67" />}
                 </div>
 
                 {/* 관련 매뉴얼 */}
