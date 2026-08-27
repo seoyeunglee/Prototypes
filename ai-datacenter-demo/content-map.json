@@ -783,7 +783,7 @@
       "evidence": "FN-5 정책 · 미입력 시 종료 불가",
       "confidence": "confirmed",
       "trigger": "submit_without_verdict",
-      "copy": "예측 판정을 선택해 주세요"
+      "copy": "예측 판정을 선택해 주세요."
     },
     {
       "id": "C-044",
@@ -820,7 +820,7 @@
       "evidence": "기존 30초 자동 저장 · 미니바 정책",
       "confidence": "confirmed",
       "trigger": "draft_exists",
-      "copy": "작성 중인 조치 이력이 있어요"
+      "copy": "작성 중인 조치 이력이 있어요."
     },
     {
       "id": "C-046",
@@ -839,7 +839,7 @@
       "evidence": "기존 조치 완료 처리",
       "confidence": "confirmed",
       "trigger": "submit_success",
-      "copy": "조치 이력을 저장했습니다"
+      "copy": "조치 이력이 저장됐습니다."
     },
     {
       "id": "C-047",
