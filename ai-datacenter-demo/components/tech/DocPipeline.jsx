@@ -24,10 +24,11 @@ function Box({ x, y, w, h = 44, title, sub, planned }) {
   );
 }
 
-export default function DocPipeline({ desc }) {
+export default function DocPipeline({ desc, part }) {
   return (
     <div data-desc={desc}>
       {/* 문서 관리 미니 재현 */}
+      {part !== "pipeline" && (
       <div style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, padding: "12px 16px", marginBottom: 12 }}>
         <div style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)", marginBottom: 8 }}>
           문서 관리 — 등록 현황
@@ -45,8 +46,10 @@ export default function DocPipeline({ desc }) {
           PDF 업로드 → 전처리·임베딩 → 벡터 DB 적재. 상황 화면의 "관련 매뉴얼"이 여기서 연결됩니다.
         </div>
       </div>
+      )}
 
       {/* 파이프라인 도식 */}
+      {part !== "docs" && (
       <div style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, background: "var(--semantic-bg-light)", padding: "8px 4px", overflowX: "auto" }}>
         <svg width="100%" viewBox="0 0 720 210" style={{ display: "block", minWidth: 560 }} role="img" aria-label="문서와 조치 이력이 온톨로지 지식으로 구조화되어 상황 판단에 연결되는 파이프라인">
           <defs>
@@ -74,6 +77,7 @@ export default function DocPipeline({ desc }) {
           </text>
         </svg>
       </div>
+      )}
     </div>
   );
 }

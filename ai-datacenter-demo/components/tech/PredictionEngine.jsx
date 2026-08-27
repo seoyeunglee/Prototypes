@@ -1,10 +1,11 @@
 // 원인·위험·다음 사건 예측 — 내부 구조 도식 2종.
 // ① EWMA 오차 추세 판정: 기존 발전 효율 저하 탐지 구조에서 예측 모델 자리만 교체(신규 배지)
 // ② 진행 단계 판정 엔진: 5단계 상태 전이 + 판정 안정성(뒤집힘 시 직전 단계 유지)
-export default function PredictionEngine({ desc }) {
+export default function PredictionEngine({ desc, part }) {
   return (
     <div data-desc={desc} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
       {/* EWMA 판정 구조 */}
+      {part !== "stages" && (
       <div style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, background: "var(--semantic-bg-light)", padding: "8px 4px", overflowX: "auto" }}>
         <svg width="100%" viewBox="0 0 720 150" style={{ display: "block", minWidth: 560 }} role="img" aria-label="부하를 입력받아 필요 냉각량을 예측하고 실측과의 오차 추세가 임계를 넘으면 이벤트를 내는 판정 구조">
           <defs>
@@ -44,10 +45,17 @@ export default function PredictionEngine({ desc }) {
           </text>
         </svg>
       </div>
+      )}
 
       {/* 진행 단계 판정 엔진 */}
+      {part !== "ewma" && (
       <div style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, background: "var(--semantic-bg-light)", padding: "8px 4px", overflowX: "auto" }}>
         <svg width="100%" viewBox="0 0 720 130" style={{ display: "block", minWidth: 560 }} role="img" aria-label="관찰 구간부터 성능 저하까지 다섯 단계의 상태 전이와 판정 안정성 규칙">
+          <defs>
+            <marker id="pe-arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0 0 L10 5 L0 10 z" fill="var(--semantic-natural-heavy)" />
+            </marker>
+          </defs>
           <text x="10" y="18" style={{ font: "var(--text-caption-2-semibold)", fill: "var(--semantic-text-sub)" }}>
             진행 단계 판정 엔진 — 설계 확보 (단계 진입 조건은 도메인 승인 대기)
           </text>
@@ -61,7 +69,7 @@ export default function PredictionEngine({ desc }) {
                   stroke={active ? "var(--semantic-primary-default)" : "var(--semantic-line-default)"} strokeWidth={active ? 1.6 : 1.2} />
                 <text x={x + 64} y={64} textAnchor="middle" style={{ font: "var(--text-caption-1-semibold)", fill: active ? "var(--semantic-primary-default)" : "var(--semantic-text-default)" }}>{s}</text>
                 {i < 4 && (
-                  <line x1={x + 128} y1={60} x2={x + 141} y2={60} stroke="var(--semantic-natural-heavy)" strokeWidth="1.3" markerEnd="url(#pe-arrow)" />
+                  <line x1={x + 128} y1={60} x2={x + 141} y2={60} stroke="var(--semantic-natural-heavy)" strokeWidth="1.3" markerEnd="url(#pe-arrow2)" />
                 )}
               </g>
             );
@@ -71,6 +79,7 @@ export default function PredictionEngine({ desc }) {
           </text>
         </svg>
       </div>
+      )}
     </div>
   );
 }

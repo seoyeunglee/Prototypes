@@ -259,7 +259,7 @@ export default function Dashboard({ onOpenSituation, lowConfidence, coolingSigna
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-      <h1 style={{ margin: 0, font: "var(--text-title-1-semibold)", color: "var(--semantic-text-strong)" }}>
+      <h1 style={{ margin: 0, font: "var(--text-title-2-semibold)", color: "var(--semantic-text-strong)" }}>
         메인 대시보드
       </h1>
 

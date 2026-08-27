@@ -1,6 +1,6 @@
 // screen-03 · 이상 상황 상세 — 실제 FE AbnormalSituationDetail 구조를 따른다.
 //   topBar(뒤로 가기) + header(제목·부제) + layout grid [1fr 460px]
-//   main: 위험 진행 단계 카드(FN-1·신규) + AI 분석 결과 카드 + 구성 이벤트 카드
+//   main: AI 분석 결과 + 구성 이벤트(기존 내용 우선) → 위험 진행 단계 + 계통 신호 타임라인(신규, 하단 배치 2026-08-27)
 //   side: 이상 상황 처리 패널(메타 목록 + 확인 시작 + 배너)
 // Shadow Mode — 제어 버튼 없음.
 import { Icon, StateBadge, ContentBadge, FillButton } from "@idbrnd/design-system";
@@ -103,7 +103,7 @@ export default function SituationDetail({
 
       {/* header — 제목 + 안내 부제 (FE 원문 문구) */}
       <header style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 12 }}>
-        <h1 style={{ margin: 0, font: "var(--text-title-1-semibold)", color: "var(--semantic-text-strong)" }}>
+        <h1 style={{ margin: 0, font: "var(--text-title-2-semibold)", color: "var(--semantic-text-strong)" }}>
           GPU 랙 A열 냉각 반응 지연
         </h1>
         <p style={{ margin: 0, font: "var(--text-body-2-normal-regular)", color: "var(--semantic-text-sub)" }}>
@@ -115,38 +115,7 @@ export default function SituationDetail({
       <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) 460px", gap: 20 }}>
         {/* ── main ── */}
         <div style={{ display: "flex", flexDirection: "column", gap: 40, minWidth: 0 }}>
-          {/* 위험 진행 단계 (FN-1 신규 카드) */}
-          <section data-desc="13">
-            <Card>
-              <CardHeader
-                icon="dashboard-square-chart-gantt"
-                title="위험 진행 단계"
-                right={!coolingSignalLost && !lowConfidence ? <ReachBadge level="narrowing" desc="16" /> : null}
-              />
-              <StageTimeline
-                stages={MOCK_STAGES}
-                currentIndex={currentIndex}
-                halted={coolingSignalLost}
-                selectedIndex={selectedStage}
-                onSelectStage={onSelectStage}
-                desc="15"
-              />
-              <div style={{ marginTop: 8, font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
-                단계를 선택하면 아래 구성 이벤트가 해당 단계 기준으로 표시됩니다.
-              </div>
-            </Card>
-          </section>
 
-          {/* 계통 신호 타임라인 — 동일 시간축 정렬 (요소기술 1 근거) */}
-          <section data-desc="65">
-            <Card>
-              <CardHeader icon="dashboard-square-activity" title="계통 신호 타임라인" />
-              <div style={{ marginBottom: 8, font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
-                GPU 부하 · 랙 전력 · 냉각 유량 · 랙 출구 온도를 같은 시간축에 정렬해 변화 순서와 반응 속도를 비교합니다.
-              </div>
-              <SignalTimeline desc="66" />
-            </Card>
-          </section>
 
           {/* AI 분석 결과 (FE AnalysisCard) */}
           <section data-desc="17">
@@ -348,6 +317,39 @@ export default function SituationDetail({
                   </div>
                 </div>
               ))}
+            </Card>
+          </section>
+
+          {/* 위험 진행 단계 (FN-1 신규 카드) */}
+          <section data-desc="13">
+            <Card>
+              <CardHeader
+                icon="dashboard-square-chart-gantt"
+                title="위험 진행 단계"
+                right={!coolingSignalLost && !lowConfidence ? <ReachBadge level="narrowing" desc="16" /> : null}
+              />
+              <StageTimeline
+                stages={MOCK_STAGES}
+                currentIndex={currentIndex}
+                halted={coolingSignalLost}
+                selectedIndex={selectedStage}
+                onSelectStage={onSelectStage}
+                desc="15"
+              />
+              <div style={{ marginTop: 8, font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+                단계를 선택하면 위 구성 이벤트가 해당 단계 기준으로 표시됩니다.
+              </div>
+            </Card>
+          </section>
+
+          {/* 계통 신호 타임라인 — 동일 시간축 정렬 (요소기술 1 근거) */}
+          <section data-desc="65">
+            <Card>
+              <CardHeader icon="dashboard-square-activity" title="계통 신호 타임라인" />
+              <div style={{ marginBottom: 8, font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+                GPU 부하 · 랙 전력 · 냉각 유량 · 랙 출구 온도를 같은 시간축에 정렬해 변화 순서와 반응 속도를 비교합니다.
+              </div>
+              <SignalTimeline desc="66" />
             </Card>
           </section>
         </div>

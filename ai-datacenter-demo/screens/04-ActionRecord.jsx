@@ -78,7 +78,7 @@ export default function ActionRecord({ onBack, onSubmit, hasDraft }) {
 
       {/* header — FE 원문 부제 */}
       <header style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 12 }}>
-        <h1 style={{ margin: 0, font: "var(--text-title-1-semibold)", color: "var(--semantic-text-strong)" }}>
+        <h1 style={{ margin: 0, font: "var(--text-title-2-semibold)", color: "var(--semantic-text-strong)" }}>
           조치 이력 기록
         </h1>
         <p style={{ margin: 0, font: "var(--text-body-2-normal-regular)", color: "var(--semantic-text-sub)" }}>

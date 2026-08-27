@@ -2,14 +2,7 @@
 // 탭으로 축약 재현. 실제 FE는 ds Table(+TanStack) 기반 — 쇼케이스는 의존성 최소화를 위해
 // 카드 행으로 축약하되 컬럼·상태 어휘는 실제 화면을 따른다.
 // 신규 연계(프로토콜 어댑터)는 점선 카드 + "신규" 배지로 표현.
-import { useState } from "react";
-import { Tab, StateBadge, ContentBadge, WeakButton } from "@idbrnd/design-system";
-
-const TAB_ITEMS = [
-  { value: "edge", label: "엣지 디바이스" },
-  { value: "model", label: "모델 관리" },
-  { value: "data", label: "연결 데이터" },
-];
+import { StateBadge, ContentBadge, WeakButton } from "@idbrnd/design-system";
 
 const EDGE = [
   { name: "EDGE-GPU-01", place: "GPU룸 A", status: "정상 연결", variant: "success", cpu: "42%", mem: "58%" },
@@ -44,12 +37,10 @@ function Row({ left, mid, right }) {
   );
 }
 
-export default function OpsManagement({ desc }) {
-  const [tab, setTab] = useState("edge");
+export default function OpsManagement({ desc, section = "edge" }) {
+  const tab = section;
   return (
-    <div data-desc={desc} style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 12, padding: "12px 20px 16px" }}>
-      <Tab items={TAB_ITEMS} value={tab} onChange={setTab} size="small" resize="hug" />
-
+    <div data-desc={desc} style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 12, padding: "16px 20px" }}>
       {tab === "edge" && (
         <div style={{ marginTop: 12 }}>
           {EDGE.map((d) => (
@@ -120,7 +111,8 @@ export default function OpsManagement({ desc }) {
       )}
 
       {/* 신규 연계 — 프로토콜 어댑터 */}
-      <div style={{ marginTop: 16, padding: "10px 16px", borderRadius: 8, border: "1px dashed var(--semantic-natural-heavy)" }}>
+      {tab === "adapter" && (
+      <div style={{ padding: "12px 16px", borderRadius: 8, border: "1px dashed var(--semantic-natural-heavy)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
           <ContentBadge size="compact" backgroundColor="var(--semantic-natural-deep)" contentColor="var(--semantic-text-on-dark)">신규</ContentBadge>
           <span style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)" }}>데이터센터 표준 프로토콜 어댑터</span>
@@ -136,6 +128,7 @@ export default function OpsManagement({ desc }) {
           설치형 어댑터로 기존 EMS·BMS·GPU 텔레메트리를 연결 데이터 관리에 등록하는 방식 — 수집 이후의 감시·차단·복구 체계는 현재 제품 그대로 적용됩니다.
         </p>
       </div>
+      )}
     </div>
   );
 }

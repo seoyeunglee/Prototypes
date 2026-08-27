@@ -1957,7 +1957,7 @@
       "user_task": "단계-이벤트 연동 안내",
       "decision": "VISIBLE_PRIMARY",
       "destination": "helper_text",
-      "copy": "단계를 선택하면 아래 구성 이벤트가 해당 단계 기준으로 표시됩니다.",
+      "copy": "단계를 선택하면 위 구성 이벤트가 해당 단계 기준으로 표시됩니다.",
       "evidence": "FN-1·FN-2 연동",
       "confidence": "confirmed"
     },
@@ -5591,6 +5591,78 @@
       "decision": "VISIBLE_PRIMARY",
       "destination": "tech_showcase",
       "copy": "연계 후 예시",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-310",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "기술을 선택하면 근거 화면과 설명이 표시됩니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-311",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "이전 단계",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-312",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "다음 단계",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-313",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "정리",
       "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
       "confidence": "confirmed"
     }
