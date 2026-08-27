@@ -5,10 +5,10 @@
 //   기본 규격(widgetSize.js): abnormalSituationList 5×4 · sensorAvgComparison 5×4 · timeTrend 5×4
 //   · detectionStatusCard 5×4 · anomalySummary 6×2 · layout 5×5 — 데모 가독성을 위해 확장
 //   실시간 센서 변동 모니터링은 실제 TempBarChart 형태(σ 막대, 기준선 100, 120↑ danger)를 재현한다.
-import { Icon, BasicIconButton, StateBadge, Tab } from "@idbrnd/design-system";
+import { Icon, BasicIconButton, StateBadge, Tab, TextButton, OutlineButton } from "@idbrnd/design-system";
 import { useState } from "react";
 import { ReachBadge } from "../components/StageTimeline";
-import { SigmaBarChart, BarSeries, RatioBars } from "../components/Charts";
+import { BarSeries } from "../components/Charts";
 import FloorPlan from "../components/FloorPlan";
 
 // 그리드 상수 — 실제 FE DashboardGrid와 동일
@@ -16,13 +16,11 @@ const GRID_COLS = 20;
 const GRID_MARGIN = [12, 16];
 const ROW_HEIGHT = 46; // 실제는 컨테이너 높이에서 계산. 데모는 고정값
 
-const MOCK_SIGMA_ITEMS = [
-  // value = 100 + Z×10 (σ=0이면 1로 계산). 120 이상은 danger 색으로 표시된다
-  { name: "GPU 사용률", value: 138, current: "94%", avg: "62%", range: "38% ~ 86%" },
-  { name: "랙 전력", value: 128, current: "41.2kW", avg: "33.4kW", range: "27.8kW ~ 39.0kW" },
-  { name: "냉각 유량", value: 74, current: "118L/min", avg: "140L/min", range: "123L/min ~ 157L/min" },
-  { name: "공급 압력", value: 96, current: "2.1bar", avg: "2.2bar", range: "1.9bar ~ 2.5bar" },
-  { name: "랙 출구 온도", value: 124, current: "34.2도", avg: "30.1도", range: "26.7도 ~ 33.5도" },
+// 실시간 이상 탐지 내역 — 실제 위젯 카드 형식(탐지명·발생 장소·탐지 데이터·상세 보기)
+const MOCK_DETECTIONS = [
+  { name: "냉각 유량 저하", time: "1분 전", place: "GPU룸 A", data: "118L/min", threshold: "/123L/min" },
+  { name: "온도 센서 임계치", time: "3분 전", place: "GPU 랙 A열", data: "34.2°C", threshold: "/33.5°C" },
+  { name: "랙 전력 상승", time: "8분 전", place: "GPU룸 A", data: "41.2kW", threshold: "/39.0kW" },
 ];
 
 const MOCK_SITUATIONS = [
@@ -78,7 +76,7 @@ const MOCK_SITUATIONS = [
 
 const SEVERITY_VARIANT = { HIGH: "error", MEDIUM: "warning", LOW: "basic" };
 const SEVERITY_LABEL = { HIGH: "심각도 높음", MEDIUM: "심각도 중간", LOW: "심각도 낮음" };
-const STATUS_TABS = ["전체", "확인 대기", "확인 중", "조치 완료"];
+const STATUS_TABS = ["전체", "확인 대기", "확인 중", "처리 지연", "조치 완료"];
 
 const MOCK_HOURLY = [
   { label: "07", value: 0 }, { label: "08", value: 1 }, { label: "09", value: 0 },
@@ -86,16 +84,28 @@ const MOCK_HOURLY = [
   { label: "13", value: 0 }, { label: "14", value: 1 }, { label: "15", value: 2 },
 ];
 
+// 탐지 확인 현황 — 실제 위젯의 3타일(미해결/확인 중/해결) 형식
 const MOCK_CHECK = [
-  { label: "확인 대기", value: 2, color: "var(--category-001)" },
-  { label: "확인 중", value: 1, color: "var(--category-002)" },
-  { label: "조치 완료", value: 5, color: "var(--category-003)" },
+  { label: "미해결", count: 2, tone: "var(--semantic-content-danger-default)" },
+  { label: "확인 중", count: 1, tone: "var(--semantic-text-default)" },
+  { label: "해결", count: 5, tone: "var(--semantic-content-positive-default)" },
 ];
 
+// 이상 탐지 발생 요약 — 실제 위젯의 탐지 유형별 건수 칩 스트립 형식
 const MOCK_SUMMARY = [
-  { label: "냉각 반응 지연", value: 4, color: "var(--category-005)" },
-  { label: "전력 임계치", value: 2, color: "var(--category-009)" },
-  { label: "온도 임계치", value: 2, color: "var(--category-001)" },
+  { label: "냉각 반응 지연", count: 4 },
+  { label: "온도 센서 임계치", count: 2 },
+  { label: "전력 임계치", count: 2 },
+  { label: "진동 이상치 탐지", count: 0 },
+  { label: "EWMA 탐지", count: 0 },
+  { label: "소음도 이상 탐지", count: 0 },
+];
+
+// 장소별 이상 발생 건수 — 발생 장소 · 분포 바 · 발생 건수
+const MOCK_PLACES = [
+  { label: "GPU룸 A", ratio: 62, count: 8 },
+  { label: "GPU룸 B", ratio: 23, count: 3 },
+  { label: "전기실", ratio: 15, count: 2 },
 ];
 
 // 배치도 비콘 — FloorPlan SVG 위 상대 좌표(%). 랙 A열=danger, 2호 CDU=warning
@@ -257,22 +267,19 @@ function SituationItem({ s, onOpen, lowConfidence, coolingSignalLost }) {
 export default function Dashboard({ onOpenSituation, lowConfidence, coolingSignalLost }) {
   const [statusTab, setStatusTab] = useState("전체");
 
-  // 시뮬레이터 반영 — 냉각 신호 단절: 대상 상황은 직전 단계 유지, 냉각 유량 신호는 수집 없음
   const situations = MOCK_SITUATIONS.map((s) =>
     s.id === "SIT-2481" && coolingSignalLost ? { ...s, stage: "부하·전력 상승" } : s
   );
-  const sigmaItems = MOCK_SIGMA_ITEMS.map((it) =>
-    it.name === "냉각 유량" && coolingSignalLost ? { ...it, stale: true } : it
-  );
   const filtered = situations.filter((s) => statusTab === "전체" || s.status === statusTab);
+  const newCount = situations.filter((s) => s.isNew).length;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       <h1 style={{ margin: 0, font: "var(--text-title-1-semibold)", color: "var(--semantic-text-strong)" }}>
-        대시보드
+        메인 대시보드
       </h1>
 
-      {/* 실제 FE 그리드: 20열, 마진 [12,16], 위젯은 widgetSize.js 기본 규격으로 스팬 */}
+      {/* 실제 FE 그리드: 20열, 마진 [12,16]. 구성(2026-08-27): 요약 상단 와이드 + 7위젯 */}
       <div
         style={{
           display: "grid",
@@ -282,9 +289,61 @@ export default function Dashboard({ onOpenSituation, lowConfidence, coolingSigna
           rowGap: GRID_MARGIN[1],
         }}
       >
-        {/* 이상 상황 목록 — 기본 5×4를 데모 가독성 위해 6×12 세로 패널로 확장 */}
-        <Widget icon="dashboard-detection" title="이상 상황 목록" meta="2026-08-27 기준" desc="7" x={0} y={0} w={6} h={12}>
-          <div data-desc="60" style={{ marginBottom: 4, position: "sticky", top: 0, background: "var(--semantic-bg-default)", zIndex: 1 }}>
+        {/* 이상 탐지 발생 요약 — 상단 와이드 스트립, 탐지 유형별 건수 칩 */}
+        <Widget dimmed icon="dashboard-graph" title="이상 탐지 발생 요약" meta="2026-08-27 기준" desc="9" x={0} y={0} w={14} h={2}>
+          <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 2 }}>
+            {MOCK_SUMMARY.map((c) => (
+              <div
+                key={c.label}
+                style={{
+                  flexShrink: 0,
+                  minWidth: 128,
+                  padding: "6px 12px",
+                  borderRadius: 8,
+                  border: "1px solid var(--semantic-line-default)",
+                  background: "var(--semantic-bg-light)",
+                }}
+              >
+                <div style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)", whiteSpace: "nowrap" }}>
+                  {c.label}
+                </div>
+                <div style={{ font: "var(--text-body-1-normal-semibold)", color: "var(--semantic-text-default)" }}>
+                  {c.count}
+                  <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>건</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Widget>
+
+        {/* 시간대별 이상 발생 건수 */}
+        <Widget dimmed icon="dashboard-history" title="시간대별 이상 발생 건수" desc="11" x={14} y={0} w={6} h={4}>
+          <div style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)", marginBottom: 4 }}>
+            (발생 건수)
+          </div>
+          <BarSeries data={MOCK_HOURLY} height={110} color="var(--semantic-natural-deep)" />
+        </Widget>
+
+        {/* 배치도 — 더미 도면 SVG + 비콘 (시나리오 위치 표시) */}
+        <Widget icon="dashboard-map" title="배치도" meta="GPU룸 A" desc="12" x={0} y={2} w={7} h={5}>
+          <FloorPlan beacons={MOCK_BEACONS} />
+        </Widget>
+
+        {/* 이상 상황 목록 — 데모 핵심. 실제 위젯 형식(부제·상태 탭·새 상황 배너·푸터) */}
+        <Widget
+          icon="dashboard-detection"
+          title="이상 상황 목록"
+          meta="2026-08-14 ~ 2026-08-27 기준"
+          desc="7"
+          x={7}
+          y={2}
+          w={7}
+          h={10}
+        >
+          <p style={{ margin: "0 0 8px", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+            전체 구역의 상황이 표시됩니다.
+          </p>
+          <div data-desc="60" style={{ marginBottom: 8, position: "sticky", top: 0, background: "var(--semantic-bg-default)", zIndex: 1 }}>
             <Tab
               size="small"
               resize="hug"
@@ -298,6 +357,28 @@ export default function Dashboard({ onOpenSituation, lowConfidence, coolingSigna
               onChange={(v) => setStatusTab(v)}
             />
           </div>
+          {newCount > 0 && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "8px 12px",
+                borderRadius: 8,
+                background: "var(--semantic-bg-light)",
+                marginBottom: 4,
+              }}
+            >
+              <span style={{ font: "var(--text-label-1-regular)", color: "var(--semantic-text-default)" }}>
+                확인하지 않은 새 상황 {newCount}건이 있습니다
+              </span>
+              <div style={{ marginLeft: "auto" }}>
+                <TextButton variant="assistive" size="small" onClick={() => onOpenSituation("SIT-2481")}>
+                  바로 이동
+                </TextButton>
+              </div>
+            </div>
+          )}
           {filtered.map((s) => (
             <SituationItem
               key={s.id}
@@ -307,47 +388,113 @@ export default function Dashboard({ onOpenSituation, lowConfidence, coolingSigna
               coolingSignalLost={coolingSignalLost}
             />
           ))}
+          <p style={{ margin: "10px 0 0", textAlign: "center", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+            전체 {filtered.length}건
+          </p>
         </Widget>
 
-        {/* 실시간 센서 변동 모니터링 — sensorAvgComparison 5×4, 실제 σ 막대 차트 형태 */}
-        <Widget
-          icon="dashboard-square-activity"
-          title="실시간 센서 변동 모니터링"
-          desc="4"
-          x={6}
-          y={0}
-          w={7}
-          h={4}
-          right={
-            <span data-desc="5" style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)", whiteSpace: "nowrap" }}>
-              5초마다 갱신
-            </span>
-          }
-        >
-          <SigmaBarChart items={sigmaItems} height={132} />
-        </Widget>
-
-        {/* 시간대별 이상 발생 추이 — timeTrend 5×4 */}
-        <Widget dimmed icon="dashboard-history" title="시간대별 이상 발생 추이" desc="11" x={13} y={0} w={7} h={4}>
-          <div style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)", marginBottom: 4 }}>
-            (발생 건수)
+        {/* 장소별 이상 발생 건수 — 발생 장소 · 분포 · 발생 건수 */}
+        <Widget dimmed icon="dashboard-map" title="장소별 이상 발생 건수" desc="63" x={14} y={4} w={6} h={3}>
+          <div style={{ display: "grid", gridTemplateColumns: "72px 1fr 48px", gap: "6px 10px", alignItems: "center" }}>
+            <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>발생 장소</span>
+            <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>분포</span>
+            <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)", textAlign: "right" }}>발생 건수</span>
+            {MOCK_PLACES.map((pl) => (
+              [
+                <span key={pl.label + "-n"} style={{ font: "var(--text-label-2-regular)", color: "var(--semantic-text-default)" }}>
+                  {pl.label}
+                </span>,
+                <span key={pl.label + "-b"} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <span style={{ flex: 1, height: 8, borderRadius: 999, background: "var(--semantic-natural-light)", overflow: "hidden" }}>
+                    <span style={{ display: "block", width: `${pl.ratio}%`, height: "100%", background: "var(--semantic-natural-deep)", borderRadius: 999 }} />
+                  </span>
+                  <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)", fontVariantNumeric: "tabular-nums" }}>
+                    {pl.ratio}%
+                  </span>
+                </span>,
+                <span key={pl.label + "-c"} style={{ font: "var(--text-label-2-regular)", color: "var(--semantic-text-default)", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
+                  {pl.count}건
+                </span>,
+              ]
+            ))}
           </div>
-          <BarSeries data={MOCK_HOURLY} height={110} color="var(--semantic-natural-deep)" />
         </Widget>
 
-        {/* 이상 탐지 발생 요약 — anomalySummary 6×2 */}
-        <Widget dimmed icon="dashboard-graph" title="이상 탐지 발생 요약" desc="9" x={13} y={4} w={7} h={3}>
-          <RatioBars data={MOCK_SUMMARY} />
+        {/* 실시간 이상 탐지 내역 — 탐지 카드 가로 스트립 */}
+        <Widget dimmed icon="dashboard-square-activity" title="실시간 이상 탐지 내역" meta="2026-08-27 기준" desc="64" x={0} y={7} w={7} h={5}>
+          <div style={{ display: "flex", gap: 10, overflowX: "auto", height: "100%", paddingBottom: 2 }}>
+            {MOCK_DETECTIONS.map((d) => (
+              <div
+                key={d.name}
+                style={{
+                  flexShrink: 0,
+                  width: 180,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 8,
+                  padding: "12px",
+                  borderRadius: 8,
+                  border: "1px solid var(--semantic-line-default)",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <Icon name="dashboard-detection" size={16} color="var(--semantic-text-default)" />
+                  <span style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                    {d.name}
+                  </span>
+                  <span style={{ marginLeft: "auto", font: "var(--text-caption-2-regular)", color: "var(--semantic-text-sub)", whiteSpace: "nowrap" }}>
+                    {d.time}
+                  </span>
+                </div>
+                <div>
+                  <div style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>발생 장소</div>
+                  <div style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)" }}>{d.place}</div>
+                </div>
+                <div>
+                  <div style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>탐지 데이터</div>
+                  <div style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)" }}>
+                    {d.data}
+                    <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}> {d.threshold}</span>
+                  </div>
+                </div>
+                <div style={{ marginTop: "auto", borderTop: "1px solid var(--semantic-line-default)", paddingTop: 6, textAlign: "center" }}>
+                  <TextButton variant="assistive" size="small">상세 보기</TextButton>
+                </div>
+              </div>
+            ))}
+          </div>
         </Widget>
 
-        {/* 탐지 확인 현황 — detectionStatusCard 5×4 */}
-        <Widget dimmed icon="dashboard-book-check" title="탐지 확인 현황" desc="10" x={13} y={7} w={7} h={5}>
-          <RatioBars data={MOCK_CHECK} />
-        </Widget>
-
-        {/* 배치도 — layout 5×5, 더미 도면 SVG + 비콘 */}
-        <Widget dimmed icon="dashboard-map" title="배치도" meta="GPU룸 A" desc="12" x={6} y={4} w={7} h={8}>
-          <FloorPlan beacons={MOCK_BEACONS} />
+        {/* 탐지 확인 현황 — 미해결/확인 중/해결 3타일 + 상세 보기 */}
+        <Widget dimmed icon="dashboard-book-check" title="탐지 확인 현황" meta="2026-08-27 기준" desc="10" x={14} y={7} w={6} h={5}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, height: "100%" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, flex: 1 }}>
+              {MOCK_CHECK.map((c) => (
+                <div
+                  key={c.label}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 4,
+                    borderRadius: 8,
+                    background: "var(--semantic-bg-light)",
+                    padding: "12px 8px",
+                  }}
+                >
+                  <span style={{ font: "var(--text-heading-2-semibold)", color: c.tone }}>
+                    {c.count}
+                    <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>건</span>
+                  </span>
+                  <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>{c.label}</span>
+                </div>
+              ))}
+            </div>
+            <OutlineButton variant="assistive" size="small" widthType="fixed">
+              상세 보기
+            </OutlineButton>
+          </div>
         </Widget>
       </div>
     </div>

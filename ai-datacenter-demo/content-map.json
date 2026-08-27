@@ -3342,6 +3342,313 @@
       "destination": "alert_drawer_subtitle",
       "copy": "이 있습니다.",
       "evidence": "C-161 템플릿의 분할 렌더 조각(강조 span 뒤 서술어)"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-185",
+      "user_task": "대시보드 식별",
+      "destination": "page_title",
+      "copy": "메인 대시보드",
+      "evidence": "실제 대시보드 페이지 제목"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-186",
+      "user_task": "상황 목록 범위 인지",
+      "destination": "widget_subtitle",
+      "copy": "전체 구역의 상황이 표시됩니다.",
+      "evidence": "실제 이상 상황 목록 위젯 부제"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_CONDITIONAL",
+      "confidence": "confirmed",
+      "id": "C-187",
+      "user_task": "새 상황 인지·이동",
+      "destination": "widget_banner",
+      "copy": "확인하지 않은 새 상황 {N}건이 있습니다",
+      "evidence": "실제 위젯 배너",
+      "trigger": "unconfirmed_new"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-188",
+      "user_task": "새 상황으로 이동",
+      "destination": "widget_banner_action",
+      "copy": "바로 이동",
+      "evidence": "실제 위젯 배너 CTA"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-189",
+      "user_task": "목록 규모 인지",
+      "destination": "widget_footer",
+      "copy": "전체 {N}건",
+      "evidence": "실제 위젯 푸터"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-190",
+      "user_task": "지연 상황 필터",
+      "destination": "widget_tab",
+      "copy": "처리 지연",
+      "evidence": "실제 상태 탭 5종 중 누락분 추가"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-191",
+      "user_task": "장소별 분포 열 식별",
+      "destination": "widget_table_header",
+      "copy": "발생 장소",
+      "evidence": "실제 장소별 위젯 열 헤더"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-192",
+      "user_task": "장소별 분포 열 식별",
+      "destination": "widget_table_header",
+      "copy": "분포",
+      "evidence": "실제 장소별 위젯 열 헤더"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-193",
+      "user_task": "장소별 분포 열 식별",
+      "destination": "widget_table_header",
+      "copy": "발생 건수",
+      "evidence": "실제 장소별 위젯 열 헤더"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-194",
+      "user_task": "탐지 상세 진입",
+      "destination": "widget_card_action",
+      "copy": "상세 보기",
+      "evidence": "실제 탐지 카드·확인 현황 CTA"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-195",
+      "user_task": "탐지 정보 식별",
+      "destination": "widget_card_label",
+      "copy": "탐지 데이터",
+      "evidence": "실제 탐지 카드 라벨"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-196",
+      "user_task": "확인 진행 상태 인지",
+      "destination": "widget_tile_label",
+      "copy": "미해결",
+      "evidence": "실제 확인 현황 타일"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-197",
+      "user_task": "확인 진행 상태 인지",
+      "destination": "widget_tile_label",
+      "copy": "해결",
+      "evidence": "실제 확인 현황 타일"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-198",
+      "user_task": "위젯 식별",
+      "destination": "widget_title",
+      "copy": "시간대별 이상 발생 건수",
+      "evidence": "실제 위젯명"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-199",
+      "user_task": "위젯 식별",
+      "destination": "widget_title",
+      "copy": "장소별 이상 발생 건수",
+      "evidence": "실제 위젯명"
+    },
+    {
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-200",
+      "user_task": "위젯 식별",
+      "destination": "widget_title",
+      "copy": "실시간 이상 탐지 내역",
+      "evidence": "실제 위젯명"
+    },
+    {
+      "id": "C-201",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "건수 단위 인지",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "count_suffix",
+      "copy": "건",
+      "evidence": "카운트 강조 숫자 뒤 단위 접미 — 분할 렌더 조각",
+      "confidence": "confirmed"
     }
   ]
 }

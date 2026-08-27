@@ -2,20 +2,12 @@
   "$note": "설명 모드(inspection) 정책 SoT. wireframe-description 단계에서 전체 컴포넌트로 확장한다. 수치 값은 도메인 승인 전까지 프로토타입 데이터일 뿐 확정 사양이 아니다.",
   "screenPolicies": [
     {
-      "num": "4",
-      "group": "대시보드",
-      "screen": "screen-01",
-      "title": "실시간 센서 변동 모니터링",
-      "componentId": "SensorMonitoringWidget",
-      "body": "실제 FE TempBarChart 형태를 재현한 σ 막대 차트. 항목당 막대 1개.\n\n산출식: 100 + (Z-score)×10, Z = (현재값 − 평균값) ÷ 표준편차(σ=0이면 1로 계산). 평균값은 최대 365일 기준. {L-4}\n\ny축 0~200, 기준선 100 점선(=평균). 계산값 120 이상은 danger 색(정상 범위 80~120% 이탈), 175 이상은 별도 화면 처리(KB 정책).\n\n막대 클릭 시 현재값·평균값·평균 범위(평균±2σ) 표시 — FE 클릭 툴팁 재현. 기본 규격 5×4, FE 리페치 5초.\n\n[시뮬레이터 연동] 냉각 계통 신호 단절 시 '냉각 유량' 막대가 회색 점선(수집 없음)으로 바뀐다 — 조용히 제외하지 않는다."
-    },
-    {
       "num": "7",
       "group": "대시보드",
       "screen": "screen-01",
       "title": "이상 상황 목록 위젯",
       "componentId": "AbnormalSituationListWidget",
-      "body": "실제 FE AbnormalSituationList 위젯 구조를 따른다.\n\n항목 구성: [New 뱃지(검정 칩)] [StateBadge 심각도(HIGH=error/MEDIUM=warning/LOW=basic)] 제목 / 메타(최근 · 최초 · 누적 N건) / 담당자, 우측 상태 라벨(확인 대기=danger, 확인 중=warning).\n\n[신규 확장] 메타 아래 진행 단계 칩 + 개입 여지 배지(FN-1·FN-3). 기존 항목 구조는 바꾸지 않고 한 줄을 더한 형태다.\n\n배치: 좌측 세로 패널 6×12(리사이즈 가정 — 기본 규격은 5×4). 내부 스크롤, 상태 탭 상단 고정."
+      "body": "실제 FE AbnormalSituationList 위젯 구조를 따른다.\n\n항목 구성: [New 뱃지(검정 칩)] [StateBadge 심각도(HIGH=error/MEDIUM=warning/LOW=basic)] 제목 / 메타(최근 · 최초 · 누적 N건) / 담당자, 우측 상태 라벨(확인 대기=danger, 확인 중=warning).\n\n[신규 확장] 메타 아래 진행 단계 칩 + 개입 여지 배지(FN-1·FN-3). 기존 항목 구조는 바꾸지 않고 한 줄을 더한 형태다.\n\n배치: 좌측 세로 패널 6×12(리사이즈 가정 — 기본 규격은 5×4). 내부 스크롤, 상태 탭 상단 고정.\n\n2026-08-27 실제 위젯 형식 반영: 부제(전체 구역의 상황이 표시됩니다), 상태 탭 5종(전체/확인 대기/확인 중/처리 지연/조치 완료 + numberBadge), 확인하지 않은 새 상황 배너(바로 이동), 하단 전체 N건. 데모 핵심 위젯이라 dimmed 미적용."
     },
     {
       "num": "13",
@@ -175,7 +167,7 @@
       "screen": "screen-01",
       "title": "이상 탐지 발생 요약",
       "componentId": "AnomalySummaryWidget",
-      "body": "기본 규격 6×2(anomalySummary). 당일 탐지 유형을 발생 건수 많은 순으로 정렬(KB 정책)."
+      "body": "상단 와이드 스트립(14×2). 탐지 유형별 건수 칩 가로 나열(가로 스크롤) — 실제 anomalySummary 위젯 형식. 유형 라벨 + N건. 데모 핵심 외 위젯이라 dimmed 처리."
     },
     {
       "num": "10",
@@ -183,15 +175,15 @@
       "screen": "screen-01",
       "title": "탐지 확인 현황",
       "componentId": "DetectionStatusWidget",
-      "body": "기본 규격 5×4(detectionStatusCard). 당일 발생 이벤트의 확인 상태 분포(확인 대기·확인 중·조치 완료)."
+      "body": "실제 detectionStatusCard 형식 — 미해결(danger)/확인 중/해결(positive) 3타일 + 하단 상세 보기(OutlineButton). 데모 핵심 외 위젯이라 dimmed 처리."
     },
     {
       "num": "11",
       "group": "대시보드",
       "screen": "screen-01",
-      "title": "시간대별 이상 발생 추이",
+      "title": "시간대별 이상 발생 건수",
       "componentId": "TimeTrendWidget",
-      "body": "기본 규격 5×4(timeTrend). 다크 네이비 단색 막대 — 03-widget.png 톤. 축 라벨 '(발생 건수)'."
+      "body": "실제 위젯명 '시간대별 이상 발생 건수'. (발생 건수) 축 라벨 + 다크 네이비 단색 막대. 데모 핵심 외 위젯이라 dimmed 처리."
     },
     {
       "num": "70",
@@ -224,6 +216,22 @@
       "title": "알림 카드",
       "componentId": "AlertItem",
       "body": "배지(이벤트 유형)+상대시각(방금 전/n분 전/n시간 전/n일 전)+제목(상황명)+행동 안내 1문장. 미읽음=primary-extra-light 배경, 읽음=흰 배경+테두리. 클릭 시 읽음 처리 후 상황 알림은 해당 상황 상세로 이동, 시스템 알림은 읽음 처리만(실제 제품은 해당 관리 화면 이동 — 데모 범위 밖)."
+    },
+    {
+      "num": "63",
+      "group": "대시보드",
+      "screen": "screen-01",
+      "title": "장소별 이상 발생 건수",
+      "componentId": "PlaceCountWidget",
+      "body": "발생 장소·분포(다크 바+%)·발생 건수 3열 — 실제 위젯 형식. 데모 핵심 외 위젯이라 dimmed 처리."
+    },
+    {
+      "num": "64",
+      "group": "대시보드",
+      "screen": "screen-01",
+      "title": "실시간 이상 탐지 내역",
+      "componentId": "RealtimeDetectionWidget",
+      "body": "탐지 카드 가로 스트립 — 카드=탐지명+상대시각+발생 장소+탐지 데이터(값/기준)+상세 보기. 실제 위젯 형식. 데모 핵심 외 위젯이라 dimmed 처리. 2026-08-27 구성 변경으로 실시간 센서 변동 모니터링(σ 차트)은 대시보드에서 제외(컴포넌트 보존, 재도입 가능)."
     }
   ],
   "logicPolicies": [
