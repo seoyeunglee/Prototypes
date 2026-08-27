@@ -10,6 +10,7 @@ import EquipGroupAnalysis from "../components/tech/EquipGroupAnalysis";
 import DocPipeline from "../components/tech/DocPipeline";
 import PredictionEngine from "../components/tech/PredictionEngine";
 import OpsManagement from "../components/tech/OpsManagement";
+import { DataSourcePage, EdgeDevicePage, ModelMgmtPage, DocMgmtPage } from "../components/tech/MgmtPages";
 import ActionRecord from "./04-ActionRecord";
 
 const STATUS = {
@@ -21,7 +22,7 @@ const STATUS = {
 // T1 — 융합 이벤트 파이프라인 (실제 시나리오 설정 페이지의 노드 설정 재현)
 const T1_NODES = [
   { id: "sen", type: "data", kind: "sensor", name: "냉각·전력 센서", x: 24, y: 40, hasInput: false,
-    rows: [["GPU룸 A", "유량계 F-21", "냉각수 유량"], ["분전반 A", "멀티미터 101", "유효전력"]] },
+    rows: [["GPU룸 A", "유량계 F-21", "냉각수 유량"], ["분전반 A", "멀티미터 101", "유효전력"], ["GPU 랙 A열", "온도 센서", "랙 출구 온도"]] },
   { id: "gpu", type: "data", kind: "plain", name: "GPU 작업량 수집기", x: 24, y: 340, hasInput: false, planned: true,
     body: "DCGM/Redfish 텔레메트리를 데이터 노드로 등록합니다. 수집 이후 파이프라인은 현재 제품 구성 그대로입니다." },
   { id: "sync", type: "data", kind: "plain", name: "시간 동기화 감시", x: 24, y: 500, hasInput: false, hasOutput: false, planned: true,
@@ -58,6 +59,22 @@ const T1_EVENTS = [
     yMax: "157L/min", yMin: "118L/min", value: "118L/min", avgLabel: "140L/min", rule: "추세 이탈 누적",
     note: "부하 상승 시 기대되는 유량 증가가 나타나지 않아 추세 이탈로 판정됐습니다." },
 ];
+
+// 대시보드 위젯 프레임 재현 — 탐지 이벤트·상황 묶음을 실제 표시 위치(위젯 내부) 그대로 보여준다
+function MiniWidget({ icon, title, children, style }) {
+  return (
+    <div style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 12, padding: "12px 16px", background: "var(--semantic-bg-default)", ...style }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+        <Icon name={icon} size={20} />
+        <h4 style={{ margin: 0, font: "var(--text-heading-2-semibold)", color: "var(--semantic-text-default)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{title}</h4>
+        <span style={{ marginLeft: "auto", display: "inline-flex" }}>
+          <Icon name="more-horizontal" size={20} color="var(--semantic-text-sub)" />
+        </span>
+      </div>
+      {children}
+    </div>
+  );
+}
 
 // 캐러셀 좌우 이동 버튼 — FE 원형 아이콘 버튼 패턴(FilterBar reset과 동일 계열)
 function NavArrow({ dir, disabled, onClick }) {
@@ -105,9 +122,10 @@ export default function TechShowcase({ onOpenDemoDetail }) {
     setStepIdx(0);
   }
 
-  // T1 스텝 콘텐츠
+  // T1 스텝 콘텐츠 — 실제 표시 위치(대시보드 위젯) 그대로
   const t1Events = (
     <div data-desc="82">
+      <MiniWidget icon="dashboard-square-activity" title="실시간 이상 탐지 내역">
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
         {T1_EVENTS.map((e) => (
           <button
@@ -141,20 +159,58 @@ export default function TechShowcase({ onOpenDemoDetail }) {
           </button>
         ))}
       </div>
+      </MiniWidget>
     </div>
   );
 
   const t1Situation = (
-    <div data-desc="83" style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, padding: "12px 16px", maxWidth: 560 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 6, flexWrap: "wrap" }}>
-        <ContentBadge size="compact" backgroundColor="var(--semantic-natural-deep)" contentColor="var(--semantic-text-on-dark)">New</ContentBadge>
-        <StateBadge size="compact" variant="error">심각도 높음</StateBadge>
-        <span style={{ font: "var(--text-body-2-normal-semibold)", color: "var(--semantic-text-default)" }}>GPU 랙 A열 냉각 반응 지연</span>
+    <div data-desc="83" style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "flex-start" }}>
+      {/* 이상 상황 목록 위젯 내부 표시 */}
+      <MiniWidget icon="dashboard-detection" title="이상 상황 목록" style={{ flex: "1 1 320px", minWidth: 300 }}>
+        <button
+          type="button"
+          onClick={onOpenDemoDetail}
+          style={{ display: "flex", flexDirection: "column", gap: 6, width: "100%", textAlign: "left", padding: "12px 4px", border: "none", background: "transparent", cursor: "pointer", borderBottom: "1px solid var(--semantic-line-default)" }}
+        >
+          <span style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+            <ContentBadge size="compact" backgroundColor="var(--semantic-natural-deep)" contentColor="var(--semantic-text-on-dark)">New</ContentBadge>
+            <StateBadge size="compact" variant="error">심각도 높음</StateBadge>
+            <span style={{ font: "var(--text-body-2-normal-semibold)", color: "var(--semantic-text-default)" }}>GPU 랙 A열 냉각 반응 지연</span>
+          </span>
+          <span style={{ display: "flex", alignItems: "center", gap: 8, font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)" }}>
+            최근 <b style={{ color: "var(--semantic-text-default)" }}>1분 전</b> · 누적 <b style={{ color: "var(--semantic-text-default)" }}>2건</b>
+          </span>
+          <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            <ContentBadge size="compact" backgroundColor="var(--semantic-bg-light)" borderColor="var(--semantic-line-default)" contentColor="var(--semantic-text-default)">냉각 반응 지연</ContentBadge>
+            <StateBadge size="compact" variant="warning">개입 여지 좁아지는 중</StateBadge>
+          </span>
+        </button>
+        <p style={{ margin: "8px 0 0", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+          탐지 이벤트 2건이 같은 장소 기준으로 상황 1건으로 묶여 목록에 올라옵니다.
+        </p>
+      </MiniWidget>
+
+      {/* 알림 센터(우측 사이드바) 표시 */}
+      <div style={{ width: 300, flexShrink: 0, border: "1px solid var(--semantic-line-default)", borderRadius: 12, background: "var(--semantic-bg-default)", overflow: "hidden" }}>
+        <div style={{ padding: "12px 16px 8px" }}>
+          <h4 style={{ margin: 0, font: "var(--text-heading-2-semibold)", color: "var(--semantic-text-default)" }}>알림 센터</h4>
+          <p style={{ margin: "4px 0 0", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+            읽지 않은 알림이 <span style={{ color: "var(--semantic-primary-default)", font: "var(--text-caption-1-semibold)" }}>1건</span> 있습니다.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={onOpenDemoDetail}
+          style={{ display: "flex", flexDirection: "column", gap: 6, width: "100%", textAlign: "left", padding: "12px 16px", border: "none", cursor: "pointer", background: "var(--semantic-primary-extra-light)" }}
+        >
+          <span style={{ display: "flex", alignItems: "center", gap: 6, width: "100%" }}>
+            <ContentBadge size="compact" backgroundColor="var(--semantic-natural-deep)" contentColor="var(--semantic-text-on-dark)">신규 상황</ContentBadge>
+            <span style={{ marginLeft: "auto", font: "var(--text-caption-2-regular)", color: "var(--semantic-text-sub)" }}>방금 전</span>
+          </span>
+          <span style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)" }}>GPU 랙 A열 냉각 반응 지연</span>
+          <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>현장을 확인하고 담당자를 배정해 주세요.</span>
+        </button>
       </div>
-      <p style={{ margin: "0 0 8px", font: "var(--text-label-2-reading-regular)", color: "var(--semantic-text-sub)" }}>
-        위 탐지 이벤트 2건이 같은 장소 기준으로 이상 상황 1건으로 묶였습니다. 운영자는 알람 목록이 아니라 상황 1건을 받습니다.
-      </p>
-      <TextButton variant="assistive" size="small" onClick={onOpenDemoDetail}>운영 데모 상세에서 보기</TextButton>
     </div>
   );
 
@@ -163,11 +219,13 @@ export default function TechShowcase({ onOpenDemoDetail }) {
     {
       id: "t1", no: 1, name: "초연결 시계열 분석", status: "direct",
       steps: [
+        { short: "연결 데이터", title: "연결 데이터 등록 — 데이터 소스", caption: "이 시나리오가 쓰는 데이터 소스가 연결 데이터 관리에 등록된 상태입니다. 여기 등록된 소스가 다음 단계의 데이터 노드로 들어갑니다.",
+          render: () => <DataSourcePage desc="94" /> },
         { short: "노드 연결", title: "노드 연결 — 탐지 시나리오 구성", caption: "변화율·EWMA·융합 이벤트 노드의 설정 UI가 실제 시나리오 설정 페이지 그대로입니다.",
           render: () => <NodeCanvas nodes={T1_NODES} edges={T1_EDGES} height={760} desc="81" /> },
-        { short: "탐지 이벤트", title: "추출된 탐지 이벤트", caption: "점선(신규) 노드를 거치는 이벤트는 연계 후 동작 예시입니다. 나머지는 현재 제품 판정 그대로입니다.",
+        { short: "탐지 이벤트", title: "추출된 탐지 이벤트", caption: "대시보드의 실시간 이상 탐지 내역 위젯에 이렇게 표시됩니다. 점선(신규) 노드를 거치는 이벤트는 연계 후 동작 예시입니다.",
           render: () => t1Events },
-        { short: "상황 묶음", title: "상황 이벤트로 묶임", caption: "상황 제안 에이전트가 장소 기준으로 묶은 결과입니다.",
+        { short: "상황 묶음", title: "상황 이벤트로 묶임", caption: "실제 표시 위치 그대로 — 이상 상황 목록 위젯과 알림 센터(우측 사이드바)에 상황 1건으로 올라옵니다. 카드를 클릭하면 상세로 이동합니다.",
           render: () => t1Situation },
       ],
       summary: [
@@ -190,7 +248,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
       id: "t3", no: 3, name: "온톨로지 기반 지식화", status: "design",
       steps: [
         { short: "문서 관리", title: "문서 관리 — 등록 현황", caption: "현재 제품 동작 — PDF 업로드부터 벡터 DB 적재까지. 상황 화면의 관련 매뉴얼이 여기서 연결됩니다.",
-          render: () => <DocPipeline part="docs" desc="85" /> },
+          render: () => <DocMgmtPage desc="85" /> },
         { short: "파이프라인", title: "지식화 파이프라인", caption: "실선은 현재 제품 동작, 점선은 설계 확보 구간(온톨로지 도메인 팩)입니다.",
           render: () => <DocPipeline part="pipeline" desc="85" /> },
       ],
@@ -237,11 +295,11 @@ export default function TechShowcase({ onOpenDemoDetail }) {
       id: "t6", no: 6, name: "Edge + MLOps 운영", status: "direct",
       steps: [
         { short: "엣지 디바이스", title: "엣지 디바이스 관리", caption: "현장 센서 - 엣지 - 서버 구조. 디바이스 상태·리소스를 상시 감시합니다.",
-          render: () => <OpsManagement section="edge" desc="88" /> },
+          render: () => <EdgeDevicePage desc="88" /> },
         { short: "모델 관리", title: "모델 관리", caption: "성능 점검·재학습·배포·연합학습을 이 화면에서 수행합니다.",
-          render: () => <OpsManagement section="model" desc="88" /> },
+          render: () => <ModelMgmtPage desc="88" /> },
         { short: "연결 데이터", title: "연결 데이터 관리", caption: "수집 상태 4분류 · 값 고착 감지 · 이상 소스를 쓰는 탐지 자동 차단, 복구 시 자동 재개.",
-          render: () => <OpsManagement section="data" desc="88" /> },
+          render: () => <DataSourcePage desc="88" /> },
         { short: "신규 어댑터", title: "신규 연계 — 프로토콜 어댑터", caption: "설치형 어댑터로 기존 EMS·BMS·GPU 텔레메트리를 연결하는 방식입니다.",
           render: () => <OpsManagement section="adapter" desc="88" /> },
       ],

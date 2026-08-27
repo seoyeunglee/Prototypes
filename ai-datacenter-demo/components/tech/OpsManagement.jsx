@@ -21,6 +21,7 @@ const SOURCES = [
   { name: "전력 멀티미터 101", type: "센서", status: "정상 연결", variant: "success", last: "5초 전" },
   { name: "밸브 개도 V-21", type: "센서", status: "연결 실패", variant: "error", last: "32분 전" },
   { name: "설비 운영 DB", type: "DB", status: "정상 연결", variant: "success", last: "1분 전" },
+  { name: "GPU 텔레메트리 (DCGM/Redfish)", type: "수집기", status: "연동 예정", variant: "info", last: "-", planned: true },
 ];
 
 const ADAPTERS = ["Modbus-TCP", "BACnet/IP", "SNMP", "Redfish/DCGM"];
@@ -93,9 +94,12 @@ export default function OpsManagement({ desc, section = "edge" }) {
             <Row
               key={s.name}
               left={
-                <span style={{ minWidth: 0 }}>
+                <span style={{ minWidth: 0, display: "inline-flex", alignItems: "center", gap: 8 }}>
                   <span style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)" }}>{s.name}</span>
-                  <span style={{ marginLeft: 8, font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)" }}>{s.type}</span>
+                  <span style={{ font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)" }}>{s.type}</span>
+                  {s.planned && (
+                    <ContentBadge size="compact" backgroundColor="var(--semantic-natural-deep)" contentColor="var(--semantic-text-on-dark)">신규</ContentBadge>
+                  )}
                 </span>
               }
               mid={
