@@ -1,0 +1,245 @@
+/* 설명 모드 토글 버튼 */
+.insp-toggle {
+  display: flex; align-items: center; gap: 6px;
+  background: #fff;
+  border: 1.5px solid rgba(112,115,124,0.32);
+  border-radius: 20px; padding: 5px 12px;
+  font-size: 12px; font-weight: 600; color: #70737c;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  user-select: none; white-space: nowrap;
+}
+.insp-toggle:hover { background: #f0f2ff; }
+.insp-toggle.active { background: #4a71ff; border-color: #4a71ff; color: #fff; }
+.insp-toggle-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.7; flex-shrink: 0; }
+.insp-toggle.active .insp-toggle-dot { opacity: 1; animation: insp-dot-blink 1.4s infinite; }
+@keyframes insp-dot-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* DescTooltip 래퍼 */
+.dt-wrap {
+  position: relative;
+  outline: 2px dashed rgba(74,113,255,0.28);
+  outline-offset: 2px; border-radius: 6px; cursor: context-menu;
+  transition: outline-color 0.15s;
+}
+.dt-wrap:hover { outline-color: rgba(74,113,255,0.55); outline-style: solid; }
+.dt-wrap:hover::before { opacity: 1; }
+.dt-wrap--selected { outline: 2px solid #4a71ff; animation: dt-pulse 1.4s ease-in-out infinite; }
+.dt-wrap--selected::before { opacity: 1; }
+@keyframes dt-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(74,113,255,0.35); }
+  50%       { box-shadow: 0 0 0 7px rgba(74,113,255,0.08); }
+}
+.dt-wrap[data-num]::before {
+  content: "[" attr(data-num) "]";
+  position: absolute; top: 0; left: 0; z-index: 10;
+  background: #4a71ff; color: #fff;
+  font-size: 10px; font-weight: 700; line-height: 1.5; letter-spacing: .3px;
+  padding: 1px 6px; border-radius: 4px 0 4px 0;
+  pointer-events: none; opacity: 0.5; transition: opacity 0.15s;
+}
+
+/* 우클릭 툴팁 박스 */
+.dt-box {
+  position: fixed; z-index: 9999;
+  width: 380px; max-width: calc(100vw - 24px);
+  max-height: 60vh; overflow-y: auto;
+  background: #1c1f2e; color: #e2e6f0;
+  border-radius: 10px; padding: 14px 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.40);
+}
+.dt-label { font-size: 11.5px; font-weight: 700; color: #7da4f8; letter-spacing: .3px; margin-bottom: 8px; }
+.dt-body { font-size: 12.5px; line-height: 1.65; color: #d6dbe8; }
+.dtd-h { font-size: 12.5px; font-weight: 700; color: #aebfe8; margin: 8px 0 2px; }
+.dtd-l { font-size: 12.5px; line-height: 1.65; color: #d6dbe8; white-space: pre-wrap; }
+.dtd-sp { height: 6px; }
+
+/* 정책 인덱스 패널 (floating card) */
+.insp-panel {
+  position: fixed; top: 56px; right: 16px; z-index: 1050;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 72px); overflow-y: auto;
+  background: #fff;
+  border: 1px solid rgba(112,115,124,0.20);
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  padding: 14px;
+}
+.ip-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.ip-title { font-size: 14px; font-weight: 700; color: #171719; }
+.ip-count { font-size: 12px; font-weight: 600; color: #4a71ff; background: rgba(74,113,255,0.10); border-radius: 999px; padding: 1px 8px; }
+.ip-tabs { display: flex; gap: 4px; margin: 4px 0 8px; }
+.ip-tab { flex: 1; padding: 5px 8px; border-radius: 7px; font-size: 12px; font-weight: 600; color: #70737c; background: rgba(112,115,124,0.08); cursor: pointer; border: none; font-family: inherit; }
+.ip-tab.is-active { background: #4a71ff; color: #fff; }
+.ip-group { font-size: 11.5px; font-weight: 700; color: #70737c; margin: 12px 0 2px; }
+.ip-item { width: 100%; display: flex; align-items: center; gap: 8px; background: none; border: none; padding: 7px 8px; border-radius: 8px; cursor: pointer; text-align: left; font-family: inherit; }
+.ip-item:hover { background: rgba(74,113,255,0.06); }
+.ip-num { font-size: 11px; font-weight: 700; color: #fff; background: #4a71ff; border-radius: 5px; padding: 2px 6px; flex-shrink: 0; }
+.ip-label { flex: 1; font-size: 14px; color: #171719; }
+.ip-chev { color: #70737c; font-size: 15px; transition: transform .15s; flex-shrink: 0; }
+.ip-row.open .ip-chev { transform: rotate(90deg); color: #4a71ff; }
+.ip-detail { display: none; padding: 4px 10px 12px; }
+.ip-row.open .ip-detail { display: block; }
+.ipd-h { font-size: 14px; font-weight: 700; color: #171719; margin: 9px 0 3px; }
+.ipd-l { font-size: 14px; line-height: 1.55; color: #70737c; white-space: pre-wrap; }
+.ipd-sp { height: 6px; }
+.ip-row--sub .ip-item { padding-left: 22px; }
+.ip-row--sub .ip-num { background: rgba(74,113,255,0.45); }
+.ip-row--sub .ip-label { color: #70737c; font-size: 12.5px; }
+.ipd-ref { display: inline-flex; align-items: center; padding: 0 6px; margin: 0 2px; background: #4a71ff; color: #fff; font-size: 11px; font-weight: 700; line-height: 1.6; border: none; border-radius: 999px; cursor: pointer; vertical-align: baseline; font-family: inherit; }
+.ipd-ref:hover { opacity: .85; }
+.insp-ref-btn { display: inline-block; margin-top: 8px; padding: 4px 10px; background: rgba(74,113,255,0.12); border: 1px solid rgba(74,113,255,0.30); border-radius: 4px; font-size: 11px; color: #4a71ff; cursor: pointer; font-family: inherit; }
+.insp-ref-btn:hover { background: rgba(74,113,255,0.22); }
+
+@keyframes polPulse {
+  0%   { box-shadow: inset 0 0 0 9999px rgba(74,113,255,.28); }
+  100% { box-shadow: inset 0 0 0 9999px rgba(74,113,255,.00); }
+}
+.pol-pulse { animation: polPulse 1.2s ease-out 1; border-radius: 6px; }
+
+/* ── 패널 리사이즈 핸들 ── */
+.insp-panel { padding-left: 22px; }
+.insp-resize {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 16px;
+  cursor: ew-resize; border-radius: 12px 0 0 12px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--semantic-natural-default, #eaebec); transition: background 0.15s;
+}
+.insp-resize::before { content: '‹'; font-size: 16px; font-weight: 700; line-height: 1; color: var(--semantic-text-sub, #70737c); }
+.insp-resize:hover { background: rgba(74,113,255,0.18); }
+.insp-resize:hover::before { color: var(--semantic-primary-default, #4a71ff); }
+
+/* ── 시뮬레이터 실행 버튼 ── */
+.sim-btn {
+  display: inline-flex; align-items: center; padding: 1px 8px; margin: 2px 3px 2px 0;
+  background: #ff9200; color: #fff; font-size: 11px; font-weight: 700; line-height: 1.6;
+  border: none; border-radius: 999px; cursor: pointer; font-family: inherit;
+}
+.sim-btn:hover { opacity: .88; }
+
+/* ── 인라인 편집 (eb-tooltip 다크 / eb-panel 라이트) ── */
+.eb { position: relative; }
+.eb-edit { margin-top: 8px; font-size: 11px; padding: 3px 9px; border-radius: 4px; cursor: pointer; border: 1px solid transparent; }
+.eb-tooltip .eb-edit { background: rgba(125,164,248,0.15); border-color: rgba(125,164,248,0.4); color: #9db4e8; }
+.eb-tooltip .eb-edit:hover { background: rgba(125,164,248,0.28); }
+.eb-panel .eb-edit { background: #f0f3ff; border-color: rgba(74,113,255,0.3); color: #4a71ff; }
+.eb-panel .eb-edit:hover { background: #e4ebff; }
+.eb-area { width: 100%; box-sizing: border-box; font-family: inherit; font-size: 12px; line-height: 1.55; border-radius: 6px; padding: 8px; resize: vertical; }
+.eb-tooltip .eb-area { background: #11131c; color: #e2e6f0; border: 1px solid rgba(125,164,248,0.45); }
+.eb-panel .eb-area { background: #fff; color: #171719; border: 1px solid rgba(74,113,255,0.45); }
+.eb-actions { display: flex; gap: 6px; margin-top: 6px; }
+.eb-btn { font-size: 11px; padding: 4px 12px; border-radius: 4px; cursor: pointer; border: none; }
+.eb-btn:disabled { opacity: 0.5; cursor: default; }
+.eb-save { background: #4a71ff; color: #fff; }
+.eb-cancel { background: transparent; }
+.eb-tooltip .eb-cancel { color: #9db4e8; border: 1px solid rgba(125,164,248,0.4); }
+.eb-panel .eb-cancel { color: #70737c; border: 1px solid rgba(112,115,124,0.3); }
+.eb-msg { font-size: 11px; margin-top: 6px; line-height: 1.5; }
+.eb-tooltip .eb-msg { color: #9db4e8; }
+.eb-panel .eb-msg { color: #4a71ff; }
+
+/* ── 가이드 투어 ── */
+.tour-launcher-btn {
+  display: flex; align-items: center; gap: 6px; background: #fff;
+  border: 1.5px solid rgba(112,115,124,0.32); border-radius: 20px; padding: 5px 12px;
+  font-size: 12px; font-weight: 600; color: #70737c; cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08); white-space: nowrap;
+}
+.tour-launcher-btn:hover { background: #f0f2ff; }
+.tour-launcher-btn.active { background: #4a71ff; border-color: #4a71ff; color: #fff; }
+.tour-menu {
+  position: absolute; top: 38px; right: 0; z-index: 1100; width: 260px;
+  background: #fff; border: 1px solid rgba(112,115,124,0.20); border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14); padding: 6px; display: flex; flex-direction: column; gap: 2px;
+}
+.tour-menu-item { display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 9px 10px; border: none; background: none; border-radius: 8px; cursor: pointer; font-family: inherit; }
+.tour-menu-item:hover { background: rgba(74,113,255,0.07); }
+.tour-menu-title { font-size: 13px; font-weight: 700; color: #171719; }
+.tour-menu-sub { font-size: 11.5px; color: #70737c; }
+.tour-bar {
+  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 1200;
+  display: flex; align-items: center; gap: 20px; max-width: calc(100vw - 32px);
+  background: #1c1f2e; color: #e2e6f0; border-radius: 12px; padding: 12px 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.32);
+}
+.tour-bar-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.tour-bar-title { font-size: 12px; font-weight: 700; color: #7da4f8; white-space: nowrap; }
+.tour-bar-node { font-size: 13px; font-weight: 700; white-space: nowrap; }
+.tour-bar-desc { font-size: 12.5px; color: #c2c8d6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tour-bar-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.tour-bar-dots { display: flex; gap: 4px; }
+.tour-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+.tour-dot.active { background: #4a71ff; }
+.tour-dot.done { background: #7da4f8; }
+.tour-bar-progress { font-size: 12px; color: #9aa3b5; }
+.tour-nav-btn { font-size: 12px; padding: 5px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.22); background: transparent; color: #e2e6f0; cursor: pointer; font-family: inherit; }
+.tour-nav-btn:disabled { opacity: 0.4; cursor: default; }
+.tour-nav-btn.primary { background: #4a71ff; border-color: #4a71ff; color: #fff; }
+.tour-close-btn { font-size: 13px; padding: 4px 9px; border-radius: 6px; border: none; background: transparent; color: #9aa3b5; cursor: pointer; }
+.tour-highlight { outline: 3px solid #4a71ff !important; outline-offset: 3px; border-radius: 6px; animation: polPulse 1.2s ease-out infinite; }
+
+/* ── 우선순위 모드 토글 ── */
+.prio-toggle {
+  display: flex; align-items: center; gap: 6px; background: #fff;
+  border: 1.5px solid rgba(112,115,124,0.32); border-radius: 20px; padding: 5px 12px;
+  font-size: 12px; font-weight: 600; color: #70737c; cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08); white-space: nowrap;
+}
+.prio-toggle:hover { background: #f5f0ff; }
+.prio-toggle.active { background: #7c3aed; border-color: #7c3aed; color: #fff; }
+.prio-toggle-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.7; }
+.prio-toggle.active .prio-toggle-dot { opacity: 1; animation: insp-dot-blink 1.4s infinite; }
+
+/* ── 우선순위 마크 (중요도 등급 테두리 + 뱃지) ── */
+.prio-mark { position: relative; border-radius: 8px; }
+.prio-mark.prio-1 { outline: 2px solid #FF4D4D; outline-offset: 3px; }
+.prio-mark.prio-2 { outline: 2px solid #FF9200; outline-offset: 3px; }
+.prio-mark.prio-3 { outline: 2px dashed #C2C4C8; outline-offset: 3px; }
+.prio-badge {
+  position: absolute; top: -10px; left: 8px; z-index: 30;
+  max-width: calc(100% - 16px);
+  background: #1c1f2e; color: #e2e6f0; border-radius: 8px;
+  padding: 7px 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+  font-size: 11.5px; line-height: 1.5;
+}
+.prio-badge-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 3px; }
+.prio-order { font-weight: 700; color: #9db4e8; }
+.prio-grade { font-weight: 700; padding: 0 6px; border-radius: 999px; font-size: 11px; }
+.prio-grade-1 { background: #FF4D4D; color: #fff; }
+.prio-grade-2 { background: #FF9200; color: #fff; }
+.prio-grade-3 { background: rgba(255,255,255,0.18); color: #d6dbe8; }
+.prio-risk { color: #ffb4b4; font-weight: 600; font-size: 11px; }
+.prio-rationale { color: #c2c8d6; }
+
+/* ── 1장 요약 (페르소나·과업·흐름·리스크) ── */
+.prio-summary {
+  position: fixed; left: 16px; bottom: 16px; z-index: 1060; width: 340px;
+  max-width: calc(100vw - 32px); max-height: calc(100dvh - 32px); overflow-y: auto;
+  background: #fff; border: 1px solid rgba(124,58,237,0.30); border-top: 3px solid #7c3aed;
+  border-radius: 12px; box-shadow: 0 8px 28px rgba(0,0,0,0.16); padding: 14px;
+}
+.prio-summary-title { font-size: 14px; font-weight: 700; color: #171719; margin-bottom: 8px; }
+.prio-summary-row { display: flex; gap: 8px; font-size: 13px; margin-bottom: 6px; }
+.prio-summary-k { flex-shrink: 0; width: 92px; font-weight: 700; color: #7c3aed; }
+.prio-summary-block { margin: 6px 0; }
+.prio-flow { margin: 4px 0 0; padding-left: 18px; font-size: 13px; color: #171719; line-height: 1.6; }
+.prio-summary-risk { font-size: 12.5px; color: #c0392b; background: #fdecea; border-radius: 6px; padding: 7px 9px; margin: 8px 0; line-height: 1.5; }
+.prio-summary-note { font-size: 11.5px; color: #70737c; line-height: 1.5; border-top: 1px solid rgba(112,115,124,0.18); padding-top: 8px; }
+
+/* 우선순위 뱃지 — 기본 반투명, 영역 호버 시 진하게 (화면 가림 완화) */
+.prio-badge { opacity: 0.4; transition: opacity 0.15s; }
+.prio-mark:hover .prio-badge { opacity: 1; z-index: 40; }
+
+/* 비고 (조건부 최우선 등) */
+.prio-note { margin-top: 10px; background: var(--semantic-bg-light, #f7f7f8); border-radius: 8px; padding: 10px 12px; }
+.prio-note-title { font-size: 12.5px; font-weight: 700; color: #171719; margin-bottom: 4px; }
+.prio-note-intro { font-size: 12.5px; color: #70737c; line-height: 1.5; }
+.prio-note-list { margin: 6px 0 0; padding-left: 18px; font-size: 12.5px; color: #171719; line-height: 1.6; }
+
+/* 우선순위 탭 (정책 인덱스 내) */
+.ip-note-banner { font-size: 11.5px; line-height: 1.5; color: #7c3aed; background: #f5f0ff; border-radius: 8px; padding: 8px 10px; margin: 4px 0 8px; }
+.ip-prio-summary { padding: 0 4px 8px; }
+.ip-num-prio-1 { background: #FF4D4D !important; }
+.ip-num-prio-2 { background: #FF9200 !important; }
+.ip-num-prio-3 { background: rgba(112,115,124,0.55) !important; }

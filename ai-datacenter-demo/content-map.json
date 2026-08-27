@@ -1,0 +1,3347 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "C-001",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-001"
+      ],
+      "user_task": "진행 중인 상황 인지",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "banner_headline",
+      "evidence": "AI 상황 요약 배너 · 메인 페르소나 JTBD",
+      "confidence": "confirmed",
+      "copy": "GPU 랙 A열 냉각 반응 지연"
+    },
+    {
+      "id": "C-002",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-001"
+      ],
+      "user_task": "확인이 필요한 항목 수 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "banner_summary",
+      "evidence": "상황 요약 배너 정책",
+      "confidence": "confirmed",
+      "copy": "확인 필요 항목 2개 · 냉각 유량 140 L/min에서 118 L/min으로 22 L/min 감소"
+    },
+    {
+      "id": "C-003",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "신호 변화 추이 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_title",
+      "evidence": "위젯 카탈로그",
+      "confidence": "confirmed",
+      "copy": "실시간 센서 변동 모니터링"
+    },
+    {
+      "id": "C-004",
+      "screen_id": "screen-01",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "데이터 신선도 판단",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_meta",
+      "evidence": "갱신 주기를 감추지 않는다 (Gate 1.5 제약)",
+      "confidence": "confirmed",
+      "copy": "1분마다 갱신 · 최근 90분"
+    },
+    {
+      "id": "C-005",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "상황별 현재 단계 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_title",
+      "evidence": "위젯 카탈로그",
+      "confidence": "confirmed",
+      "copy": "실시간 이상 탐지 내역"
+    },
+    {
+      "id": "C-006",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "상황 상세로 이동",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "list_item_action",
+      "evidence": "진입 동작 발견 가능성",
+      "confidence": "confirmed",
+      "copy": "상황 열기"
+    },
+    {
+      "id": "C-007",
+      "screen_id": "screen-01",
+      "source_type": "implementation_constraint",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-001"
+      ],
+      "user_task": "해당 없음",
+      "decision": "INTERNAL_SPEC",
+      "destination": "wireframe-description",
+      "evidence": "관찰 구간 진입 조건 수치는 도메인 승인 대기 상태",
+      "confidence": "confirmed",
+      "reason": "확정 사양이 아니다"
+    },
+    {
+      "id": "C-008",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "담당 장소의 상황 목록 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "page_title",
+      "evidence": "메인 페르소나 진입점",
+      "confidence": "confirmed",
+      "copy": "이상 상황"
+    },
+    {
+      "id": "C-009",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "각 상황의 현재 단계 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "list_item_stage",
+      "evidence": "FN-1 정책 · 누적 건수 대체",
+      "confidence": "confirmed",
+      "copy": "냉각 반응 지연"
+    },
+    {
+      "id": "C-010",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-3"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "개입 시급성 비교",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "list_item_badge",
+      "evidence": "FN-3 정책",
+      "confidence": "confirmed",
+      "copy": "좁아지는 중"
+    },
+    {
+      "id": "C-011",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "경과 시간 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "list_item_meta",
+      "evidence": "기존 상황 카드 표기",
+      "confidence": "confirmed",
+      "copy": "최초 발생 3시간 10분 전"
+    },
+    {
+      "id": "C-012",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "상황 상세 진입",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "list_item_action",
+      "evidence": "진입 동작",
+      "confidence": "confirmed",
+      "copy": "상세 보기"
+    },
+    {
+      "id": "C-013",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002",
+        "TSR-006"
+      ],
+      "user_task": "위험 진행 위치 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "section_header",
+      "evidence": "FN-1 · 메인 문제 직결",
+      "confidence": "confirmed",
+      "copy": "위험 진행 단계"
+    },
+    {
+      "id": "C-014",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "각 단계 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "timeline_step_labels",
+      "evidence": "FN-1 단계 정의",
+      "confidence": "confirmed",
+      "copy": "관찰 구간 / 부하·전력 상승 / 냉각 반응 지연 / 랙 온도 상승 / 성능 저하"
+    },
+    {
+      "id": "C-015",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-005"
+      ],
+      "user_task": "단계 전이 시점 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "timeline_step_meta",
+      "evidence": "FN-1 정책 · 전이 시각 표시",
+      "confidence": "confirmed",
+      "copy": "11:05 전이"
+    },
+    {
+      "id": "C-016",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-005"
+      ],
+      "user_task": "현재 위치 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "timeline_current_marker",
+      "evidence": "진행 트래커 패턴 (Phase 1.5 리서치)",
+      "confidence": "confirmed",
+      "copy": "현재 단계"
+    },
+    {
+      "id": "C-017",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-3"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-003",
+        "TSR-006"
+      ],
+      "user_task": "개입 여부 판단",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "status_badge",
+      "evidence": "FN-3 · 핵심 가치 직결",
+      "confidence": "confirmed",
+      "copy": "개입 여지 좁아지는 중"
+    },
+    {
+      "id": "C-018",
+      "screen_id": "screen-03",
+      "source_type": "ai_assumption",
+      "source_ref": [
+        "FN-3"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-010",
+        "TSR-013"
+      ],
+      "user_task": "판단 내용 이해",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "analysis_summary",
+      "evidence": "기존 감지 패턴 분석 표현 · 신뢰 수준 판단 근거",
+      "confidence": "confirmed",
+      "copy": "GPU 부하가 오른 뒤 냉각 유량이 따라오지 않는 패턴이 냉각 반응 지연과 일치합니다."
+    },
+    {
+      "id": "C-019",
+      "screen_id": "screen-03",
+      "source_type": "ai_assumption",
+      "source_ref": [
+        "FN-3"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-009"
+      ],
+      "user_task": "판단 신뢰도 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "confidence_label",
+      "evidence": "AI 추론을 확정 사실로 제시하지 않는다",
+      "confidence": "confirmed",
+      "copy": "확신도 87%"
+    },
+    {
+      "id": "C-020",
+      "screen_id": "screen-03",
+      "source_type": "ai_assumption",
+      "source_ref": [
+        "FN-3"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-014"
+      ],
+      "user_task": "확신도 부족 시 행동 전환",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "inline_notice",
+      "evidence": "FN-3 정책 · 기존 PG 장치 재사용",
+      "confidence": "confirmed",
+      "trigger": "confidence_below_threshold",
+      "copy": "확신도가 낮아 개입 여지를 표시하지 않습니다. 현장 확인이 필요합니다."
+    },
+    {
+      "id": "C-021",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-009"
+      ],
+      "user_task": "판단 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "section_header",
+      "evidence": "FN-2 · 차별점 1",
+      "confidence": "confirmed",
+      "copy": "판단 근거"
+    },
+    {
+      "id": "C-022",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-009"
+      ],
+      "user_task": "각 신호의 관측값 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "evidence_row",
+      "evidence": "FN-2 정책 · 기존 구성 이벤트 표현 확장",
+      "confidence": "confirmed",
+      "copy": "랙 출구 온도 34.2도 / 기준 32도"
+    },
+    {
+      "id": "C-023",
+      "screen_id": "screen-03",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-012"
+      ],
+      "user_task": "신호 신뢰 가능 여부 판단",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "evidence_row_badge",
+      "evidence": "FN-2 정책 · 조용히 제외하지 않는다",
+      "confidence": "confirmed",
+      "trigger": "data_source_not_normal",
+      "copy": "수집 없음"
+    },
+    {
+      "id": "C-024",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "점검 대상 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "section_header",
+      "evidence": "FN-4 · 차별점 2",
+      "confidence": "confirmed",
+      "copy": "점검 순서"
+    },
+    {
+      "id": "C-025",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "점검 순서 근거 이해",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "checklist_item_reason",
+      "evidence": "FN-4 정책 · 왜 이 순서인가",
+      "confidence": "confirmed",
+      "copy": "냉각수 공급 경로에서 랙보다 앞에 있습니다"
+    },
+    {
+      "id": "C-026",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-021"
+      ],
+      "user_task": "계통 미등록 시 대체 경로",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "empty_state",
+      "evidence": "FN-4 정책",
+      "confidence": "confirmed",
+      "trigger": "topology_not_registered",
+      "copy": "이 구역은 계통 연결이 등록되지 않아 점검 순서를 제시할 수 없습니다. 아래 조치 가이드를 확인해 주세요."
+    },
+    {
+      "id": "C-027",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "관련 절차 열람",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "link_label",
+      "evidence": "기존 상황 리포트 구성",
+      "confidence": "confirmed",
+      "copy": "관련 매뉴얼"
+    },
+    {
+      "id": "C-028",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "과거 사례 참고",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "section_header",
+      "evidence": "기존 상황 리포트 구성 (최대 3건)",
+      "confidence": "confirmed",
+      "copy": "유사 사례"
+    },
+    {
+      "id": "C-029",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-017",
+        "TSR-018"
+      ],
+      "user_task": "확인 착수",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "primary_action",
+      "evidence": "기존 담당자 배정 흐름",
+      "confidence": "confirmed",
+      "copy": "확인 시작"
+    },
+    {
+      "id": "C-030",
+      "screen_id": "screen-03",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "user_task": "배정 결과 인지",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "toast",
+      "evidence": "기존 담당자 배정 정책",
+      "confidence": "confirmed",
+      "trigger": "assign_success",
+      "copy": "담당자로 지정되었습니다"
+    },
+    {
+      "id": "C-031",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-5"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-025"
+      ],
+      "user_task": "조치 기록 착수",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "secondary_action",
+      "evidence": "FN-5 진입",
+      "confidence": "confirmed",
+      "copy": "조치 이력 기록"
+    },
+    {
+      "id": "C-032",
+      "screen_id": "screen-03",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-007"
+      ],
+      "user_task": "판정 불가 상황 인지",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "inline_notice",
+      "evidence": "에이전트 사양 4·5항",
+      "confidence": "confirmed",
+      "trigger": "cooling_signal_unavailable",
+      "copy": "냉각 계통 데이터를 수집하지 못해 단계 판정을 중단했습니다. 직전 단계를 표시합니다."
+    },
+    {
+      "id": "C-033",
+      "screen_id": "screen-03",
+      "source_type": "implementation_constraint",
+      "source_ref": [
+        "FN-3"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-003"
+      ],
+      "user_task": "해당 없음",
+      "decision": "DROP",
+      "destination": "none",
+      "evidence": "잔여 시간 분 단위 숫자",
+      "confidence": "confirmed",
+      "reason": "Gate 1.5에서 표시 금지로 확정"
+    },
+    {
+      "id": "C-034",
+      "screen_id": "screen-03",
+      "source_type": "implementation_constraint",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-009"
+      ],
+      "user_task": "해당 없음",
+      "decision": "DROP",
+      "destination": "none",
+      "evidence": "신호별 기여도 백분율",
+      "confidence": "confirmed",
+      "reason": "설명할 수 없는 숫자를 늘리지 않는다"
+    },
+    {
+      "id": "C-035",
+      "screen_id": "screen-03",
+      "source_type": "acceptance_criteria",
+      "source_ref": [
+        "FN-3"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-014"
+      ],
+      "user_task": "해당 없음",
+      "decision": "INTERNAL_SPEC",
+      "destination": "wireframe-description",
+      "evidence": "확신도 표시 기준값은 도메인 승인 대기",
+      "confidence": "confirmed",
+      "reason": "확정 사양이 아니다"
+    },
+    {
+      "id": "C-036",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-6"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "기록 단계 인지",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "panel_title",
+      "evidence": "기존 조치 이력 흐름",
+      "confidence": "confirmed",
+      "copy": "조치 이력 기록"
+    },
+    {
+      "id": "C-037",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-6"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "태그 단계 구분",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "step_labels",
+      "evidence": "FN-6 · 기존 태그 구조 유지 + FN-5 추가",
+      "confidence": "confirmed",
+      "copy": "현상 / 원인 / 조치 / 예측 판정"
+    },
+    {
+      "id": "C-038",
+      "screen_id": "screen-04",
+      "source_type": "ai_assumption",
+      "source_ref": [
+        "FN-6"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "추천 태그 신뢰 판단",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "helper_text",
+      "evidence": "기존 문구 유지 · AI 추론 식별",
+      "confidence": "confirmed",
+      "copy": "90일간의 장소 이력과 유사 사례를 분석한 AI 추천 태그입니다. 현장 상황과 일치하는 항목을 선택해 주세요."
+    },
+    {
+      "id": "C-039",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-6"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "태그 선택",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tag_options",
+      "evidence": "AI 데이터센터 도메인 태그 사전",
+      "confidence": "confirmed",
+      "copy": "냉각 반응 지연 / 밸브 개도 부족 / 순환 펌프 유량 저하 / 랙 출구 온도 상승"
+    },
+    {
+      "id": "C-040",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-5"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-024"
+      ],
+      "user_task": "예측 결과 판정",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "radio_group_label",
+      "evidence": "FN-5 · 차별점 3",
+      "confidence": "confirmed",
+      "copy": "예측 판정"
+    },
+    {
+      "id": "C-041",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-5"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-024"
+      ],
+      "user_task": "판정 선택",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "radio_options",
+      "evidence": "FN-5 정책",
+      "confidence": "confirmed",
+      "copy": "예측대로 진행했고 조치로 막았다 / 예측이 빗나갔다 / 조치 없이 정상으로 돌아왔다"
+    },
+    {
+      "id": "C-042",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-5"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-024"
+      ],
+      "user_task": "오탐과 구분",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "helper_text",
+      "evidence": "FN-5 정책 · 이상 없음 종료와 구분",
+      "confidence": "confirmed",
+      "copy": "탐지 자체가 잘못된 경우에는 이상 없음으로 종료해 주세요."
+    },
+    {
+      "id": "C-043",
+      "screen_id": "screen-04",
+      "source_type": "validation_rule",
+      "source_ref": [
+        "FN-5"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-026"
+      ],
+      "user_task": "미입력 항목 확인",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "inline_error",
+      "evidence": "FN-5 정책 · 미입력 시 종료 불가",
+      "confidence": "confirmed",
+      "trigger": "submit_without_verdict",
+      "copy": "예측 판정을 선택해 주세요"
+    },
+    {
+      "id": "C-044",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-5"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-025"
+      ],
+      "user_task": "기록 확정",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "primary_action",
+      "evidence": "기존 조치 이력 종료 동작",
+      "confidence": "confirmed",
+      "copy": "조치 완료"
+    },
+    {
+      "id": "C-045",
+      "screen_id": "screen-04",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-5"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-028"
+      ],
+      "user_task": "작성 내용 보존 인지",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "floating_notice",
+      "evidence": "기존 30초 자동 저장 · 미니바 정책",
+      "confidence": "confirmed",
+      "trigger": "draft_exists",
+      "copy": "작성 중인 조치 이력이 있어요"
+    },
+    {
+      "id": "C-046",
+      "screen_id": "screen-04",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-5"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-026"
+      ],
+      "user_task": "적립 결과 인지",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "toast",
+      "evidence": "기존 조치 완료 처리",
+      "confidence": "confirmed",
+      "trigger": "submit_success",
+      "copy": "조치 이력을 저장했습니다"
+    },
+    {
+      "id": "C-047",
+      "screen_id": "screen-04",
+      "source_type": "implementation_constraint",
+      "source_ref": [
+        "FN-5"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-024"
+      ],
+      "user_task": "해당 없음",
+      "decision": "DROP",
+      "destination": "none",
+      "evidence": "예측 적중률 수치",
+      "confidence": "confirmed",
+      "reason": "누적 건수 기준 미달 시 비노출 (D-2)"
+    },
+    {
+      "id": "C-048",
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "제품·프로젝트 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "shell_brand",
+      "evidence": "메인 셸 브랜딩",
+      "confidence": "confirmed",
+      "copy": "Protect GO AI"
+    },
+    {
+      "id": "C-049",
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "프로젝트 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "shell_project",
+      "evidence": "프로젝트 선택 표시",
+      "confidence": "confirmed",
+      "copy": "AI 데이터센터 A"
+    },
+    {
+      "id": "C-050",
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "화면 이동",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "nav_items",
+      "evidence": "기존 GNB 메뉴 구성",
+      "confidence": "confirmed",
+      "copy": "대시보드 / 이상 상황 / 통계 / 연결 데이터 관리 / 문서 관리 / 모델 관리"
+    },
+    {
+      "id": "C-051",
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "데모 컨텍스트 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "prototype_header",
+      "evidence": "프로토타입 식별 헤더",
+      "confidence": "confirmed",
+      "copy": "AI 데이터센터 데모 — 와이어프레임"
+    },
+    {
+      "id": "C-052",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "화면 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "page_title",
+      "evidence": "페이지 타이틀",
+      "confidence": "confirmed",
+      "copy": "대시보드"
+    },
+    {
+      "id": "C-053",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "담당 장소 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "page_subtitle",
+      "evidence": "장소 컨텍스트",
+      "confidence": "confirmed",
+      "copy": "GPU룸 A · 담당 장소"
+    },
+    {
+      "id": "C-054",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "전이 시각 마커 해석",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "chart_caption",
+      "evidence": "차트 마커 범례",
+      "confidence": "confirmed",
+      "copy": "점선은 냉각 반응 지연 단계로 전이한 시각입니다."
+    },
+    {
+      "id": "C-055",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "신호 계열 구분",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "chart_legend",
+      "evidence": "차트 범례",
+      "confidence": "confirmed",
+      "copy": "GPU 사용률 / 랙 전력 / 냉각 유량 / 랙 출구 온도"
+    },
+    {
+      "id": "C-056",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "차트 의미 접근",
+      "decision": "A11Y_ONLY",
+      "destination": "svg_aria_label",
+      "evidence": "스크린리더 이름",
+      "confidence": "confirmed",
+      "copy": "신호별 변화 추이"
+    },
+    {
+      "id": "C-057",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "위젯 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_title",
+      "evidence": "위젯 카탈로그",
+      "confidence": "confirmed",
+      "copy": "이상 탐지 발생 요약"
+    },
+    {
+      "id": "C-058",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "위젯 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_title",
+      "evidence": "위젯 카탈로그",
+      "confidence": "confirmed",
+      "copy": "탐지 확인 현황"
+    },
+    {
+      "id": "C-059",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "위젯 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_title",
+      "evidence": "위젯 카탈로그",
+      "confidence": "confirmed",
+      "copy": "시간대별 이상 발생 건수"
+    },
+    {
+      "id": "C-060",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "위젯 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_title",
+      "evidence": "위젯 카탈로그",
+      "confidence": "confirmed",
+      "copy": "배치도"
+    },
+    {
+      "id": "C-061",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "목록 행에서 상세 진입",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "list_item_action",
+      "evidence": "진입 동작",
+      "confidence": "confirmed",
+      "copy": "열기"
+    },
+    {
+      "id": "C-062",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "상황별 심각도·상태 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "list_item_meta",
+      "evidence": "기존 6상태·심각도 표기",
+      "confidence": "confirmed",
+      "copy": "확인 대기 / 확인 중 / 조치 완료 / 심각도 표시"
+    },
+    {
+      "id": "C-063",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "진행 단계 라벨 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "field_label",
+      "evidence": "FN-1 표기",
+      "confidence": "confirmed",
+      "copy": "진행 단계"
+    },
+    {
+      "id": "C-064",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "심각도 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "severity_badge",
+      "evidence": "기존 심각도 표기",
+      "confidence": "confirmed",
+      "copy": "심각도 높음 / 중간 / 낮음"
+    },
+    {
+      "id": "C-065",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "구성 이벤트 규모 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "list_item_meta",
+      "evidence": "기존 상황 카드 보조 표기",
+      "confidence": "confirmed",
+      "copy": "구성 이벤트 12건 · 최근 1분 전 · 담당자"
+    },
+    {
+      "id": "C-066",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "목록 복귀",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "secondary_action",
+      "evidence": "탐색 복귀 동작",
+      "confidence": "confirmed",
+      "copy": "목록으로"
+    },
+    {
+      "id": "C-067",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "상황 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "page_title",
+      "evidence": "상황 제목",
+      "confidence": "confirmed",
+      "copy": "GPU 랙 A열 냉각 반응 지연"
+    },
+    {
+      "id": "C-068",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "상황 메타 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "page_subtitle",
+      "evidence": "상황 헤더 메타",
+      "confidence": "confirmed",
+      "copy": "GPU룸 A · 심각도 높음 · 최초 발생 3시간 10분 전"
+    },
+    {
+      "id": "C-069",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-009"
+      ],
+      "user_task": "근거 표 열 이해",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "table_header",
+      "evidence": "근거 표 구조",
+      "confidence": "confirmed",
+      "copy": "신호"
+    },
+    {
+      "id": "C-070",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-009"
+      ],
+      "user_task": "근거 표 열 이해",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "table_header",
+      "evidence": "근거 표 구조",
+      "confidence": "confirmed",
+      "copy": "관측값"
+    },
+    {
+      "id": "C-071",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-009"
+      ],
+      "user_task": "근거 표 열 이해",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "table_header",
+      "evidence": "근거 표 구조",
+      "confidence": "confirmed",
+      "copy": "기준"
+    },
+    {
+      "id": "C-072",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-005"
+      ],
+      "user_task": "미도달 단계 구분",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "timeline_step_meta",
+      "evidence": "진행 트래커 3상태",
+      "confidence": "confirmed",
+      "copy": "미도달"
+    },
+    {
+      "id": "C-073",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "매뉴얼 문서 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "link_label",
+      "evidence": "관련 매뉴얼 연결",
+      "confidence": "confirmed",
+      "copy": "냉각 계통 운전 절차 — 4.2 CDU 밸브 점검"
+    },
+    {
+      "id": "C-074",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-4"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "유사 사례 결과 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "case_result",
+      "evidence": "기존 유사 사례 표기",
+      "confidence": "confirmed",
+      "copy": "결과 · 밸브 액추에이터 교체 후 정상 복귀"
+    },
+    {
+      "id": "C-075",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-6"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "패널 닫기",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "secondary_action",
+      "evidence": "패널 탐색",
+      "confidence": "confirmed",
+      "copy": "닫기"
+    },
+    {
+      "id": "C-076",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-6"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "단계 위치 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "step_progress",
+      "evidence": "단계 진행 표기",
+      "confidence": "confirmed",
+      "copy": "1 / 4"
+    },
+    {
+      "id": "C-077",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-6"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "목록에 없는 태그 추가",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tag_add_action",
+      "evidence": "기존 직접 태그 추가 경로",
+      "confidence": "confirmed",
+      "copy": "직접 추가"
+    },
+    {
+      "id": "C-078",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-6"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "단계 이동",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "nav_actions",
+      "evidence": "단계 탐색 동작",
+      "confidence": "confirmed",
+      "copy": "취소 / 이전 / 다음"
+    },
+    {
+      "id": "C-079",
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "제품 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "shell_brand",
+      "copy": "Protect Go AI",
+      "evidence": "FE SOLUTION_NAME",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-080",
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "화면 이동",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "nav_items",
+      "copy": "대시보드 / 탐지 설정 / 통계 / 연결 데이터 관리 / 프로젝트 설정 / 문서 관리 / 모델 관리 / 계정 관리",
+      "evidence": "FE MENU_LIST (에디터)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-081",
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "문의 접근",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "sidebar_action",
+      "copy": "문의하기",
+      "evidence": "FE Sidebar 하단 고정 버튼",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-082",
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "사이드바 접기",
+      "decision": "A11Y_ONLY",
+      "destination": "icon_button_label",
+      "copy": "사이드바 접기",
+      "evidence": "FE 토글 툴팁",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-083",
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "알림 센터 열기",
+      "decision": "A11Y_ONLY",
+      "destination": "icon_button_label",
+      "copy": "알림 센터",
+      "evidence": "FE 벨 아이콘",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-084",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-001",
+        "TSR-002"
+      ],
+      "user_task": "상황 목록 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_title",
+      "copy": "이상 상황 목록",
+      "evidence": "FE AbnormalSituationList 위젯",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-085",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-001"
+      ],
+      "user_task": "기준 시점 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_meta",
+      "copy": "2026-08-27 기준",
+      "evidence": "FE 위젯 헤더 날짜 표기",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-086",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "상태별 필터",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "status_tabs",
+      "copy": "전체 / 확인 대기 / 확인 중 / 조치 완료",
+      "evidence": "FE SituationStatusTabs",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-087",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-001"
+      ],
+      "user_task": "신규 상황 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "new_badge",
+      "copy": "New",
+      "evidence": "FE New 뱃지 (검정 칩)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-088",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "심각도 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "severity_badge",
+      "copy": "심각도 높음 / 심각도 중간 / 심각도 낮음",
+      "evidence": "FE severityLabel",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-089",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "경과·규모 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "list_item_meta",
+      "copy": "최근 · 최초 · 누적 N건",
+      "evidence": "FE 메타 3쌍",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-090",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "처리 상태 파악",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "status_label",
+      "copy": "확인 대기 / 확인 중 / 처리 지연 / 조치 완료 / 이의 제기 / 이상 없음",
+      "evidence": "FE statusLabel",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-091",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "담당자 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "assignee",
+      "copy": "담당 김도현 (나)",
+      "evidence": "FE assignee 표기",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-092",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "위젯 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_title",
+      "copy": "시간대별 이상 발생 추이",
+      "evidence": "FE TimeTrendChart 위젯명",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-093",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "축 단위 이해",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "axis_label",
+      "copy": "(발생 건수)",
+      "evidence": "03-widget.png 축 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-094",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "구역 전환",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "zone_tabs",
+      "copy": "GPU룸 A / GPU룸 B",
+      "evidence": "FE 배치도 SegmentedControl",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-095",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "위젯 더보기",
+      "decision": "A11Y_ONLY",
+      "destination": "icon_button_label",
+      "copy": "위젯 더보기",
+      "evidence": "FE 위젯 헤더 more",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-096",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "대시보드 복귀",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "back_link",
+      "copy": "뒤로 가기",
+      "evidence": "FE topBar",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-097",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-009"
+      ],
+      "user_task": "화면 목적 이해",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "page_subtitle",
+      "copy": "이상 상황의 원인을 파악하기 위한 정밀 분석 데이터입니다. 검토 후 우측 패널에서 조치 상태를 업데이트해 주세요.",
+      "evidence": "FE header 부제 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-098",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-009"
+      ],
+      "user_task": "분석 카드 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "card_title",
+      "copy": "AI 분석 결과",
+      "evidence": "FE AnalysisCard",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-099",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-009"
+      ],
+      "user_task": "가설 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "block_label",
+      "copy": "원인 가설",
+      "evidence": "FE blockLabel",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-100",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "가이드 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "block_label",
+      "copy": "조치 가이드",
+      "evidence": "FE blockLabel",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-101",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "이벤트 카드 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "card_title",
+      "copy": "구성 이벤트",
+      "evidence": "FE EventListCard",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-102",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "처리 패널 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "panel_title",
+      "copy": "이상 상황 처리",
+      "evidence": "FE ProcessingPanel",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-103",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "메타 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_labels",
+      "copy": "장소 / 심각도 / 상태 / 진행 단계 / 개입 여지 / 구성 이벤트 / 발생 경과 / 담당자",
+      "evidence": "FE MetaRow + FN-1·FN-3 추가",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-104",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-017",
+        "TSR-018"
+      ],
+      "user_task": "출동 안내",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "start_guide",
+      "copy": "AI 분석 결과를 검토한 후 현장으로 출동하세요. 확인 시작 시 담당자로 지정됩니다.",
+      "evidence": "FE startGuide 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-105",
+      "screen_id": "screen-03",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "user_task": "배정 확인",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "manager_banner",
+      "copy": "김도현(이)가 담당자로 지정되어 확인 중입니다.",
+      "evidence": "FE managerBanner 원문",
+      "confidence": "confirmed",
+      "trigger": "assign_success"
+    },
+    {
+      "id": "C-106",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-025"
+      ],
+      "user_task": "기록 진입",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "primary_action",
+      "copy": "지금 조치 기록하기",
+      "evidence": "FE 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-107",
+      "screen_id": "screen-03",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "user_task": "배정 토스트",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "toast",
+      "copy": "확인을 시작하여 담당자로 지정되었습니다.",
+      "evidence": "FE ActionHistory 토스트 원문",
+      "confidence": "confirmed",
+      "trigger": "assign_success"
+    },
+    {
+      "id": "C-108",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "단계-이벤트 연동 안내",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "helper_text",
+      "copy": "단계를 선택하면 아래 구성 이벤트가 해당 단계 기준으로 표시됩니다.",
+      "evidence": "FN-1·FN-2 연동",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-109",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "상세 복귀",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "back_link",
+      "copy": "이상 상황 상세 페이지로",
+      "evidence": "FE topBar 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-110",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "화면 목적",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "page_subtitle",
+      "copy": "AI 추천 태그를 활용해 현장 처리 내용을 기록해 주세요.",
+      "evidence": "FE header 부제 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-111",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "패널 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "panel_title",
+      "copy": "기록 입력",
+      "evidence": "FE RecordPanel",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-112",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "요약 카드",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "card_title",
+      "copy": "상황 요약",
+      "evidence": "FE SituationSummary",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-113",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "유사 사례 카드",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "card_title",
+      "copy": "유사 사례",
+      "evidence": "FE SimilarCaseList",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-114",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "AI 추천 구분",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tag_mini_label",
+      "copy": "AI 추천",
+      "evidence": "FE aiTag",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-115",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "추가 설명 입력",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "field_label",
+      "copy": "추가 설명 (선택)",
+      "evidence": "FE 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-116",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "추가 설명 안내",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "placeholder",
+      "copy": "현장에서 확인한 추가 상황이나 특이사항을 입력해 주세요.",
+      "evidence": "FE placeholder 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-117",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-025"
+      ],
+      "user_task": "기록 확정",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "primary_action",
+      "copy": "처리 완료",
+      "evidence": "FE 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-118",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-025"
+      ],
+      "user_task": "단계 이동",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "nav_actions",
+      "copy": "취소 / 이전 / 다음",
+      "evidence": "FE footer",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-119",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-024"
+      ],
+      "user_task": "오탐 종료 질문",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "helper_text",
+      "copy": "현장 확인 결과 이상이 없었나요?",
+      "evidence": "FE noIssueHelp 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-120",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-024"
+      ],
+      "user_task": "오탐 종료",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "secondary_action",
+      "copy": "이상 없음으로 상황 종료",
+      "evidence": "FE 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-121",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "경과·규모 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_label",
+      "copy": "최근",
+      "evidence": "FE 메타 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-122",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "경과·규모 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_label",
+      "copy": "최초",
+      "evidence": "FE 메타 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-123",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "경과·규모 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_label",
+      "copy": "누적",
+      "evidence": "FE 메타 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-124",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "메타 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_label",
+      "copy": "장소",
+      "evidence": "FE MetaRow 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-125",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "메타 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_label",
+      "copy": "심각도",
+      "evidence": "FE MetaRow 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-126",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "메타 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_label",
+      "copy": "상태",
+      "evidence": "FE MetaRow 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-127",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "메타 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_label",
+      "copy": "개입 여지",
+      "evidence": "FE MetaRow 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-128",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "메타 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_label",
+      "copy": "발생 경과",
+      "evidence": "FE MetaRow 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-129",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "메타 라벨",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_label",
+      "copy": "담당자",
+      "evidence": "FE MetaRow 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-130",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "심각도 값",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "severity_badge",
+      "copy": "심각도 높음",
+      "evidence": "FE severityLabel",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-131",
+      "screen_id": "screen-03",
+      "source_type": "ai_assumption",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-014"
+      ],
+      "user_task": "확신도 미달 대체 표기",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "meta_value",
+      "copy": "현장 확인 필요",
+      "evidence": "FN-3 정책",
+      "confidence": "confirmed",
+      "trigger": "confidence_below_threshold"
+    },
+    {
+      "id": "C-132",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "user_task": "담당자명",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "manager_name",
+      "copy": "김도현",
+      "evidence": "데모 담당자명",
+      "confidence": "confirmed",
+      "trigger": "assign_success"
+    },
+    {
+      "id": "C-133",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-010",
+        "TSR-013"
+      ],
+      "user_task": "판단 요약(확장)",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "analysis_summary",
+      "copy": "GPU 부하가 오른 뒤 냉각 유량이 따라오지 않는 패턴이 냉각 반응 지연과 일치합니다. 2호 CDU 제어 밸브 개도 부족이 원인으로 추정됩니다.",
+      "evidence": "FN-2 · 원인 가설 본문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-134",
+      "screen_id": "screen-03",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-021"
+      ],
+      "user_task": "계통 미등록 안내(문구 갱신)",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "empty_state",
+      "copy": "이 구역은 계통 연결이 등록되지 않아 점검 순서를 제시할 수 없습니다. 기본 조치 가이드를 확인해 주세요.",
+      "evidence": "FN-4 정책",
+      "confidence": "confirmed",
+      "trigger": "topology_not_registered"
+    },
+    {
+      "id": "C-135",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "요약 심각도",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "severity_badge",
+      "copy": "심각도 높음",
+      "evidence": "FE SituationSummary",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-136",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "요약 판단 문장",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "analysis_summary",
+      "copy": "GPU 부하가 오른 뒤 냉각 유량이 따라오지 않는 패턴이 냉각 반응 지연과 일치합니다. 2호 CDU 제어 밸브 개도 부족이 원인으로 추정됩니다.",
+      "evidence": "FE SituationSummary · FN-2",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-137",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "요약 메타",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_pair",
+      "copy": "장소 GPU룸 A",
+      "evidence": "FE SituationSummary 메타",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-138",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "요약 메타",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_pair",
+      "copy": "진행 단계 냉각 반응 지연",
+      "evidence": "FE SituationSummary 메타",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-139",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "요약 메타",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_pair",
+      "copy": "구성 이벤트 12건",
+      "evidence": "FE SituationSummary 메타",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-140",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-023"
+      ],
+      "user_task": "요약 메타",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "meta_pair",
+      "copy": "발생 경과 3시간 10분",
+      "evidence": "FE SituationSummary 메타",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-141",
+      "screen_id": "screen-04",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-004",
+      "requirement_refs": [
+        "TSR-025"
+      ],
+      "user_task": "다음 단계 이동",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "primary_action",
+      "copy": "다음",
+      "evidence": "FE footer",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-142",
+      "screen_id": "screen-03",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-019"
+      ],
+      "user_task": "배정 확인",
+      "decision": "VISIBLE_CONDITIONAL",
+      "trigger": "assign_success",
+      "destination": "manager_banner",
+      "copy": "(이)가 담당자로 지정되어 확인 중입니다.",
+      "evidence": "FE managerBanner — 이름과 분리 렌더되는 조사 부분",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-143",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "차트 의미 접근",
+      "decision": "A11Y_ONLY",
+      "destination": "svg_aria_label",
+      "copy": "센서별 평균 대비 변동",
+      "evidence": "스크린리더 이름",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-144",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "선택 막대 상세 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tooltip_label",
+      "copy": "현재값",
+      "evidence": "FE TempBarChart 툴팁",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-145",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "선택 막대 상세 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tooltip_label",
+      "copy": "평균값",
+      "evidence": "FE TempBarChart 툴팁 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-146",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "선택 막대 상세 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tooltip_label",
+      "copy": "평균 범위",
+      "evidence": "FE TempBarChart 툴팁 원문",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-147",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "차트 사용법·기준 이해",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "helper_text",
+      "copy": "막대를 선택하면 평균값과 평균 범위가 표시됩니다. 기준선 100 = 365일 평균.",
+      "evidence": "KB 5-3 정책(365일 평균)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-148",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "갱신 주기 인지",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "widget_meta",
+      "copy": "5초마다 갱신",
+      "evidence": "FE refetchInterval 5000 · 갱신 주기를 감추지 않는다",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-149",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "도면 의미 접근",
+      "decision": "A11Y_ONLY",
+      "destination": "svg_aria_label",
+      "copy": "GPU룸 A 배치도",
+      "evidence": "스크린리더 이름",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-150",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "설비 위치 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "floorplan_label",
+      "copy": "GPU 랙 A열 (A-01 ~ A-06)",
+      "evidence": "더미 도면 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-151",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "설비 위치 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "floorplan_label",
+      "copy": "GPU 랙 B열 (B-01 ~ B-06)",
+      "evidence": "더미 도면 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-152",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "설비 위치 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "floorplan_label",
+      "copy": "1호 CDU",
+      "evidence": "더미 도면 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-153",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "설비 위치 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "floorplan_label",
+      "copy": "2호 CDU",
+      "evidence": "더미 도면 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-154",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "설비 위치 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "floorplan_label",
+      "copy": "P-2",
+      "evidence": "더미 도면 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-155",
+      "screen_id": "screen-01",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "설비 위치 식별",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "floorplan_label",
+      "copy": "PDU",
+      "evidence": "더미 도면 라벨",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-156",
+      "screen_id": "screen-01",
+      "source_type": "ai_assumption",
+      "source_ref": [
+        "FN-3"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-002"
+      ],
+      "user_task": "확신도 미달 시 개입 여지 대체 표기",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "list_item_text",
+      "copy": "현장 확인 필요",
+      "evidence": "FN-3 정책 · 목록에도 동일 적용",
+      "confidence": "confirmed",
+      "trigger": "confidence_below_threshold"
+    },
+    {
+      "id": "C-157",
+      "screen_id": "screen-01",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-002",
+      "requirement_refs": [
+        "TSR-012"
+      ],
+      "user_task": "수집 이상 신호 구분",
+      "decision": "VISIBLE_CONDITIONAL",
+      "destination": "chart_badge",
+      "copy": "수집 없음",
+      "evidence": "FN-2 정책 · σ 차트 stale 표기",
+      "confidence": "confirmed",
+      "trigger": "data_source_not_normal"
+    },
+    {
+      "id": "C-158",
+      "screen_id": "screen-01",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-007"
+      ],
+      "user_task": "판정 중단 상태 인지",
+      "decision": "VISIBLE_CONDITIONAL",
+      "trigger": "cooling_signal_unavailable",
+      "destination": "list_item_text",
+      "copy": "판정 중단",
+      "evidence": "에이전트 사양 §4·§5 — 신호 단절 시 개입 여지도 같은 근거에 의존하므로 배지 대신 중단 표기",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-159",
+      "screen_id": "screen-03",
+      "source_type": "business_rule",
+      "source_ref": [
+        "FN-3"
+      ],
+      "task_id": "TASK-003",
+      "requirement_refs": [
+        "TSR-016"
+      ],
+      "user_task": "판정 중단 상태 인지",
+      "decision": "VISIBLE_CONDITIONAL",
+      "trigger": "cooling_signal_unavailable",
+      "destination": "meta_value",
+      "copy": "판정 중단",
+      "evidence": "처리 패널 개입 여지 행 — 헤더 배지와 표시 정책 통일",
+      "confidence": "confirmed"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-160",
+      "user_task": "알림 확인",
+      "destination": "alert_drawer_title",
+      "copy": "알림 센터",
+      "evidence": "FE AlertCenterDrawer 제목"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_CONDITIONAL",
+      "confidence": "confirmed",
+      "id": "C-161",
+      "user_task": "미읽음 규모 인지",
+      "destination": "alert_drawer_subtitle",
+      "copy": "{N}개의 새로운 알림이 있습니다.",
+      "evidence": "FE newNotificationsCount — 미읽음 0이면 '모든 알림을 확인했습니다.'로 대체",
+      "trigger": "unread_count"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_CONDITIONAL",
+      "confidence": "confirmed",
+      "id": "C-162",
+      "user_task": "알림 확인 완료 인지",
+      "destination": "alert_drawer_subtitle",
+      "copy": "모든 알림을 확인했습니다.",
+      "evidence": "FE — 미읽음 0일 때",
+      "trigger": "unread_zero"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-163",
+      "user_task": "알림 범위 선택",
+      "destination": "alert_tab",
+      "copy": "전체",
+      "evidence": "FE TAB_ITEMS — 미읽음 수 numberBadge 병기"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-164",
+      "user_task": "상황 알림 선택",
+      "destination": "alert_tab",
+      "copy": "상황",
+      "evidence": "FE TAB_ITEMS"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-165",
+      "user_task": "시스템 알림 선택",
+      "destination": "alert_tab",
+      "copy": "시스템",
+      "evidence": "FE TAB_ITEMS"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-166",
+      "user_task": "읽음 상태 필터",
+      "destination": "alert_filter_chip",
+      "copy": "상태",
+      "evidence": "FE FilterChip — 선택 시 '상태 읽지 않음' 병기"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-167",
+      "user_task": "알림 유형 필터",
+      "destination": "alert_filter_chip",
+      "copy": "유형",
+      "evidence": "FE FilterChip"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-168",
+      "user_task": "일괄 읽음 처리",
+      "destination": "alert_action",
+      "copy": "모두 읽음",
+      "evidence": "FE markAllRead"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_CONDITIONAL",
+      "confidence": "confirmed",
+      "id": "C-169",
+      "user_task": "정렬 전환",
+      "destination": "alert_sort",
+      "copy": "최신순",
+      "evidence": "FE — 클릭 시 '오래된순'과 토글",
+      "trigger": "sort_toggle"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-170",
+      "user_task": "목록 규모 인지",
+      "destination": "alert_total",
+      "copy": "총 {N}건",
+      "evidence": "FE 총 건수"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-171",
+      "user_task": "신규 상황 발생 인지",
+      "destination": "alert_badge",
+      "copy": "신규 상황",
+      "evidence": "FE getEventTypeConfig — ContentBadge 다크"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-172",
+      "user_task": "위험도 상승 인지",
+      "destination": "alert_badge",
+      "copy": "심각도 상승",
+      "evidence": "FE getEventTypeConfig — error"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-173",
+      "user_task": "상황 변경 인지",
+      "destination": "alert_badge",
+      "copy": "상황 업데이트",
+      "evidence": "FE getEventTypeConfig — basic"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-174",
+      "user_task": "담당자 배정 인지",
+      "destination": "alert_badge",
+      "copy": "담당자 배정",
+      "evidence": "FE getEventTypeConfig — basic"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-175",
+      "user_task": "수집 중단 인지",
+      "destination": "alert_badge",
+      "copy": "데이터 수집 중단",
+      "evidence": "FE getEventTypeConfig — warning"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-176",
+      "user_task": "신규 상황 후속 행동",
+      "destination": "alert_description",
+      "copy": "현장을 확인하고 담당자를 배정해 주세요.",
+      "evidence": "FE descriptionMap"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-177",
+      "user_task": "위험도 상승 후속 행동",
+      "destination": "alert_description",
+      "copy": "상황의 위험도가 높아졌습니다. 즉시 현장을 확인하고 조치를 진행해 주세요.",
+      "evidence": "FE descriptionMap"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-178",
+      "user_task": "상황 변경 후속 행동",
+      "destination": "alert_description",
+      "copy": "상황이 업데이트되었습니다. 변경된 내용을 확인해 주세요.",
+      "evidence": "FE descriptionMap"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-179",
+      "user_task": "배정 사실 인지",
+      "destination": "alert_description",
+      "copy": "{담당자}이(가) 이 상황의 담당자로 배정되었습니다.",
+      "evidence": "FE descriptionMap"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_PRIMARY",
+      "confidence": "confirmed",
+      "id": "C-180",
+      "user_task": "수집 중단 영향 인지",
+      "destination": "alert_description",
+      "copy": "데이터 수집이 중단되어 탐지가 정상적으로 동작하지 않을 수 있습니다. 연결 데이터 관리 페이지에서 센서 연결 상태를 확인해 주세요.",
+      "evidence": "FE descriptionMap"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "decision": "VISIBLE_CONDITIONAL",
+      "confidence": "confirmed",
+      "id": "C-181",
+      "user_task": "빈 목록 인지",
+      "destination": "alert_empty",
+      "copy": "현재 표시할 알림이 없습니다.",
+      "evidence": "FE 빈 상태",
+      "trigger": "empty_list"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "confidence": "confirmed",
+      "id": "C-182",
+      "user_task": "드로어 닫기(스크린리더)",
+      "decision": "A11Y_ONLY",
+      "destination": "alert_drawer_close",
+      "copy": "알림 센터 닫기",
+      "evidence": "aria-label — 아이콘 버튼 접근성"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "confidence": "confirmed",
+      "id": "C-183",
+      "user_task": "필터 초기화(스크린리더)",
+      "decision": "A11Y_ONLY",
+      "destination": "alert_filter_reset",
+      "copy": "필터 초기화",
+      "evidence": "aria-label — 아이콘 버튼 접근성"
+    },
+    {
+      "screen_id": "shared",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-1"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "confidence": "confirmed",
+      "id": "C-184",
+      "user_task": "미읽음 규모 인지",
+      "decision": "VISIBLE_CONDITIONAL",
+      "trigger": "unread_count",
+      "destination": "alert_drawer_subtitle",
+      "copy": "이 있습니다.",
+      "evidence": "C-161 템플릿의 분할 렌더 조각(강조 span 뒤 서술어)"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "feature_slug": "ai-datacenter-demo",
+  "context": "pg",
+  "design_system": "@idbrnd/design-system",
+  "design_system_version": "4.5.0",
+  "ux_writing_source": "general-ux-writing",
+  "ux_writing_override": "protect-go-design/references/tone-and-writing.md",
+  "task_success_map": "../task-success-map.json",
+  "content_map": "content-map.json",
+  "notion_full_prd": "../notion-pages/full-prd.md",
+  "screens": [
+    {
+      "id": "screen-01",
+      "name": "대시보드",
+      "file": "screens/01-Dashboard.jsx",
+      "primary_persona": "AI 데이터센터 통합관제 운영자",
+      "priority": "P0",
+      "features_ref": [
+        "FN-1",
+        "FN-2"
+      ],
+      "task_refs": [
+        "TASK-001"
+      ],
+      "requirement_refs": [
+        "TSR-001",
+        "TSR-002",
+        "TSR-003",
+        "TSR-004"
+      ],
+      "components": [
+        {
+          "name": "AbnormalSituationListWidget",
+          "lib_component": "layout-pattern/Widget + StateBadge",
+          "feature_ref": "FN-1",
+          "requirement_refs": [
+            "TSR-001",
+            "TSR-002",
+            "TSR-004"
+          ]
+        },
+        {
+          "name": "SensorMonitoringWidget",
+          "lib_component": "custom/Charts.MultiSignalChart",
+          "feature_ref": "FN-2",
+          "requirement_refs": [
+            "TSR-002"
+          ]
+        },
+        {
+          "name": "ReachBadge",
+          "lib_component": "@idbrnd/design-system/StateBadge",
+          "feature_ref": "FN-3",
+          "requirement_refs": [
+            "TSR-003"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "screen-03",
+      "name": "이상 상황 상세",
+      "file": "screens/03-SituationDetail.jsx",
+      "primary_persona": "AI 데이터센터 통합관제 운영자",
+      "priority": "P0",
+      "features_ref": [
+        "FN-1",
+        "FN-2",
+        "FN-3",
+        "FN-4"
+      ],
+      "task_refs": [
+        "TASK-001",
+        "TASK-002",
+        "TASK-003"
+      ],
+      "requirement_refs": [
+        "TSR-003",
+        "TSR-005",
+        "TSR-007",
+        "TSR-008",
+        "TSR-010",
+        "TSR-011",
+        "TSR-015",
+        "TSR-017",
+        "TSR-018",
+        "TSR-019",
+        "TSR-020"
+      ],
+      "components": [
+        {
+          "name": "StageTimeline",
+          "lib_component": "custom/StageTimeline",
+          "feature_ref": "FN-1",
+          "requirement_refs": [
+            "TSR-005",
+            "TSR-007",
+            "TSR-011"
+          ]
+        },
+        {
+          "name": "ReachBadge",
+          "lib_component": "custom/StageTimeline.ReachBadge",
+          "feature_ref": "FN-3",
+          "requirement_refs": [
+            "TSR-003"
+          ]
+        },
+        {
+          "name": "EvidencePanel",
+          "lib_component": "layout-pattern/Card",
+          "feature_ref": "FN-2",
+          "requirement_refs": [
+            "TSR-008",
+            "TSR-010",
+            "TSR-011"
+          ]
+        },
+        {
+          "name": "CheckOrderList",
+          "lib_component": "layout-pattern/Card",
+          "feature_ref": "FN-4",
+          "requirement_refs": [
+            "TSR-015",
+            "TSR-017"
+          ]
+        },
+        {
+          "name": "AssignAction",
+          "lib_component": "@idbrnd/design-system/FillButton",
+          "feature_ref": "FN-1",
+          "requirement_refs": [
+            "TSR-018",
+            "TSR-019",
+            "TSR-020"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "screen-04",
+      "name": "조치 이력 기록",
+      "file": "screens/04-ActionRecord.jsx",
+      "primary_persona": "AI 데이터센터 통합관제 운영자",
+      "priority": "P1",
+      "features_ref": [
+        "FN-5",
+        "FN-6"
+      ],
+      "task_refs": [
+        "TASK-004"
+      ],
+      "requirement_refs": [
+        "TSR-022",
+        "TSR-024",
+        "TSR-025",
+        "TSR-026",
+        "TSR-027",
+        "TSR-028"
+      ],
+      "components": [
+        {
+          "name": "TagStepper",
+          "lib_component": "custom/ActionRecordPanel",
+          "feature_ref": "FN-6",
+          "requirement_refs": [
+            "TSR-022",
+            "TSR-025"
+          ]
+        },
+        {
+          "name": "PredictionVerdict",
+          "lib_component": "@idbrnd/design-system/Radio",
+          "feature_ref": "FN-5",
+          "requirement_refs": [
+            "TSR-024",
+            "TSR-026"
+          ]
+        },
+        {
+          "name": "SubmitAction",
+          "lib_component": "@idbrnd/design-system/FillButton",
+          "feature_ref": "FN-5",
+          "requirement_refs": [
+            "TSR-025",
+            "TSR-027",
+            "TSR-028"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shell-alert-center",
+      "name": "알림 센터 드로어",
+      "file": "screens/AlertCenterDrawer.jsx",
+      "primary_persona": "AI 데이터센터 통합관제 운영자",
+      "priority": "P1",
+      "features_ref": [
+        "FN-1"
+      ],
+      "task_refs": [
+        "TASK-001"
+      ],
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "note": "셸 오버레이(라우팅 화면 아님). 실제 FE AlertCenterDrawer 구조 — 상황 단위 번들 알림, 탭 3개(numberBadge), 필터·정렬, 카드 클릭 시 읽음+상황 상세 이동",
+      "components": [
+        {
+          "name": "AlertCenterDrawer",
+          "lib_component": "@idbrnd/design-system/Tab+FilterBar+FilterChip+StateBadge+ContentBadge",
+          "feature_ref": "FN-1",
+          "requirement_refs": [
+            "TSR-004"
+          ]
+        }
+      ]
+    }
+  ],
+  "prototype_only": [
+    "components/DemoPanel.jsx"
+  ],
+  "notes": {
+    "shadow_mode": "화면에 밸브·차단기 제어 버튼을 두지 않는다",
+    "pending_domain_approval": "진행 단계 진입 조건·개입 여지 구간 경계·확신도 표시 기준은 도메인 승인 대기 상태이며, 프로토타입의 값은 확정 사양이 아니다",
+    "layout_source": "실제 FE(ProtectGO-ENT-FE) AppHeader·Sidebar·AbnormalSituationDetail·ActionHistory 구조 준수 (2026-08-27 재구성)"
+  }
+}
