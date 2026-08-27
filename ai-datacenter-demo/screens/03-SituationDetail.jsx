@@ -1,13 +1,13 @@
 // screen-03 · 이상 상황 상세 — 실제 FE AbnormalSituationDetail 구조를 따른다.
 //   topBar(뒤로 가기) + header(제목·부제) + layout grid [1fr 460px]
-//   main: AI 분석 결과 + 구성 이벤트(기존 내용 우선) → 위험 진행 단계 + 계통 신호 타임라인(신규, 하단 배치 2026-08-27)
+//   main: AI 분석 결과 + 구성 이벤트(기존 내용 우선) → 위험 진행 단계 → 설비 그룹 분석(계통 신호 타임라인 대체, 2026-08-27)
 //   side: 이상 상황 처리 패널(메타 목록 + 확인 시작 + 배너)
 // Shadow Mode — 제어 버튼 없음.
 import { Icon, StateBadge, ContentBadge, FillButton } from "@idbrnd/design-system";
 import { Card, CardHeader } from "../components/AppShell";
 import { StageTimeline, ReachBadge } from "../components/StageTimeline";
-import SignalTimeline from "../components/SignalTimeline";
 import TopologyPath from "../components/TopologyPath";
+import EquipGroupAnalysis from "../components/tech/EquipGroupAnalysis";
 
 const MOCK_STAGES = [
   { id: "observe", label: "관찰 구간", at: "10:42" },
@@ -342,14 +342,14 @@ export default function SituationDetail({
             </Card>
           </section>
 
-          {/* 계통 신호 타임라인 — 동일 시간축 정렬 (요소기술 1 근거) */}
+          {/* 설비 그룹 분석 — 계통 신호 타임라인 대체(2026-08-27): 계통 단위 센서 추이·탐지 이벤트 비교 */}
           <section data-desc="65">
             <Card>
-              <CardHeader icon="dashboard-square-activity" title="계통 신호 타임라인" />
-              <div style={{ marginBottom: 8, font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
-                GPU 부하 · 랙 전력 · 냉각 유량 · 랙 출구 온도를 같은 시간축에 정렬해 변화 순서와 반응 속도를 비교합니다.
+              <CardHeader icon="dashboard-square-activity" title="설비 그룹 분석" />
+              <div style={{ marginBottom: 12, font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+                이 상황과 연결된 설비 그룹의 센서 추이를 비교합니다. 탐지 이벤트를 선택하면 모든 그래프에 발생 시점이 표시됩니다.
               </div>
-              <SignalTimeline desc="66" />
+              <EquipGroupAnalysis frameless desc="65" />
             </Card>
           </section>
         </div>

@@ -49,7 +49,7 @@ const EVENTS = [
 
 const CAT = ["var(--category-001)", "var(--category-002)", "var(--category-003)", "var(--category-005)", "var(--category-007)", "var(--category-009)", "var(--category-004)"];
 
-export default function EquipGroupAnalysis({ desc }) {
+export default function EquipGroupAnalysis({ desc, frameless }) {
   const [group, setGroup] = useState("g1");
   const allIds = TREE[group].flatMap((d) => d.items.map((i) => i.id));
   const [checked, setChecked] = useState(() => new Set(TREE.g1.flatMap((d) => d.items.map((i) => i.id)).slice(0, 5)));
@@ -75,7 +75,7 @@ export default function EquipGroupAnalysis({ desc }) {
   TREE[group].flatMap((d) => d.items).forEach((it, i) => { colorOf[it.id] = CAT[i % CAT.length]; });
 
   return (
-    <div data-desc={desc} style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 12, padding: "16px 20px" }}>
+    <div data-desc={desc} style={frameless ? undefined : { border: "1px solid var(--semantic-line-default)", borderRadius: 12, padding: "16px 20px" }}>
       {/* 설비 그룹 선택 */}
       <div style={{ marginBottom: 4, font: "var(--text-body-1-normal-semibold)", color: "var(--semantic-text-default)" }}>
         설비 그룹 선택

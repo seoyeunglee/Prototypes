@@ -18,35 +18,32 @@ const STATUS = {
   design: { label: "설계 확보 — 구현 단계", variant: "warning" },
 };
 
-// T1 — 융합 이벤트 파이프라인 (실제 시나리오 설정 화면의 노드 구성 축약)
+// T1 — 융합 이벤트 파이프라인 (실제 시나리오 설정 페이지의 노드 설정 재현)
 const T1_NODES = [
-  { id: "d1", col: 0, y: 34, name: "GPU 작업량", sub: "DCGM/Redfish 수집기", planned: true,
-    config: "신규 연계 — GPU 텔레메트리 수집기를 데이터 노드로 등록.\n수집 이후 파이프라인은 현재 제품 구성을 그대로 사용합니다." },
-  { id: "d2", col: 0, y: 122, name: "냉각 유량·랙 전력", sub: "센서 노드 · 집계 5초",
-    config: "센서 데이터 노드 — 냉각 유량계·전력 멀티미터 측정 항목 연결.\n시계열 저장소에 적재된 값을 사용합니다." },
-  { id: "d3", col: 0, y: 210, name: "시간 동기화 감시", sub: "소스 간 시각 정합", planned: true,
-    config: "신규 연계 — 소스 간 타임스탬프 정합성 검증.\n동일 시간축 분석의 데이터 품질 전제를 감시합니다." },
-  { id: "s1", col: 1, y: 34, name: "변화율 탐지", sub: "급상승 구간 판정",
-    config: "GPU 사용률의 변화율 탐지 — 절대값이 정상이어도 평소와 다르게 튀는 구간을 판정.\n민감도는 백분위 슬라이더로 조정합니다." },
-  { id: "s2", col: 1, y: 122, name: "EWMA 탐지", sub: "추세 이탈 판정",
-    config: "냉각 유량·온도의 추세 이탈 판정 — 실시간 값과 추세선의 차이를 누적 평가.\n민감도는 K값 슬라이더로 조정합니다." },
-  { id: "e1", col: 2, y: 78, name: "융합 이벤트", sub: "기준 기간 내 동시 충족",
-    config: "융합 이벤트 설정 — 기준 기간(30초~60분 선택) 안에 연결된 조건이 모두 충족될 때만 1건 발생.\nGPU 급상승 + 냉각 반응 이탈이 함께 잡혀야 이벤트가 됩니다." },
-  { id: "a1", col: 3, y: 78, name: "상황 제안 + SOP", sub: "담당자 자동 배정",
-    config: "발생 이벤트를 상황 제안 에이전트가 장소 기준으로 묶어 이상 상황 1건으로 만들고,\n원인 후보·점검 순서·관련 절차와 함께 담당자에게 전달합니다." },
+  { id: "sen", type: "data", kind: "sensor", name: "냉각·전력 센서", x: 24, y: 40, hasInput: false,
+    rows: [["GPU룸 A", "유량계 F-21", "냉각수 유량"], ["분전반 A", "멀티미터 101", "유효전력"]] },
+  { id: "gpu", type: "data", kind: "plain", name: "GPU 작업량 수집기", x: 24, y: 340, hasInput: false, planned: true,
+    body: "DCGM/Redfish 텔레메트리를 데이터 노드로 등록합니다. 수집 이후 파이프라인은 현재 제품 구성 그대로입니다." },
+  { id: "sync", type: "data", kind: "plain", name: "시간 동기화 감시", x: 24, y: 500, hasInput: false, hasOutput: false, planned: true,
+    body: "소스 간 타임스탬프 정합성 검증 — 동일 시간축 분석의 데이터 품질 전제를 감시합니다." },
+  { id: "ewma", type: "detect", kind: "ewma", name: "EWMA 탐지", x: 348, y: 40, targets: ["냉각수 유량", "랙 출구 온도"] },
+  { id: "delta", type: "detect", kind: "delta", name: "변화율 탐지", x: 348, y: 470, targets: ["GPU 사용률"] },
+  { id: "fusion", type: "event", kind: "fusion", name: "융합 이벤트", x: 672, y: 250 },
+  { id: "dash", type: "alert", kind: "dashpush", name: "대시보드 알림", x: 996, y: 170, hasOutput: false },
+  { id: "sop", type: "alert", kind: "sop", name: "SOP 담당자 배정", x: 996, y: 350, hasOutput: false },
 ];
-const T1_EDGES = [["d1", "s1"], ["d2", "s2"], ["s1", "e1"], ["s2", "e1"], ["e1", "a1"]];
+const T1_EDGES = [["sen", "ewma"], ["gpu", "delta"], ["ewma", "fusion"], ["delta", "fusion"], ["fusion", "dash"], ["fusion", "sop"]];
 
 const T7_NODES = [
-  { id: "v", col: 0, y: 34, name: "영상 (CCTV)", sub: "화재·연기 모델 입력", config: "영상 데이터 노드 — AI 모델 노드와 연결해 화재·연기 탐지에 사용합니다." },
-  { id: "sn", col: 0, y: 122, name: "센서·설비 계측", sub: "온도·유량·전력", config: "센서 데이터 노드 — 측정 항목 단위로 연결합니다." },
-  { id: "db", col: 0, y: 210, name: "운영 DB", sub: "EMS·BMS 시계열", config: "데이터베이스 노드 — 운영 시스템의 시계열 컬럼을 연결합니다." },
-  { id: "ai", col: 1, y: 34, name: "AI 모델 탐지", sub: "영상·이상치 모델", config: "AI 패키지 노드 — 배포된 모델로 판정합니다. 모델 관리에서 재학습·배포를 관리합니다." },
-  { id: "th", col: 1, y: 122, name: "임계·EWMA 탐지", sub: "규칙 기반 판정", config: "탐지 설정 노드 — 임계치·변화율·추세 이탈 판정." },
-  { id: "on", col: 1, y: 210, name: "온톨로지 추론", sub: "원인·위험·경로", planned: true, config: "신규 연계 — 계통 관계 기반 원인 후보·위험 진행·점검 경로 추론. 설계 확보 상태입니다." },
-  { id: "fu", col: 2, y: 66, name: "융합 이벤트", sub: "복합 조건 1건", config: "융합 이벤트 설정 — 기준 기간 내 복수 조건 동시 충족 시 1건." },
-  { id: "sp", col: 2, y: 178, name: "SOP 선택", sub: "상황별 절차 연결", planned: true, config: "신규 연계 — 판정 결과에 맞는 절차 문서를 선택해 상황에 붙입니다." },
-  { id: "out", col: 3, y: 122, name: "상황 제안·알림", sub: "운영 데모 화면", config: "상황 제안 에이전트가 묶은 상황이 대시보드·알림 센터·상세 화면으로 전달됩니다." },
+  { id: "v", type: "data", kind: "plain", name: "영상 데이터", x: 24, y: 40, hasInput: false, body: "CCTV 영상 스트림 연결 — AI 모델 노드 입력." },
+  { id: "sn", type: "data", kind: "plain", name: "센서·설비 계측", x: 24, y: 180, hasInput: false, body: "온도·유량·전력 측정 항목 연결." },
+  { id: "db", type: "data", kind: "plain", name: "운영 DB", x: 24, y: 320, hasInput: false, body: "EMS·BMS 시계열 컬럼 연결." },
+  { id: "ai", type: "detect", kind: "plain", name: "AI 패키지 (화재·연기)", x: 348, y: 40, body: "배포된 영상 모델로 판정 — 모델 관리에서 재학습·배포를 관리합니다." },
+  { id: "th", type: "detect", kind: "plain", name: "임계·EWMA 탐지", x: 348, y: 180, body: "임계치·변화율·추세 이탈 판정." },
+  { id: "on", type: "detect", kind: "plain", name: "온톨로지 추론", x: 348, y: 320, planned: true, body: "계통 관계 기반 원인 후보·위험 진행·점검 경로 추론 — 설계 확보." },
+  { id: "fu", type: "event", kind: "plain", name: "융합 이벤트", x: 672, y: 110, body: "기준 기간 내 복수 조건 동시 충족 시 1건." },
+  { id: "sp", type: "alert", kind: "plain", name: "SOP 선택", x: 672, y: 280, planned: true, body: "판정 결과에 맞는 절차 문서를 상황에 연결." },
+  { id: "out", type: "alert", kind: "plain", name: "상황 제안·알림", x: 996, y: 190, hasOutput: false, body: "상황 묶음 → 대시보드·알림 센터·상세 화면." },
 ];
 const T7_EDGES = [["v", "ai"], ["sn", "th"], ["db", "th"], ["ai", "fu"], ["th", "fu"], ["on", "sp"], ["fu", "out"], ["sp", "out"]];
 
@@ -139,8 +136,8 @@ export default function TechShowcase({ onOpenDemoDetail }) {
     {
       id: "t1", no: 1, name: "초연결 시계열 분석", status: "direct",
       steps: [
-        { title: "노드 연결 — 탐지 시나리오 구성", caption: "실제 시나리오 설정 화면의 노드 파이프라인입니다. 노드를 선택하면 설정이 표시됩니다.",
-          render: () => <NodeCanvas nodes={T1_NODES} edges={T1_EDGES} height={288} desc="81" /> },
+        { title: "노드 연결 — 탐지 시나리오 구성", caption: "변화율·EWMA·융합 이벤트 노드의 설정 UI가 실제 시나리오 설정 페이지 그대로입니다.",
+          render: () => <NodeCanvas nodes={T1_NODES} edges={T1_EDGES} height={760} desc="81" /> },
         { title: "추출된 탐지 이벤트", caption: "점선(신규) 노드를 거치는 이벤트는 연계 후 동작 예시입니다. 나머지는 현재 제품 판정 그대로입니다.",
           render: () => t1Events },
         { title: "상황 이벤트로 묶임", caption: "상황 제안 에이전트가 장소 기준으로 묶은 결과입니다.",
@@ -230,7 +227,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
       id: "t7", no: 7, name: "멀티퓨전 파이프라인", status: "direct",
       steps: [
         { title: "시나리오 설정 — 전체 플로우", caption: "영상·센서·운영 DB·AI 모델·규칙 판정을 한 시나리오로 연결합니다. 온톨로지 추론·SOP 선택은 신규 연계(점선)입니다.",
-          render: () => <NodeCanvas nodes={T7_NODES} edges={T7_EDGES} height={306} desc="89" /> },
+          render: () => <NodeCanvas nodes={T7_NODES} edges={T7_EDGES} height={470} desc="89" /> },
       ],
       summary: [
         ["제품 근거", "노드 캔버스에서 탐지부터 상황·SOP까지 하나의 시나리오로 구성합니다 — 개발 없이 설정으로."],
