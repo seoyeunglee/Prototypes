@@ -107,10 +107,12 @@ const MOCK_BEACONS = [
 ];
 
 // 위젯 프레임 — 그리드 스팬(w×h)을 받아 실제 규격으로 배치. 본문은 위젯 안에서 스크롤
-function Widget({ icon, title, meta, right, desc, x, y, w, h, children }) {
+// dimmed: 데모 핵심 기능 외 위젯은 레이아웃만 유지한 채 흐리게 두고 조작을 막는다
+function Widget({ icon, title, meta, right, desc, x, y, w, h, dimmed, children }) {
   return (
     <div
       data-desc={desc}
+      aria-disabled={dimmed || undefined}
       style={{
         gridColumn: x != null ? `${x + 1} / span ${w}` : `span ${w}`,
         gridRow: y != null ? `${y + 1} / span ${h}` : `span ${h}`,
@@ -122,6 +124,8 @@ function Widget({ icon, title, meta, right, desc, x, y, w, h, children }) {
         border: "1px solid var(--semantic-line-default)",
         borderRadius: 12,
         padding: "12px 16px",
+        opacity: dimmed ? 0.35 : 1,
+        pointerEvents: dimmed ? "none" : "auto",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8, flexShrink: 0 }}>
@@ -324,7 +328,7 @@ export default function Dashboard({ onOpenSituation, lowConfidence, coolingSigna
         </Widget>
 
         {/* 시간대별 이상 발생 추이 — timeTrend 5×4 */}
-        <Widget icon="dashboard-history" title="시간대별 이상 발생 추이" desc="11" x={13} y={0} w={7} h={4}>
+        <Widget dimmed icon="dashboard-history" title="시간대별 이상 발생 추이" desc="11" x={13} y={0} w={7} h={4}>
           <div style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)", marginBottom: 4 }}>
             (발생 건수)
           </div>
@@ -332,17 +336,17 @@ export default function Dashboard({ onOpenSituation, lowConfidence, coolingSigna
         </Widget>
 
         {/* 이상 탐지 발생 요약 — anomalySummary 6×2 */}
-        <Widget icon="dashboard-graph" title="이상 탐지 발생 요약" desc="9" x={13} y={4} w={7} h={3}>
+        <Widget dimmed icon="dashboard-graph" title="이상 탐지 발생 요약" desc="9" x={13} y={4} w={7} h={3}>
           <RatioBars data={MOCK_SUMMARY} />
         </Widget>
 
         {/* 탐지 확인 현황 — detectionStatusCard 5×4 */}
-        <Widget icon="dashboard-book-check" title="탐지 확인 현황" desc="10" x={13} y={7} w={7} h={5}>
+        <Widget dimmed icon="dashboard-book-check" title="탐지 확인 현황" desc="10" x={13} y={7} w={7} h={5}>
           <RatioBars data={MOCK_CHECK} />
         </Widget>
 
         {/* 배치도 — layout 5×5, 더미 도면 SVG + 비콘 */}
-        <Widget icon="dashboard-map" title="배치도" meta="GPU룸 A" desc="12" x={6} y={4} w={7} h={8}>
+        <Widget dimmed icon="dashboard-map" title="배치도" meta="GPU룸 A" desc="12" x={6} y={4} w={7} h={8}>
           <FloorPlan beacons={MOCK_BEACONS} />
         </Widget>
       </div>
