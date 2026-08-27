@@ -8,14 +8,16 @@
 // 토큰은 data-idb-component 스코프 안에서만 정의된다 — 루트 속성 유지.
 import { useState } from "react";
 import "@idbrnd/design-system/style.css";
-import { showToast } from "@idbrnd/design-system";
+import { showToast, SegmentedControl } from "@idbrnd/design-system";
 import { AppShell } from "./components/AppShell";
 import Dashboard from "./screens/01-Dashboard";
 import SituationDetail from "./screens/03-SituationDetail";
 import ActionRecord from "./screens/04-ActionRecord";
 import AlertCenterDrawer, { MOCK_ALERTS } from "./screens/AlertCenterDrawer";
+import TechShowcase from "./screens/06-TechShowcase";
 
 export default function App() {
+  const [view, setView] = useState("demo");
   const [screen, setScreen] = useState("dashboard");
   const [selectedStage, setSelectedStage] = useState(2);
   const [assigned, setAssigned] = useState(false);
@@ -36,6 +38,32 @@ export default function App() {
       }}
     >
       <div style={{ flex: 1, padding: "16px 24px 40px" }}>
+        {/* 뷰 전환 — 운영 데모 / 기술 검증 (요소기술 근거 화면) */}
+        <div style={{ marginBottom: 16 }}>
+          <SegmentedControl
+            size="small"
+            layout="hug"
+            label="보기 전환"
+            items={[
+              { value: "demo", label: "운영 데모" },
+              { value: "tech", label: "기술 검증" },
+            ]}
+            value={view}
+            onChange={setView}
+          />
+        </div>
+
+        {view === "tech" && (
+          <TechShowcase
+            onOpenDemoDetail={() => {
+              setView("demo");
+              setScreen("detail");
+              setSelectedStage(2);
+            }}
+          />
+        )}
+
+        {view === "demo" && (
         <AppShell
           current="dashboard"
           onNavigate={() => setScreen("dashboard")}
@@ -75,6 +103,7 @@ export default function App() {
             />
           )}
         </AppShell>
+        )}
       </div>
 
       <AlertCenterDrawer

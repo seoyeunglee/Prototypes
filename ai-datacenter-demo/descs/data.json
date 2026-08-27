@@ -256,6 +256,78 @@
       "title": "점검 경로 다이어그램",
       "componentId": "TopologyPath",
       "body": "요소기술 3(온톨로지 기반 지식화)의 화면 근거. 냉각 공급 경로(밸브 V-21→펌프 P-2→2호 CDU→GPU 랙 A열)와 전력 공급 경로(PDU-A, 참조용 55% 투명)를 노드-화살표로 표시. 경로 위 번호 ①②③은 조치 가이드 점검 순서와 1:1 대응 — 계통 연결이 점검 순서의 근거임을 보여준다. 계통 미등록 시뮬레이션 시 다이어그램 숨김."
+    },
+    {
+      "num": "80",
+      "group": "기술 검증",
+      "screen": "screen-06",
+      "title": "요소기술 목록",
+      "componentId": "TechRail",
+      "body": "좌측 레일 — 요소기술 7종 버튼. 활성 표시는 실제 사이드바 패턴(primary-extra-light + 4px primary 바). 선택 시 우측에 해당 기술의 제품 근거 화면 + 설명 표시. 상태 배지: 직접(성공)/직접+간접(정보)/설계 확보(주의)."
+    },
+    {
+      "num": "81",
+      "group": "기술 검증",
+      "screen": "screen-06",
+      "title": "노드 연결 캔버스",
+      "componentId": "NodeCanvas",
+      "body": "실제 시나리오 편집 화면(노드 캔버스)의 축약 재현 — 열 구성 데이터/탐지 설정/이벤트 설정/알림 및 제어. 노드 클릭 시 설정 요약 표시. 점선+신규 배지 = 연계 시 추가되는 노드(GPU 수집기·시간 동기화·온톨로지 추론·SOP 선택)."
+    },
+    {
+      "num": "82",
+      "group": "기술 검증",
+      "screen": "screen-06",
+      "title": "추출된 탐지 이벤트",
+      "componentId": "T1Events",
+      "body": "융합 이벤트 구성으로 추출된 탐지 이벤트 카드 2건(변화율/EWMA). 클릭 시 탐지 데이터 상세 팝업(FE DetectionDataModal 형식 — 추이+발생 시점 마커+센서값/평균/판정, 오버레이 rgba(0,0,0,0.4) FE 실물 값)."
+    },
+    {
+      "num": "83",
+      "group": "기술 검증",
+      "screen": "screen-06",
+      "title": "상황 이벤트 묶음 카드",
+      "componentId": "T1Situation",
+      "body": "탐지 이벤트 2건이 상황 1건으로 묶인 결과 미리보기 + 운영 데모 상세로 이동 버튼."
+    },
+    {
+      "num": "84",
+      "group": "기술 검증",
+      "screen": "screen-06",
+      "title": "설비 그룹 분석 상세",
+      "componentId": "EquipGroupAnalysis",
+      "body": "실제 최신 위젯(설비 그룹 분석 상세) 형식 재현 — 그룹 선택기(전환 동작), 측정 항목 트리(개별/전체 선택·해제, 카테고리 색 순환 매핑), 개별 그래프 비교(평균 점선·정상/연결 끊김 범례), 탐지 이벤트 리스트(위험도 배지·선택 시 전 그래프에 발생 시점 마커)."
+    },
+    {
+      "num": "85",
+      "group": "기술 검증",
+      "screen": "screen-06",
+      "title": "지식화 파이프라인",
+      "componentId": "DocPipeline",
+      "body": "문서 관리 등록 현황 미니 재현 + 파이프라인 도식(문서·조치 이력→임베딩·벡터DB→온톨로지 지식→판정 규칙→상황 화면). 실선=현재 동작, 점선=설계 확보 구간."
+    },
+    {
+      "num": "86",
+      "group": "기술 검증",
+      "screen": "screen-06",
+      "title": "예측·판정 엔진 도식",
+      "componentId": "PredictionEngine",
+      "body": "EWMA 오차 추세 판정(예측 모델 자리만 신규 교체) + 진행 단계 판정 엔진(5단계 전이·판정 안정성·신호 단절 중단). 수치·확률 미표기."
+    },
+    {
+      "num": "88",
+      "group": "기술 검증",
+      "screen": "screen-06",
+      "title": "운영 관리 3탭",
+      "componentId": "OpsManagement",
+      "body": "엣지 디바이스/모델 관리/연결 데이터 탭 축약 재현(실제 화면은 ds Table+TanStack — 쇼케이스는 의존성 최소화로 카드 행, 상태 어휘는 실물). 신규 어댑터 점선 카드(Modbus-TCP·BACnet/IP·SNMP·Redfish/DCGM)."
+    },
+    {
+      "num": "89",
+      "group": "기술 검증",
+      "screen": "screen-06",
+      "title": "전체 플로우 시나리오",
+      "componentId": "T7Canvas",
+      "body": "멀티퓨전 파이프라인 — 영상·센서·운영 DB·AI 모델·임계/EWMA·융합 이벤트·상황 제안을 한 시나리오로 연결. 온톨로지 추론·SOP 선택은 점선(신규 연계). T5는 실제 조치 기록 화면(04)을 임베드."
     }
   ],
   "logicPolicies": [

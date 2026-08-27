@@ -215,6 +215,57 @@
           ]
         }
       ]
+    },
+    {
+      "id": "screen-06",
+      "name": "기술 검증 쇼케이스",
+      "file": "screens/06-TechShowcase.jsx",
+      "primary_persona": "제안 검토자 (고객 기술 담당)",
+      "priority": "P1",
+      "features_ref": [
+        "FN-1",
+        "FN-2",
+        "FN-4"
+      ],
+      "task_refs": [
+        "TASK-001"
+      ],
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "note": "요소기술 7종을 실제 제품 근거 화면(노드 캔버스·탐지 팝업·설비 그룹 분석·문서 파이프라인·예측 엔진·운영 관리)과 함께 확인하는 뷰. 신규 항목은 점선+신규 배지. 운영 데모와 SegmentedControl로 전환",
+      "components": [
+        {
+          "name": "NodeCanvas",
+          "lib_component": "layout(실제 시나리오 노드 캔버스 축약)",
+          "feature_ref": "FN-2"
+        },
+        {
+          "name": "DetectionPopup",
+          "lib_component": "layout(FE DetectionDataModal 축약)",
+          "feature_ref": "FN-2"
+        },
+        {
+          "name": "EquipGroupAnalysis",
+          "lib_component": "layout(설비 그룹 분석 상세 재현)",
+          "feature_ref": "FN-2"
+        },
+        {
+          "name": "DocPipeline",
+          "lib_component": "layout(도식)",
+          "feature_ref": "FN-4"
+        },
+        {
+          "name": "PredictionEngine",
+          "lib_component": "layout(도식)",
+          "feature_ref": "FN-1"
+        },
+        {
+          "name": "OpsManagement",
+          "lib_component": "@idbrnd/design-system/Tab+StateBadge+WeakButton",
+          "feature_ref": "FN-2"
+        }
+      ]
     }
   ],
   "prototype_only": [

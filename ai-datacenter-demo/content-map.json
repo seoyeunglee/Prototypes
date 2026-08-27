@@ -4009,6 +4009,1536 @@
       "destination": "diagram_node",
       "copy": "GPU 랙 A열",
       "evidence": "경로 노드"
+    },
+    {
+      "id": "C-222",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "탐지 데이터 상세",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-223",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "팝업 닫기",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-224",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "센서값",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-225",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "판정",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-226",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "문서 관리 — 등록 현황",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-227",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "PDF 업로드 → 전처리·임베딩 → 벡터 DB 적재. 상황 화면의 \"관련 매뉴얼\"이 여기서 연결됩니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-228",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "문서와 조치 이력이 온톨로지 지식으로 구조화되어 상황 판단에 연결되는 파이프라인",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-229",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "문서 관리",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-230",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "조치 이력",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-231",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "임베딩·벡터 DB",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-232",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "온톨로지 지식",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-233",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "판정 규칙",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-234",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "상황 화면",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-235",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "실선 = 현재 제품 동작 · 점선 = 설계 확보(온톨로지 도메인 팩 — 클래스·관계·규칙·검증 케이스 정의 완료, 구현 단계)",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-236",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "설비 그룹 선택",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-237",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "설비 그룹을 고르면 이벤트·센서 추이가 해당 그룹 기준으로 변경됩니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-238",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "측정 항목",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-239",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "설비별 센서 추이",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-240",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "선택된 측정 항목이 없습니다. 측정 항목을 선택하면 그래프가 표시됩니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-241",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "정상 · 연결 끊김",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-242",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "조회 기간 1일",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-243",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "계통 이상 탐지",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-244",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "이벤트를 선택하면 그래프에 발생 시점이 표시됩니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-245",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "센서 추이",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-246",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "탐지 시나리오 노드 파이프라인",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-247",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "신규",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-248",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "노드를 선택하면 해당 노드의 설정이 표시됩니다. 점선 노드는 신규 연계 시 추가되는 구성입니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-249",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "현장 센서 - 엣지 - 서버 구조로 실시간 분석합니다. 디바이스 상태·리소스를 상시 감시합니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-250",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "재학습",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-251",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "모델 성능 점검·재학습·배포와 연합학습으로 현장별 모델을 지속 고도화합니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-252",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "연결 상태 4분류 상시 갱신 · 값 고착(장시간 동일값) 감지 · 이상 소스를 쓰는 탐지는 자동 차단, 복구 시 자동 재개.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-253",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "데이터센터 표준 프로토콜 어댑터",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-254",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "설치형 어댑터로 기존 EMS·BMS·GPU 텔레메트리를 연결 데이터 관리에 등록하는 방식 — 수집 이후의 감시·차단·복구 체계는 현재 제품 그대로 적용됩니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-255",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "부하를 입력받아 필요 냉각량을 예측하고 실측과의 오차 추세가 임계를 넘으면 이벤트를 내는 판정 구조",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-256",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "EWMA 오차 추세 판정 — 기존 구조 재사용, 모델 자리만 교체",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-257",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "부하→필요 냉각량 예측",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-258",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "모델 자리 교체",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-259",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "오차 = 예측 − 실측",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-260",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "실측: 냉각 유량·온도",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-261",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "오차 추세 (EWMA)",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-262",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "평활 누적",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-263",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "임계 초과 시 이벤트",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-264",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "임계 = 오차 편차 기반",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-265",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "기존 발전 효율 저하 탐지가 이미 이 구조로 운영 중 — 예측 모델 자리만 바꾸면 판정 로직이 그대로 성립합니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-266",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "관찰 구간부터 성능 저하까지 다섯 단계의 상태 전이와 판정 안정성 규칙",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-267",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "진행 단계 판정 엔진 — 설계 확보 (단계 진입 조건은 도메인 승인 대기)",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-268",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "판정 안정성: 같은 입력에 판정이 반복해서 뒤집히면 단계를 확정하지 않고 직전 단계를 유지 · 신호 단절 시 판정 중단 표시",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-269",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "기술 검증",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-270",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "기술을 선택하면 실제 제품 근거 화면과 설명이 표시됩니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-271",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "융합 이벤트 노드(기준 기간 내 복수 조건 동시 충족 시 1건) · 변화율/EWMA/Z-Score 탐지 · 시계열 수집",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-272",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "제품 근거",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-273",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "GPU 텔레메트리 수집기 · 시간 동기화 감시 — 점선 노드가 추가 위치입니다. 수집 이후 판정·묶음·알림은 현재 제품 그대로 동작합니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-274",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "신규 연계",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-275",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "노드 연결 — 탐지 시나리오 구성",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-276",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "이 구성으로 추출된 탐지 이벤트",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-277",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "상황 이벤트로 묶임 — 상황 제안 에이전트",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-278",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "위 탐지 이벤트 2건이 같은 장소 기준으로 이상 상황 1건으로 묶였습니다. 운영자는 알람 목록이 아니라 상황 1건을 받습니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-279",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "운영 데모 상세에서 보기",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-280",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "설비 그룹 분석 — 계통(설비 그룹) 단위로 여러 설비·센서의 추이를 한 화면에서 비교하고, 계통 이상 탐지 이벤트와 함께 봅니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-281",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "그룹 전환·측정 항목 선택·탐지 이벤트 선택이 동작합니다. 이벤트를 선택하면 모든 그래프에 발생 시점이 표시되어 \"무엇이 함께 움직였나\"를 확인합니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-282",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "확인 방법",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-283",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "설비 그룹 분석 상세",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-284",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "문서 관리(PDF 업로드 → 임베딩 → 벡터 DB)가 상황 화면의 \"관련 매뉴얼\"로 연결되어 있습니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-285",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "현재 제품",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-286",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "설비·상황·원인·위험·SOP를 클래스와 관계로 구조화하는 온톨로지 도메인 팩이 설계 완료 상태입니다 — 아래 점선 구간이 확장 지점입니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-287",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "설계 확보",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-288",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "문서 관리에서 파생되는 지식화 파이프라인",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-289",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "원인 가설 + 유사 사례 제공. \"냉각 반응 지연 → 랙 온도 상승 → 성능 저하\" 연쇄가 데모 진행 단계 구성 그대로입니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-290",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "기존 효율 저하 탐지의 EWMA 오차 추세 판정 구조에서 예측 모델 자리만 교체합니다 — 판정 로직 재사용.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-291",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "재활용",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-292",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "데이터 수집·탐지·융합 노드 구성은 기술 1의 노드 연결 화면과 동일 계열입니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-293",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "노드 구성",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-294",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "내부 구조 — 예측 판정과 진행 단계 엔진",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-295",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "운영 데모: 진행 단계 타임라인·개입 여지 보기",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-296",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "기술 1: 노드 연결 화면 보기",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-297",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "상황별 관련 매뉴얼 자동 연결 · 조치 이력 태그(현상→원인→조치) · 24시간 후 팀 지식 적립 · 이의제기 · 오탐 되먹임 — 전부 현재 제품 프로세스입니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-298",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "아래는 실제 조치 이력 기록 화면 그대로입니다. 태그 선택부터 예측 판정, 처리 완료까지 흐름이 동작합니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-299",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "조치 이력 기록 — 실제 프로세스 화면",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-300",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "엣지 디바이스 관리 · 모델 관리(재학습·배포·연합학습) · 연결 데이터 관리(수집 상태 4분류·값 고착 감지·자동 차단/복구)",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-301",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "데이터센터 표준 프로토콜 어댑터는 설치·연동 방식으로 추가됩니다 — 아래 점선 카드.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-302",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "운영 관리 화면",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-303",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "노드 캔버스에서 영상·센서·운영 DB·AI 모델을 조합해 탐지부터 상황·SOP까지 하나의 시나리오로 구성합니다 — 개발 없이 설정으로.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-304",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "온톨로지 추론·SOP 선택 노드가 추가 지점입니다(점선). 이 시나리오의 출력이 운영 데모 화면입니다.",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-305",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "시나리오 설정 — 전체 플로우",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
+    },
+    {
+      "id": "C-306",
+      "screen_id": "screen-06",
+      "source_type": "user_task",
+      "source_ref": [
+        "FN-2"
+      ],
+      "task_id": "TASK-001",
+      "requirement_refs": [
+        "TSR-004"
+      ],
+      "user_task": "요소기술 실행 근거 확인",
+      "decision": "VISIBLE_PRIMARY",
+      "destination": "tech_showcase",
+      "copy": "이 파이프라인의 출력 — 운영 데모에서 보기",
+      "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
+      "confidence": "confirmed"
     }
   ]
 }
