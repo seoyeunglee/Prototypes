@@ -256,7 +256,7 @@ export default function NodeCanvas({ nodes, edges, height = 620, desc }) {
         </div>
       </div>
       <p style={{ margin: "8px 0 0", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
-        실제 시나리오 설정 페이지의 노드 구성입니다. 점선 노드는 신규 연계 시 추가되는 구성입니다. 좌우로 스크롤해 전체 파이프라인을 확인하세요.
+        좌우로 스크롤해 전체 파이프라인을 확인하세요. 점선 노드는 신규 연계 시 추가되는 구성입니다.
       </p>
     </div>
   );

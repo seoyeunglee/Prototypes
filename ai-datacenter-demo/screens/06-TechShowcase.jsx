@@ -3,7 +3,7 @@
 // 우측 = 스냅샷 스텝퍼(동작 프로토타입 화면을 옆으로 넘기며 프로세스 확인) + 하단 정리 설명.
 // 신규 항목은 "기존 솔루션에 없지만 연계 시 이렇게 보인다" 방향으로 점선+신규 배지 표기.
 import { useState } from "react";
-import { Icon, StateBadge, ContentBadge, TextButton, BasicIconButton, showToast } from "@idbrnd/design-system";
+import { Icon, StateBadge, ContentBadge, TextButton, SegmentedControl, showToast } from "@idbrnd/design-system";
 import NodeCanvas from "../components/tech/NodeCanvas";
 import DetectionPopup from "../components/tech/DetectionPopup";
 import EquipGroupAnalysis from "../components/tech/EquipGroupAnalysis";
@@ -58,6 +58,33 @@ const T1_EVENTS = [
     yMax: "157L/min", yMin: "118L/min", value: "118L/min", avgLabel: "140L/min", rule: "추세 이탈 누적",
     note: "부하 상승 시 기대되는 유량 증가가 나타나지 않아 추세 이탈로 판정됐습니다." },
 ];
+
+// 캐러셀 좌우 이동 버튼 — FE 원형 아이콘 버튼 패턴(FilterBar reset과 동일 계열)
+function NavArrow({ dir, disabled, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={dir === "left" ? "이전 단계" : "다음 단계"}
+      style={{
+        width: 40,
+        height: 40,
+        borderRadius: 999,
+        border: "1px solid var(--semantic-line-default)",
+        background: "var(--semantic-bg-default)",
+        boxShadow: "var(--shadow-level-1)",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: disabled ? "default" : "pointer",
+        opacity: disabled ? 0.35 : 1,
+      }}
+    >
+      <Icon name={dir === "left" ? "chevron-left" : "chevron-right"} size={20} color="var(--semantic-text-default)" />
+    </button>
+  );
+}
 
 function InfoRow({ label, children }) {
   return (
@@ -136,11 +163,11 @@ export default function TechShowcase({ onOpenDemoDetail }) {
     {
       id: "t1", no: 1, name: "초연결 시계열 분석", status: "direct",
       steps: [
-        { title: "노드 연결 — 탐지 시나리오 구성", caption: "변화율·EWMA·융합 이벤트 노드의 설정 UI가 실제 시나리오 설정 페이지 그대로입니다.",
+        { short: "노드 연결", title: "노드 연결 — 탐지 시나리오 구성", caption: "변화율·EWMA·융합 이벤트 노드의 설정 UI가 실제 시나리오 설정 페이지 그대로입니다.",
           render: () => <NodeCanvas nodes={T1_NODES} edges={T1_EDGES} height={760} desc="81" /> },
-        { title: "추출된 탐지 이벤트", caption: "점선(신규) 노드를 거치는 이벤트는 연계 후 동작 예시입니다. 나머지는 현재 제품 판정 그대로입니다.",
+        { short: "탐지 이벤트", title: "추출된 탐지 이벤트", caption: "점선(신규) 노드를 거치는 이벤트는 연계 후 동작 예시입니다. 나머지는 현재 제품 판정 그대로입니다.",
           render: () => t1Events },
-        { title: "상황 이벤트로 묶임", caption: "상황 제안 에이전트가 장소 기준으로 묶은 결과입니다.",
+        { short: "상황 묶음", title: "상황 이벤트로 묶임", caption: "상황 제안 에이전트가 장소 기준으로 묶은 결과입니다.",
           render: () => t1Situation },
       ],
       summary: [
@@ -162,9 +189,9 @@ export default function TechShowcase({ onOpenDemoDetail }) {
     {
       id: "t3", no: 3, name: "온톨로지 기반 지식화", status: "design",
       steps: [
-        { title: "문서 관리 — 등록 현황", caption: "현재 제품 동작 — PDF 업로드부터 벡터 DB 적재까지. 상황 화면의 관련 매뉴얼이 여기서 연결됩니다.",
+        { short: "문서 관리", title: "문서 관리 — 등록 현황", caption: "현재 제품 동작 — PDF 업로드부터 벡터 DB 적재까지. 상황 화면의 관련 매뉴얼이 여기서 연결됩니다.",
           render: () => <DocPipeline part="docs" desc="85" /> },
-        { title: "지식화 파이프라인", caption: "실선은 현재 제품 동작, 점선은 설계 확보 구간(온톨로지 도메인 팩)입니다.",
+        { short: "파이프라인", title: "지식화 파이프라인", caption: "실선은 현재 제품 동작, 점선은 설계 확보 구간(온톨로지 도메인 팩)입니다.",
           render: () => <DocPipeline part="pipeline" desc="85" /> },
       ],
       summary: [
@@ -175,9 +202,9 @@ export default function TechShowcase({ onOpenDemoDetail }) {
     {
       id: "t4", no: 4, name: "원인·위험·다음 사건 예측", status: "mixed",
       steps: [
-        { title: "EWMA 오차 추세 판정", caption: "기존 효율 저하 탐지 구조에서 예측 모델 자리만 교체합니다 — 판정 로직 재사용.",
+        { short: "EWMA 판정", title: "EWMA 오차 추세 판정", caption: "기존 효율 저하 탐지 구조에서 예측 모델 자리만 교체합니다 — 판정 로직 재사용.",
           render: () => <PredictionEngine part="ewma" desc="86" /> },
-        { title: "진행 단계 판정 엔진", caption: "5단계 전이와 판정 안정성 규칙 — 단계 진입 조건은 도메인 승인 대기입니다.",
+        { short: "진행 단계 엔진", title: "진행 단계 판정 엔진", caption: "5단계 전이와 판정 안정성 규칙 — 단계 진입 조건은 도메인 승인 대기입니다.",
           render: () => <PredictionEngine part="stages" desc="86" /> },
       ],
       summary: [
@@ -209,13 +236,13 @@ export default function TechShowcase({ onOpenDemoDetail }) {
     {
       id: "t6", no: 6, name: "Edge + MLOps 운영", status: "direct",
       steps: [
-        { title: "엣지 디바이스 관리", caption: "현장 센서 - 엣지 - 서버 구조. 디바이스 상태·리소스를 상시 감시합니다.",
+        { short: "엣지 디바이스", title: "엣지 디바이스 관리", caption: "현장 센서 - 엣지 - 서버 구조. 디바이스 상태·리소스를 상시 감시합니다.",
           render: () => <OpsManagement section="edge" desc="88" /> },
-        { title: "모델 관리", caption: "성능 점검·재학습·배포·연합학습을 이 화면에서 수행합니다.",
+        { short: "모델 관리", title: "모델 관리", caption: "성능 점검·재학습·배포·연합학습을 이 화면에서 수행합니다.",
           render: () => <OpsManagement section="model" desc="88" /> },
-        { title: "연결 데이터 관리", caption: "수집 상태 4분류 · 값 고착 감지 · 이상 소스를 쓰는 탐지 자동 차단, 복구 시 자동 재개.",
+        { short: "연결 데이터", title: "연결 데이터 관리", caption: "수집 상태 4분류 · 값 고착 감지 · 이상 소스를 쓰는 탐지 자동 차단, 복구 시 자동 재개.",
           render: () => <OpsManagement section="data" desc="88" /> },
-        { title: "신규 연계 — 프로토콜 어댑터", caption: "설치형 어댑터로 기존 EMS·BMS·GPU 텔레메트리를 연결하는 방식입니다.",
+        { short: "신규 어댑터", title: "신규 연계 — 프로토콜 어댑터", caption: "설치형 어댑터로 기존 EMS·BMS·GPU 텔레메트리를 연결하는 방식입니다.",
           render: () => <OpsManagement section="adapter" desc="88" /> },
       ],
       summary: [
@@ -301,43 +328,52 @@ export default function TechShowcase({ onOpenDemoDetail }) {
           <StateBadge size="compact" variant={STATUS[cur.status].variant}>{STATUS[cur.status].label}</StateBadge>
         </div>
 
-        {/* 스냅샷 헤더 — 이전/다음 + 단계 표시 */}
-        <div data-desc="91" style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-          <BasicIconButton onClick={() => setStepIdx(Math.max(0, si - 1))} disabled={si === 0} aria-label="이전 단계">
-            <Icon name="chevron-left" size={20} color={si === 0 ? "var(--semantic-natural-strong)" : "var(--semantic-text-default)"} />
-          </BasicIconButton>
-          <span style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)" }}>
-            {step.title}
-          </span>
-          <span style={{ font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)", fontVariantNumeric: "tabular-nums" }}>
-            {si + 1} / {cur.steps.length}
-          </span>
-          <div style={{ display: "flex", gap: 4, marginLeft: 4 }}>
-            {cur.steps.map((s, i) => (
-              <span
-                key={s.title}
-                style={{
-                  width: 6,
-                  height: 6,
-                  borderRadius: 999,
-                  background: i === si ? "var(--semantic-primary-default)" : "var(--semantic-natural-strong)",
-                }}
-              />
-            ))}
+        {/* 단계 선택 — 강조된 프로그레스 (SegmentedControl) */}
+        {cur.steps.length > 1 && (
+          <div data-desc="91" style={{ display: "flex", justifyContent: "center", marginBottom: 12 }}>
+            <SegmentedControl
+              size="small"
+              layout="hug"
+              label="단계 선택"
+              items={cur.steps.map((st, i) => ({ value: String(i), label: `${i + 1}. ${st.short}` }))}
+              value={String(si)}
+              onChange={(v) => setStepIdx(Number(v))}
+            />
           </div>
-          <div style={{ marginLeft: "auto" }}>
-            <BasicIconButton onClick={() => setStepIdx(Math.min(cur.steps.length - 1, si + 1))} disabled={si === cur.steps.length - 1} aria-label="다음 단계">
-              <Icon name="chevron-right" size={20} color={si === cur.steps.length - 1 ? "var(--semantic-natural-strong)" : "var(--semantic-text-default)"} />
-            </BasicIconButton>
-          </div>
-        </div>
+        )}
 
-        {/* 스냅샷 프레임 */}
-        <div data-desc="92" style={{ minHeight: 320 }}>
-          {step.render()}
-          <p style={{ margin: "8px 0 0", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
-            {step.caption}
-          </p>
+        {/* 스냅샷 프레임 — 양옆 이동 버튼이 화면 옆에 위치 */}
+        <div
+          data-desc="92"
+          style={{
+            display: "grid",
+            gridTemplateColumns: cur.steps.length > 1 ? "40px minmax(0, 1fr) 40px" : "minmax(0, 1fr)",
+            gap: 12,
+            alignItems: "center",
+          }}
+        >
+          {cur.steps.length > 1 && (
+            <NavArrow dir="left" disabled={si === 0} onClick={() => setStepIdx(Math.max(0, si - 1))} />
+          )}
+          <div style={{ minHeight: 320, alignSelf: "start", minWidth: 0 }}>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 8 }}>
+              <span style={{ font: "var(--text-label-1-semibold)", color: "var(--semantic-text-default)" }}>
+                {step.title}
+              </span>
+              {cur.steps.length > 1 && (
+                <span style={{ marginLeft: "auto", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)", fontVariantNumeric: "tabular-nums" }}>
+                  {si + 1} / {cur.steps.length}
+                </span>
+              )}
+            </div>
+            {step.render()}
+            <p style={{ margin: "8px 0 0", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
+              {step.caption}
+            </p>
+          </div>
+          {cur.steps.length > 1 && (
+            <NavArrow dir="right" disabled={si === cur.steps.length - 1} onClick={() => setStepIdx(Math.min(cur.steps.length - 1, si + 1))} />
+          )}
         </div>
 
         {/* 하단 정리 */}

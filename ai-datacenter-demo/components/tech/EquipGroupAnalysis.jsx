@@ -109,7 +109,7 @@ export default function EquipGroupAnalysis({ desc, frameless }) {
         })}
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "200px 1fr 200px", gap: 16, alignItems: "start" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "176px minmax(0, 1fr) 176px", gap: 16, alignItems: "start" }}>
         {/* 측정 항목 트리 */}
         <div style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, padding: "10px 12px" }}>
           <div style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
@@ -153,7 +153,7 @@ export default function EquipGroupAnalysis({ desc, frameless }) {
               선택된 측정 항목이 없습니다. 측정 항목을 선택하면 그래프가 표시됩니다.
             </div>
           ) : (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: 10 }}>
               {visible.map((it) => {
                 return (
                   <div key={it.id} style={{ border: "1px solid var(--semantic-line-default)", borderRadius: 8, padding: "10px 12px" }}>
