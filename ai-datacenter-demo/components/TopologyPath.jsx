@@ -75,7 +75,7 @@ export default function TopologyPath({ desc }) {
         <PathChip label="GPU 랙 A열" />
       </div>
       <p style={{ margin: 0, font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
-        번호는 위 조치 가이드의 점검 순서와 같습니다 — 냉각수 공급 경로에서 랙보다 앞에 있는 설비부터 확인합니다.
+        번호는 위 조치 가이드의 점검 순서입니다. 냉각수 공급 경로에서 랙보다 앞에 있는 설비부터 확인합니다.
       </p>
     </div>
   );

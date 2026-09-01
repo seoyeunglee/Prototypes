@@ -6,7 +6,6 @@
 //   핵심(목록·배치도) 외 위젯은 dimmed(흐림 + inert)로 주요 기능을 강조한다.
 import { Icon, BasicIconButton, StateBadge, ContentBadge, Tab, TextButton, OutlineButton } from "@idbrnd/design-system";
 import { useState } from "react";
-import { ReachBadge } from "../components/StageTimeline";
 import { BarSeries } from "../components/Charts";
 import FloorPlan from "../components/FloorPlan";
 
@@ -28,7 +27,7 @@ const MOCK_SITUATIONS = [
     isNew: true,
     severity: "HIGH",
     title: "GPU 랙 A열 냉각 반응 지연",
-    stage: "냉각 반응 지연",
+    stage: "확산",
     reach: "narrowing",
     status: "확인 대기",
     recent: "1분 전",
@@ -39,7 +38,7 @@ const MOCK_SITUATIONS = [
     id: "SIT-2478",
     severity: "MEDIUM",
     title: "2호 CDU 공급 압력 변동",
-    stage: "부하·전력 상승",
+    stage: "발단",
     reach: "open",
     status: "확인 중",
     recent: "8분 전",
@@ -52,7 +51,7 @@ const MOCK_SITUATIONS = [
     id: "SIT-2470",
     severity: "LOW",
     title: "B열 랙 후면 온도 편차",
-    stage: "관찰 구간",
+    stage: "전조",
     reach: "open",
     status: "확인 대기",
     recent: "45분 전",
@@ -63,7 +62,7 @@ const MOCK_SITUATIONS = [
     id: "SIT-2455",
     severity: "MEDIUM",
     title: "A열 분전반 상 불평형",
-    stage: "랙 온도 상승",
+    stage: "영향",
     reach: "closed",
     status: "조치 완료",
     recent: "1일 전",
@@ -158,7 +157,7 @@ function Widget({ icon, title, meta, right, desc, x, y, w, h, dimmed, children }
   );
 }
 
-// 이상 상황 목록 항목 — FE SituationListItem 구조 + 진행 단계·개입 여지(신규)
+// 이상 상황 목록 항목 — FE SituationListItem 구조 + 진행 단계(신규)
 function SituationItem({ s, onOpen, lowConfidence, coolingSignalLost }) {
   // FE SituationListItem: UNPROCESSED(미처리)만 danger — 워크플로 상태는 중립색
   const statusColor =
@@ -220,17 +219,6 @@ function SituationItem({ s, onOpen, lowConfidence, coolingSignalLost }) {
           >
             {s.stage}
           </ContentBadge>
-          {coolingSignalLost && s.id === "SIT-2481" ? (
-            <span style={{ font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)" }}>
-              판정 중단
-            </span>
-          ) : lowConfidence && s.status !== "조치 완료" ? (
-            <span style={{ font: "var(--text-label-2-regular)", color: "var(--semantic-text-sub)" }}>
-              현장 확인 필요
-            </span>
-          ) : (
-            <ReachBadge level={s.reach} />
-          )}
         </div>
 
         {s.manager && (
@@ -252,7 +240,7 @@ export default function Dashboard({ onOpenSituation, lowConfidence, coolingSigna
   const [statusTab, setStatusTab] = useState("전체");
 
   const situations = MOCK_SITUATIONS.map((s) =>
-    s.id === "SIT-2481" && coolingSignalLost ? { ...s, stage: "부하·전력 상승" } : s
+    s.id === "SIT-2481" && coolingSignalLost ? { ...s, stage: "발단" } : s
   );
   const filtered = situations.filter((s) => statusTab === "전체" || s.status === statusTab);
   const newCount = situations.filter((s) => s.isNew).length;

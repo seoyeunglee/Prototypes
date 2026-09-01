@@ -46,14 +46,6 @@
           "requirement_refs": [
             "TSR-002"
           ]
-        },
-        {
-          "name": "ReachBadge",
-          "lib_component": "@idbrnd/design-system/StateBadge",
-          "feature_ref": "FN-3",
-          "requirement_refs": [
-            "TSR-003"
-          ]
         }
       ]
     },
@@ -96,14 +88,6 @@
             "TSR-005",
             "TSR-007",
             "TSR-011"
-          ]
-        },
-        {
-          "name": "ReachBadge",
-          "lib_component": "custom/StageTimeline.ReachBadge",
-          "feature_ref": "FN-3",
-          "requirement_refs": [
-            "TSR-003"
           ]
         },
         {
@@ -264,6 +248,39 @@
           "name": "OpsManagement",
           "lib_component": "@idbrnd/design-system/Tab+StateBadge+WeakButton",
           "feature_ref": "FN-2"
+        }
+      ]
+    },
+    {
+      "id": "screen-09",
+      "name": "엔진 컨셉",
+      "file": "screens/09-EngineConcept.jsx",
+      "primary_persona": "제안 검토자 (대표·기술 담당)",
+      "priority": "P2",
+      "features_ref": [],
+      "task_refs": [],
+      "requirement_refs": [],
+      "note": "대표님이 전달한 AI 엔진 설계 5종(온톨로지·프리딕션·최적화·재학습·XAI)을 개념 수준으로 정리한 참고 뷰(2026-09-01, '개념만 먼저 참고'). 근거: sk-aidc-proposal/AIDC 컨셉/aidc-ontology-main(엔진 1) · aidc-prediction-main(엔진 2). 엔진 3·4·5는 저장소 없이 문서 경계만 있어 컨셉 단계로 표시. 진입: 보기 전환 '엔진 컨셉' 또는 ?view=engines&engine=e1..e5. 엔진별 '우리 데모에서 대응' 링크로 운영 데모 상세/기록·기술 검증 항목(initialTech)으로 이동. 기능 요구사항 매핑 없음(참고 뷰)",
+      "components": [
+        {
+          "name": "EngineChip",
+          "lib_component": "custom(엔진 연결 구조 스트립 — 컨셉 단계 점선)",
+          "feature_ref": null
+        },
+        {
+          "name": "FlowFrame/FlowRow/FlowCard",
+          "lib_component": "components/tech/FlowKit",
+          "feature_ref": null
+        },
+        {
+          "name": "SimpleTable",
+          "lib_component": "layout(정적 semantic table — 골든 케이스·슬라이스 진행·용어 대응)",
+          "feature_ref": null
+        },
+        {
+          "name": "StateBadge / ContentBadge / TextButton",
+          "lib_component": "@idbrnd/design-system",
+          "feature_ref": null
         }
       ]
     }

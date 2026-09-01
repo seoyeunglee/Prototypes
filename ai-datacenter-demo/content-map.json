@@ -307,7 +307,7 @@
       "destination": "status_badge",
       "evidence": "FN-3 · 핵심 가치 직결",
       "confidence": "confirmed",
-      "copy": "개입 여지 좁아지는 중"
+      "copy": "지금 밸브 개도를 복구하면 랙 온도 상승을 막을 수 있습니다. 시간이 갈수록 여유가 줄어듭니다."
     },
     {
       "id": "C-018",
@@ -363,7 +363,7 @@
       "evidence": "FN-3 정책 · 기존 PG 장치 재사용",
       "confidence": "confirmed",
       "trigger": "confidence_below_threshold",
-      "copy": "확신도가 낮아 개입 여지를 표시하지 않습니다. 현장 확인이 필요합니다."
+      "copy": "확신도가 낮아 심각도를 낮음으로 판정했습니다. 현장 확인이 필요합니다."
     },
     {
       "id": "C-021",
@@ -1864,7 +1864,7 @@
       "user_task": "메타 라벨",
       "decision": "VISIBLE_PRIMARY",
       "destination": "meta_labels",
-      "copy": "장소 / 심각도 / 상태 / 진행 단계 / 개입 여지 / 구성 이벤트 / 발생 경과 / 담당자",
+      "copy": "장소 / 심각도 / 상태 / 진행 단계 / 구성 이벤트 / 발생 경과 / 담당자",
       "evidence": "FE MetaRow + FN-1·FN-3 추가",
       "confidence": "confirmed"
     },
@@ -2299,7 +2299,7 @@
       "user_task": "메타 라벨",
       "decision": "VISIBLE_PRIMARY",
       "destination": "meta_label",
-      "copy": "개입 여지",
+      "copy": "지금 조치하면 막을 수 있는지 (문장)",
       "evidence": "FE MetaRow 라벨",
       "confidence": "confirmed"
     },
@@ -5338,7 +5338,7 @@
       "user_task": "요소기술 실행 근거 확인",
       "decision": "VISIBLE_PRIMARY",
       "destination": "tech_showcase",
-      "copy": "운영 데모: 진행 단계 타임라인·개입 여지 보기",
+      "copy": "운영 데모: 진행 단계 타임라인 보기",
       "evidence": "기술 검증 쇼케이스 — 제품 근거 화면 재현·설명 (2026-08-27)",
       "confidence": "confirmed"
     },

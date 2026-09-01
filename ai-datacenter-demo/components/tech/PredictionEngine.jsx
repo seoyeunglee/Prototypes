@@ -29,15 +29,15 @@ export default function PredictionEngine({ desc, part }) {
           note="판정 안정성: 같은 입력에 판정이 반복해서 뒤집히면 단계를 확정하지 않고 직전 단계를 유지합니다. 신호 단절 시 판정 중단으로 표시합니다."
         >
           <FlowRow>
-            <FlowCard title="관찰 구간" minWidth={0} />
+            <FlowCard title="전조" minWidth={0} />
             <FlowArrow />
-            <FlowCard title="부하·전력 상승 확인" minWidth={0} />
+            <FlowCard title="발단" minWidth={0} />
             <FlowArrow />
-            <FlowCard active title="냉각 반응 지연" minWidth={0} />
+            <FlowCard active title="확산" minWidth={0} />
             <FlowArrow />
-            <FlowCard title="랙 온도 상승" minWidth={0} />
+            <FlowCard title="영향" minWidth={0} />
             <FlowArrow />
-            <FlowCard title="성능 저하" minWidth={0} />
+            <FlowCard title="피해" minWidth={0} />
           </FlowRow>
         </FlowFrame>
       )}

@@ -112,8 +112,8 @@ function InfoRow({ label, children }) {
   );
 }
 
-export default function TechShowcase({ onOpenDemoDetail }) {
-  const [tech, setTech] = useState("t1");
+export default function TechShowcase({ onOpenDemoDetail, initialTech = "t1" }) {
+  const [tech, setTech] = useState(initialTech);
   const [stepIdx, setStepIdx] = useState(0);
   const [popup, setPopup] = useState(null);
 
@@ -182,7 +182,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
           </span>
           <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <ContentBadge size="compact" backgroundColor="var(--semantic-bg-light)" borderColor="var(--semantic-line-default)" contentColor="var(--semantic-text-default)">냉각 반응 지연</ContentBadge>
-            <StateBadge size="compact" variant="warning">개입 여지 좁아지는 중</StateBadge>
+            <StateBadge size="compact" variant="warning">지금 조치하면 막을 수 있음</StateBadge>
           </span>
         </button>
         <p style={{ margin: "8px 0 0", font: "var(--text-caption-1-regular)", color: "var(--semantic-text-sub)" }}>
@@ -270,7 +270,7 @@ export default function TechShowcase({ onOpenDemoDetail }) {
         ["노드 구성", "데이터 수집·탐지·융합 노드 구성은 기술 1의 노드 연결 화면과 동일 계열입니다."],
       ],
       links: [
-        { label: "운영 데모: 진행 단계 타임라인·개입 여지 보기", onClick: onOpenDemoDetail },
+        { label: "운영 데모: 진행 단계 타임라인 보기", onClick: onOpenDemoDetail },
         { label: "기술 1: 노드 연결 화면 보기", onClick: () => goTech("t1") },
       ],
     },
